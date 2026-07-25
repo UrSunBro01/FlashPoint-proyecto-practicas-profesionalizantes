@@ -29,6 +29,10 @@ body {
 }
 
 header{
+    position:sticky;
+    top:0;
+    z-index: 10;
+    background:var(--color-fondo);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -169,9 +173,7 @@ input[type="submit"]:hover {
     font-weight: bold;
     transition: 0.3s;
 }
-.back-home:hover{
-    background-color:var(--color-primario);
-}
+
 
 .form-container{/* formularios*/
     background-color: var(--color-secundario);
