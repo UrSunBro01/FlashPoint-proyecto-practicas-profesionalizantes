@@ -1,0 +1,183 @@
+/* Esto es un comentario en css y abajo dejare en comentarios "buenas practicas"de css que lei */
+/* RESET / NORMALIZACIÓN VARIABLES CSS (custom properties*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --color-fondo: #0a0a1a;          /* negro azulado profundo */
+    --color-fondo-sec: #14142b;      /* para tarjetas y aside */
+    --color-texto: #d0d0e0;
+    --color-primario: #00e5ff;       /* cian neón */
+    --color-secundario: #b388ff;     /* violeta neón */
+    --color-acento: #ff4081;         /* rosa neón (detalles) */
+    --sombra-neon: 0 0 15px rgba(0, 229, 255, 0.3);
+    --max-width: 1200px;
+}
+/* ESTILOS GLOBALES */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: "Segoe UI", 'Arial', sans-serif;/* no conocia segoe,ta flama*/
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* para que no choque todo */
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
+    margin: 0 auto;          /* centrado horizontal */
+    padding: 20px;
+    
+}
+main{
+    display: flex;
+    flex-direction: column;  /* para que los elementos se apilen verticalmente */
+    align-items: center;     /* centrado horizontal */
+    width: 100%;
+    max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
+    margin: 0 auto;          /* centrado horizontal */
+    padding: 20px;
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
+    margin: 0 auto;          /* centrado horizontal */
+    padding: 20px;
+    
+}
+/* LAYOUT PRINCIPAL */
+h2{/* no se si dejar este h2 de variable*/
+    font-family: "Segoe UI", 'Arial', sans-serif;
+    font-size: 30px;
+    color: var(--color-primario);
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* COMPONENTES (botones, formularios, tarjetas, tablas)*/
+nav {
+    display: flex;
+    gap: 1.5rem; /* 1.5rem de espacio entre cada enlace */
+}
+aside {
+    background-color: var(--color-fondo);
+    padding: 20px;
+    border-radius: 10px;
+    /* XD */
+    margin-bottom: 20px;
+}
+/* Campos de texto todos medio a reworkear*/
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+/* Radios y checkbox */
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    margin: 0 6px 0 0;
+    transform: scale(1.2);
+}
+input[type="submit"] {
+    width: 100%;
+    background-color: #0aa5bb;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    background-color: #0fcee7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0aa5bb;  /* o el color que quieras */
+}
+/* botones genero y otros (obsoleto)*/
+.options-group label {
+    display: inline-block;
+    line-height: 0;
+}
+
+/* UTILIDADES (clases reutilizables como .text-center, .hidden)*/
+/* logo que a su vez es boton con sabor a tamarindo y se identifica como helicoptero apache */
+.logo-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-primario);
+    font-weight: bold;
+    font-size: 24px;
+}
+.logo-image {
+    width: auto;
+    height: 150px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+.logo-img:hover {
+    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
+    transform: scale(1.05);
+}
+.logo .subtitulo {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: var(--color-secundario);
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* boton para volver al inicio */
+.back-home{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 12px;
+    background-color:var(--color-acento);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+.back-home:hover{
+    background-color:var(--color-primario);
+}
+
+.form-container{/* formularios*/
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    padding: 18px;
+    width: 90%;
+    border-radius: 10px;
+    max-width: 380px;
+    box-shadow:var(--sombra-neon);
+}
