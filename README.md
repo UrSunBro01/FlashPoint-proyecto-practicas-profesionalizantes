@@ -58,4 +58,4 @@ agregar animacion al header
 agregar boton que lleve al inicio de pagina
 agregar imagenes ya sean de stock o de ia para ilustrar 
 crear y arreglar las paginas reservar y consultar,una un forms y otra asumo que ya tiene que ver con javascript
-cambiar los <li> de index
+cambiar los "li" de index
