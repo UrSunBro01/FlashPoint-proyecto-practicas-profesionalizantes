@@ -7,7 +7,8 @@
         <!-- con este "link" llamo el estilo del archivo CSS a la pagina,hay que ponerlas entodas las sub paginas-->
         <link rel="stylesheet" href="../css/styles.css">
     </head>
-    <body>
+    <body background="../imagenes/cieloestrellado3.jpg">
+        <div id="top"></div><!-- un ancla,para evitar javascript-->
         <header>
             <div class="logo">
                 <a href="index.html" class="logo-link">
@@ -15,32 +16,30 @@
                 </a>
                 <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
             </div>
+
             <nav>
-                
+                <ul>
+                    <li><a href="registrarse.html">registrarse</a></li>
+                    <li><a href="iniciosesion.html">iniciar sesión</a></li>
+                    <li><a href="consultar.html">consultar salas</a></li>
+                    <!-- esta ultima debe aparecer despues de login/singin-->
+                    <li><a href="reservar.html">reservar sala</a></li>
+                </ul>
             </nav>
         </header>
-
-
+        
         <main>
-            <section class="form-container">
-                <h2>inicio de sesion:</h2>
-                <form action="procesar_sesion.html" method="post">
-                    <label for="username">Nombre de usuario:</label>
-                    <input type="text" id="username" name="username" required>
-                    <br><br>
-                    <label for="contra">Contraseña:</label>
-                    <input type="contra" id="password" name="password" required>
-                    <br><br>
-                    <input type="submit" value="Iniciar Sesión">
-                    <a href="registrarse.html"  class="back-home">no registrado? registrate!</a>
-                    <a href="index.html" class="back-home">volver al inicio</a>
-                </form>
+            <section>
+                <p>
+
+                </p>
             </section>
         </main>
-    <footer>
+        <footer>
             <p>el tp, alumnos, profesor, y todo es relacionado</p>
             <p>la pagina es un trademark de boys from merlo. © 2026</p>
-            <p>ahreloco</p>
+            <p>ahreloco actualizacion 2</p>
+            <a href="sobrenosotros.html">sobre nosotros</a>
         </footer>
-
+        <a href="#top" class="btntop">^</a><!-- boton de volver arriba,como las pag mas profesionales,re copado-->
     </body>

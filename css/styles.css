@@ -18,6 +18,11 @@
 }
 /* ESTILOS GLOBALES */
 body {
+    background-image: url("../imagenes/cieloestrellado3.jpg");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: "Segoe UI", 'Arial', sans-serif;/* no conocia segoe,ta flama*/
@@ -32,6 +37,7 @@ header{
     position:sticky;
     top:0;
     z-index: 10;
+    background-image: url("../imagenes/cieloestrellado3.jpg");
     background:var(--color-fondo);
     display: flex;
     justify-content: space-between;
@@ -39,7 +45,8 @@ header{
     width: 100%;
     max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
     margin: 0 auto;          /* centrado horizontal */
-    padding: 20px;
+    padding: 10px;
+    flex-wrap: wrap; /* para que los elementos se ajusten en pantallas pequeñas */
     
 }
 main{
@@ -71,7 +78,7 @@ h2{/* no se si dejar este h2 de variable*/
 /* COMPONENTES (botones, formularios, tarjetas, tablas)*/
 nav {
     display: flex;
-    gap: 1.5rem; /* 1.5rem de espacio entre cada enlace */
+    gap: 0.5rem; /* 1.5rem de espacio entre cada enlace */
 }
 aside {
     background-color: var(--color-fondo);
@@ -84,7 +91,7 @@ aside {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="password"],
+input[type="contra"],
 input[type="date"] {
     width: 100%;
     padding: 12px;
@@ -144,7 +151,7 @@ input[type="submit"]:hover {
 }
 .logo-image {
     width: auto;
-    height: 150px;
+    height: 40px;
     object-fit: contain;
     margin-right: 10px;
 }
@@ -153,27 +160,13 @@ input[type="submit"]:hover {
     transform: scale(1.05);
 }
 .logo .subtitulo {
-    margin-top: 4px;
-    font-size: 0.9rem;
+    margin-top: 2px;
+    font-size: 0.7rem;
     color: var(--color-secundario);
     letter-spacing: 2px;
     font-weight: 300;
-}
 
-/* boton para volver al inicio */
-.back-home{
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    padding: 12px;
-    background-color:var(--color-acento);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
 }
-
 
 .form-container{/* formularios*/
     background-color: var(--color-secundario);
@@ -183,4 +176,43 @@ input[type="submit"]:hover {
     border-radius: 10px;
     max-width: 380px;
     box-shadow:var(--sombra-neon);
+}
+.btn{/*no existen herencias como en poo,sera todo a mano nomas,BOTON BASE*/
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    }
+
+
+.btntop{/*me re copo la idea de este boton.siempre lo veo en pag profesionales,sin javascript hice este basico*/
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primario);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 48px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: var(--sombra-neon);
+    transition: 0.3s;
+    z-index: 100;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.btntop:hover {/* los hover son cuando pasa el mouse por encima del objeto*/
+    background-color: var(--color-secundario);
+    transform: scale(1.1);
 }
