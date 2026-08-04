@@ -25,25 +25,42 @@ body {
     background-attachment:fixed;
     background-color: var(--color-fondo);
     color: var(--color-texto);
-    font-family: "Segoe UI", 'Arial', sans-serif;/* no conocia segoe,ta flama*/
+    font-family: "Orbitron", "Segoe UI", 'Arial';/* no conocia segoe,ta flama*/
+    font-size: 25px;
     min-height: 100vh;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;        /* para que no choque todo */
+    margin:15px;
+}
+
+
+/* LAYOUT PRINCIPAL */
+h1{
+    margin-bottom: 15px;
+    font-size: 40px;
+    color: var(--color-primario);
+    text-align: center;
+    margin-bottom: 20px;
+}
+h2{/* no se si dejar este h2 y h1 de variable*/
+    font-family: "Orbitron", "Segoe UI", 'Arial', sans-serif;
+    font-size: 40px;
+    color: var(--color-primario);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 header{
-    position:sticky;
+    /* remuevo temporalmente el position:sticky; y el background-image: url("../imagenes/cieloestrellado3.jpg"); */
     top:0;
     z-index: 10;
-    background-image: url("../imagenes/cieloestrellado3.jpg");
-    background:var(--color-fondo);
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
     margin: 0 auto;          /* centrado horizontal */
     padding: 10px;
     flex-wrap: wrap; /* para que los elementos se ajusten en pantallas pequeñas */
@@ -54,27 +71,19 @@ main{
     flex-direction: column;  /* para que los elementos se apilen verticalmente */
     align-items: center;     /* centrado horizontal */
     width: 100%;
-    max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
     margin: 0 auto;          /* centrado horizontal */
     padding: 20px;
 }
 footer{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
-    margin: 0 auto;          /* centrado horizontal */
-    padding: 20px;
+    gap: 40px;        /* te quiero gap*/
+    margin-top: 50px;
+    font-size: 20px;
     
 }
-/* LAYOUT PRINCIPAL */
-h2{/* no se si dejar este h2 de variable*/
-    font-family: "Segoe UI", 'Arial', sans-serif;
-    font-size: 30px;
-    color: var(--color-primario);
-    text-align: center;
-    margin-bottom: 20px;
-}
+
 /* COMPONENTES (botones, formularios, tarjetas, tablas)*/
 nav {
     display: flex;
@@ -87,21 +96,24 @@ aside {
     /* XD */
     margin-bottom: 20px;
 }
+strong {
+    font-weight: bold;
+    color: red;
+}
 /* Campos de texto todos medio a reworkear*/
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="contra"],
+input[type="password"],
 input[type="date"] {
     width: 100%;
     padding: 12px;
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin: 15px 0px 15px 0px;
     border: 1px solid #ccc;
     border-radius: 8px;
 }
 /* Radios y checkbox */
-input[type="radio"],
 input[type="checkbox"] {
     width: auto;
     margin: 0 6px 0 0;
@@ -118,57 +130,49 @@ input[type="submit"] {
     cursor: pointer;
     transition: 0.3s;
 }
-input[type="submit"] {
-    width: 100%;
-    padding: 14px;
-    font-size: 18px;
-    background-color: #0fcee7;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
+
 
 input[type="submit"]:hover {
     background-color: #0aa5bb;  /* o el color que quieras */
 }
-/* botones genero y otros (obsoleto)*/
-.options-group label {
-    display: inline-block;
-    line-height: 0;
-}
+
 
 /* UTILIDADES (clases reutilizables como .text-center, .hidden)*/
 /* logo que a su vez es boton con sabor a tamarindo y se identifica como helicoptero apache */
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 50px; /* separación entre logo y subtítulo */
+}
+
 .logo-link {
     display: inline-block;
     text-decoration: none;
     color: var(--color-primario);
     font-weight: bold;
-    font-size: 24px;
+    font-size: 30px;
 }
 .logo-image {
     width: auto;
-    height: 40px;
+    height: 200px;
     object-fit: contain;
-    margin-right: 10px;
+    
 }
-.logo-img:hover {
+.logo-image:hover {/* los hover son cuando pasa el mouse por encima del objeto*/
     filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
     transform: scale(1.05);
 }
 .logo .subtitulo {
     margin-top: 2px;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: var(--color-secundario);
     letter-spacing: 2px;
     font-weight: 300;
 
 }
-
-.form-container{/* formularios*/
+/* formulario*/
+.form-container{
+    font-family: "Orbitron", "Segoe UI", 'Arial';
     background-color: var(--color-secundario);
     color: var(--color-texto);
     padding: 18px;
@@ -177,6 +181,12 @@ input[type="submit"]:hover {
     max-width: 380px;
     box-shadow:var(--sombra-neon);
 }
+.options-group{/* para agrupar los checkbox y radios*/
+    
+    flex-direction: column;
+    margin: 15px 0px 15px 0px;
+}
+/*botones (como el abel)*/
 .btn{/*no existen herencias como en poo,sera todo a mano nomas,BOTON BASE*/
     display: inline-block;
     padding: 10px 20px;
@@ -211,8 +221,4 @@ input[type="submit"]:hover {
     transition: 0.3s;
     z-index: 100;
     border: 1px solid rgba(255,255,255,0.2);
-}
-.btntop:hover {/* los hover son cuando pasa el mouse por encima del objeto*/
-    background-color: var(--color-secundario);
-    transform: scale(1.1);
 }
