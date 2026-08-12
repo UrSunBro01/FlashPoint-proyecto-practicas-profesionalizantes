@@ -55,6 +55,7 @@ fusionar en un grid el inicio sesion con el registro(request parga)
 hacer que las paginas tipo formulario al menos devuelvan al inicio
 los botones reservar y consultar aparecer y desparacer si el usuario inicio sesion o no
 agregar animacion al header
+casos de uso
 agregar boton que lleve al inicio de pagina
 agregar imagenes ya sean de stock o de ia para ilustrar 
 crear y arreglar las paginas reservar y consultar,una un forms y otra asumo que ya tiene que ver con javascript
