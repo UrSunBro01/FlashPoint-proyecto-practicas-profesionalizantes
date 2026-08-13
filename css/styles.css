@@ -6,72 +6,91 @@
     padding: 0;
 }
 
-:root {
-    --color-fondo: #0a0a1a;          /* negro azulado profundo */
-    --color-fondo-sec: #14142b;      /* para tarjetas y aside */
+:root {/*ultimo cambio de colores:cyberpunk glow */
+    --color-fondo: #0a0a1a;
+    --color-fondo-sec: #181980;
     --color-texto: #d0d0e0;
-    --color-primario: #00e5ff;       /* cian neón */
-    --color-secundario: #b388ff;     /* violeta neón */
-    --color-acento: #ff4081;         /* rosa neón (detalles) */
-    --sombra-neon: 0 0 15px rgba(0, 229, 255, 0.3);
-    --max-width: 1200px;
+    --color-primario: #3d127b;
+    --color-secundario:#009bad ;
+    --color-acento: #b8025d;
+    --hover-btn:#044d55;
+    --sombra-neon: 0 0 15px color-mix(in srgb, var(--color-secundario) 40%, transparent);
+    
 }
 /* ESTILOS GLOBALES */
 body {
+    background-image: url("../imagenes/cieloestrellado3.jpg");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
     background-color: var(--color-fondo);
     color: var(--color-texto);
-    font-family: "Segoe UI", 'Arial', sans-serif;/* no conocia segoe,ta flama*/
+    font-family: "Orbitron", "Segoe UI", 'Arial';/* no conocia segoe,ta flama*/
+    font-size: 26px;
     min-height: 100vh;
-    padding: 20px;
+    margin: 0 0 0 0px;
     display: flex;
     flex-direction: column;
     align-items: center;        /* para que no choque todo */
+    letter-spacing: 2.5px;
+    margin-bottom:15px;
+}
+
+
+/* LAYOUT PRINCIPAL */
+h1{
+    margin-bottom: 15px;
+    font-size: 40px;
+    color: var(--color-acento);
+    text-align: center;
+    margin-bottom: 20px;
+}
+h2{/* no se si dejar este h2 y h1 de variable*/
+    font-family: "Orbitron", "Segoe UI", 'Arial', sans-serif;
+    font-size: 40px;
+    color: var(--color-acento);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 header{
-    position:sticky;
+    /* remuevo temporalmente el position:sticky; y el background-image: url("../imagenes/cieloestrellado3.jpg"); */
     top:0;
     z-index: 10;
-    background:var(--color-fondo);
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
     margin: 0 auto;          /* centrado horizontal */
-    padding: 20px;
-    
+    padding: 0 10px 0 10px;
+    flex-wrap: wrap; /* para que los elementos se ajusten en pantallas pequeñas */
+    box-shadow: var(--sombra-neon);
 }
 main{
     display: flex;
     flex-direction: column;  /* para que los elementos se apilen verticalmente */
     align-items: center;     /* centrado horizontal */
     width: 100%;
-    max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
     margin: 0 auto;          /* centrado horizontal */
     padding: 20px;
 }
 footer{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
-    max-width: 1200px;       /* para que no se estire demasiado en pantallas grandes */
-    margin: 0 auto;          /* centrado horizontal */
-    padding: 20px;
+    gap: 40px;        /* te quiero gap*/
+    margin-top: 50px;
+    font-size: 20px;
     
 }
-/* LAYOUT PRINCIPAL */
-h2{/* no se si dejar este h2 de variable*/
-    font-family: "Segoe UI", 'Arial', sans-serif;
-    font-size: 30px;
-    color: var(--color-primario);
-    text-align: center;
-    margin-bottom: 20px;
-}
+
 /* COMPONENTES (botones, formularios, tarjetas, tablas)*/
-nav {
+ul {/* ya se que englobar todo el ul es malo pero weno,a rework*/
     display: flex;
-    gap: 1.5rem; /* 1.5rem de espacio entre cada enlace */
+    gap: 1rem; /* 1.5rem de espacio entre cada enlace */
+    list-style-type: none;/* con esto desaparece el tipico puntito de la lista*/
+    white-space: nowrap;
 }
 aside {
     background-color: var(--color-fondo);
@@ -80,107 +99,178 @@ aside {
     /* XD */
     margin-bottom: 20px;
 }
+strong {
+    font-weight: bold;
+    color: red;
+}
 /* Campos de texto todos medio a reworkear*/
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="password"],
-input[type="date"] {
+input[type="time"],
+input[type="date"],
+select{
     width: 100%;
     padding: 12px;
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin: 15px 0px 15px 0px;
     border: 1px solid #ccc;
     border-radius: 8px;
 }
 /* Radios y checkbox */
-input[type="radio"],
 input[type="checkbox"] {
     width: auto;
-    margin: 0 6px 0 0;
     transform: scale(1.2);
 }
-input[type="submit"] {
-    width: 100%;
-    background-color: #0aa5bb;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    padding: 14px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-input[type="submit"] {
-    width: 100%;
-    padding: 14px;
-    font-size: 18px;
-    background-color: #0fcee7;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
 
-input[type="submit"]:hover {
-    background-color: #0aa5bb;  /* o el color que quieras */
-}
-/* botones genero y otros (obsoleto)*/
-.options-group label {
-    display: inline-block;
-    line-height: 0;
-}
 
 /* UTILIDADES (clases reutilizables como .text-center, .hidden)*/
+.fotos{
+    max-width: 1000px;
+}
+.ubicacion{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 80%;
+}
+.img-ubicacion{
+    max-height: 30%;
+    max-width: 95%;
+}
+.texto-lista{
+    
+}
 /* logo que a su vez es boton con sabor a tamarindo y se identifica como helicoptero apache */
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 50px; /* separación entre logo y subtítulo */
+}
+
 .logo-link {
     display: inline-block;
     text-decoration: none;
     color: var(--color-primario);
     font-weight: bold;
-    font-size: 24px;
+    font-size: 30px;
 }
 .logo-image {
     width: auto;
-    height: 150px;
+    height: 200px;
     object-fit: contain;
-    margin-right: 10px;
+    
 }
-.logo-img:hover {
+.logo-image:hover {/* los hover son cuando pasa el mouse por encima del objeto*/
     filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
     transform: scale(1.05);
 }
 .logo .subtitulo {
-    margin-top: 4px;
-    font-size: 0.9rem;
+    margin-top: 2px;
+    font-size: 1.5rem;
     color: var(--color-secundario);
     letter-spacing: 2px;
     font-weight: 300;
+
 }
-
-/* boton para volver al inicio */
-.back-home{
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    padding: 12px;
-    background-color:var(--color-acento);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-
-.form-container{/* formularios*/
-    background-color: var(--color-secundario);
+/* formulario*/
+.form-container{
+    font-family: "Orbitron", "Segoe UI", 'Arial';
+    background-color: var(--color-primario);
     color: var(--color-texto);
     padding: 18px;
+    margin-top: 20px;
     width: 90%;
+    width:420px;
     border-radius: 10px;
-    max-width: 380px;
     box-shadow:var(--sombra-neon);
+}
+.options-group{/* para agrupar los checkbox y radios*/
+    
+    flex-direction: column;
+    margin: 15px 0px 15px 0px;
+}
+/*botones (como el abel)*/
+.btn,input[type="submit"]{/*no existen herencias como en poo,sera todo a mano nomas,BOTON BASE*/
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    color: var(--color-texto);
+    background-color: var(--color-secundario);
+    padding: 2.5%;
+    font: inherit;/*aca pude arreglar el boton de input que se veia distinto los formularios NO heredan tipografía del resto de la página. a menos que se le especifique*/
+    appearance: none;
+    border: none;
+    margin-top: 0.8%;
+    }
+    
+.btn:hover{
+    background-color: var(--hover-btn);
+    transform: scale(1.05);
+}
+input[type="submit"]:hover{
+    background-color: var(--hover-btn);
+    transform: scale(1.05);
+}
+    
+.btn-principal{/*mas quilombo de botones,primero color,despues tamaños*/
+    background-color: var(--color-secundario);
+}
+
+.btn-secundario{
+    background-color: var(--color-acento);
+}
+
+.btn-grande{
+    min-width: 800px;
+
+}
+
+.btn-chico{
+    min-width: 250px;
+}
+
+.btntop{/*me re copo la idea de este boton.siempre lo veo en pag profesionales,sin javascript hice este basico*/
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 48px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: var(--sombra-neon);
+    transition: 0.3s;
+    z-index: 100;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.btntop:hover{
+    background-color: var(--hover-btn);
+    transform: scale(1.05);
+}
+/*tarjeta*/
+.tarjeta {
+    background-color: var(--color-fondo-sec);
+    color: var(--color-texto);
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--sombra-neon);
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 20px;
 }

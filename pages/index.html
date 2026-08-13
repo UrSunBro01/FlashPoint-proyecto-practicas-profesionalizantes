@@ -6,58 +6,48 @@
         <title>tp GrooveSpace</title>
         <!-- con este "link" llamo el estilo del archivo CSS a la pagina,hay que ponerlas entodas las sub paginas-->
         <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/fuentes.css">
     </head>
     <body>
+        <div id="top"></div><!-- un ancla,para evitar javascript-->
         <header>
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <img src="../imagenes/logo.png" alt="Logo de GrooveSpace" class="logo-image">
+                    <img src="../iconos/logo.png" alt="Logo de GrooveSpace" class="logo-image">
                 </a>
                 <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
             </div>
 
             <nav>
                 <ul>
-                    <li><a href="registrarse.html">registrarse</a></li>
-                    <li><a href="iniciosesion.html">iniciar sesión</a></li>
-                    <li><a href="consultar.html">consultar salas</a></li>
+                    <li><a href="registrarse.html" class="btn btn-principal btn-chico">registrarse</a></li>
+                    <li><a href="iniciosesion.html" class="btn btn-principal btn-chico">iniciar sesión</a></li>
+                    <li><a href="consultar.html" class="btn btn-principal btn-chico">consultar salas</a></li>
                     <!-- esta ultima debe aparecer despues de login/singin-->
-                    <li><a href="reservar.html">reservar sala</a></li>
+                    <li><a href="reservar.html" class="btn btn-principal btn-chico">reservar sala</a></li>
                 </ul>
             </nav>
         </header>
         
         <main>
             <section>
-                <h2>sistema gestion de salas:</h2>
+                <h1>sistema gestion de salas:</h1>
                 <p>Bienvenido al sistema de gestión de salas de GrooveSpace.esto es relleno.</p>
                 <figure>
-                    <img src="../imagenes/casosdeuso.jpeg" alt="imagen de los casos de uso" title="Casos de Uso">
+                    <img src="../iconos/casosdeuso.jpeg" alt="imagen de los casos de uso" title="Casos de Uso">
                     <figcaption>Casos de uso del sistema</figcaption>
                 </figure>
             </section>
             <section>
-                <h2>acciones disponibles en esta pagina</h2><!-- opciones de relleno de la pag-->
-                <ul>
-                    <li>reservar</li>
-                    <li>cancelar reserva</li>
-                    <li>consultar tipos de salas</li>
-                    <li>consultar disponibilidad</li>
-                </ul>
+                <br><!-- borrar es a futuro-->
+                <h2><a href="ubicacion.html" class="btn btn-principal btn-grande">donde nos ubicamos?</a></h2>
+                <h2><a href="consultar.html" class="btn btn-principal btn-grande">conoce nuestras salas</a></h2><!-- opciones de relleno de la pag-->
+                
             </section>
-            <aside>
-                <h3>Integrantes: </h3>
-                <ul>
-                    <li> - Fernandez Leandro</li>
-                    <li> - Romero Axel</li>
-                    <li> - Parga Nahuel</li>
-                    <li> - otro integante</li>
-                    <li> - otro integante</li>
-                </ul>
-            </aside>
+            
             <section>
                 <br><br>
-                <h4>el siguiente texto lo pongo de place holder para testear el footer y header,ignorar</h4>
+                <h4><strong>El siguiente texto lo pongo de place holder para testear el footer y header,ignorar</strong></h4>
                 <p>El complejo de salas de ensayo "GrooveSpace", ubicado en el polo cultural de la ciudad, 
 necesita una aplicación web para automatizar la gestión de reservas de salas, el control del 
 alquiler de equipamiento y la administración de las bandas de música. El objetivo principal 
@@ -133,8 +123,12 @@ gestión de estados de las salas y la validación de usuarios registrados.</p>
         <footer>
             <p>el tp, alumnos, profesor, y todo es relacionado</p>
             <p>la pagina es un trademark de boys from merlo. © 2026</p>
-            <p>ahreloco actualizacion 2</p>
+            <p>ahreloco actualizacion 4</p>
+            <a href="sobrenosotros.html">sobre nosotros</a>
         </footer>
         
+        <a href="#top" class="btntop">^</a><!-- boton de volver arriba,como las pag mas profesionales,re copado-->
 
     </body>
+<!-- recordar usar la pagina https://validator.w3.org/nu/#file,ayuda a validar el formato del html -->
+</html>

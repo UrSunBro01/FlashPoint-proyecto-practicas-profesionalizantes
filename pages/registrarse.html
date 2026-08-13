@@ -5,12 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>registro GrooveSpace</title>
         <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/fuentes.css">
     </head>
     <body>
         <header>
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <img src="../imagenes/logo.png" alt="Logo de GrooveSpace" class="logo-image">
+                    <img src="../iconos/logo.png" alt="Logo de GrooveSpace" class="logo-image">
                 </a>
                 <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
             </div>
@@ -22,56 +23,45 @@
 
         <main>
             <section class="form-container">
-                <h2>registro de usuario:</h2>
+                <h1>registro de usuario:</h1>
 
                     <!-- formulario de registro -->
                     <!-- hagamos de cuenta que safa -->
-                <form action="procesar_registro.html" method="post">
+                <form action="registrado.html" method="get">
+                
                     <!-- usuario-->
-                    <label for="username">Nombre de usuario:</label>
+                <label for="username">Nombre de usuario:</label>
                 <input type="text" id="username" name="username" placeholder="nombre de usuario" minlength="4" maxlength="15"  required>
-                <br>
+                
                 <!-- email-->
                 <label for="email">Correo electrónico:</label>
                 <input type="email" id="email" name="email" placeholder="tu correo electrónico" required>
                 <!-- telefono-->
-                <br><br>
+                
                 <label for="phone">telefono:</label>
                 <input type="tel" id="phone" name="phone" placeholder="tu número de teléfono sin cod de área" required>
-                <br><br>
+                
                 <!-- contraseña pide entre 4 y 15 caracteres -->
                 <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" placeholder="tu contraseña" minlength="4" maxlength="15" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{4,15}$" title="Debe contener al menos una mayúscula y un número, entre 4 y 15 caracteres" required>
-                <br>
+                
                 <label for="confirm_password">Confirmar contraseña:</label>
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="confirma tu contraseña" minlength="4" maxlength="15" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{4,15}$" title="Debe contener al menos una mayúscula y un número, entre 4 y 15 caracteres" required>
-                <br>
-                <!-- seleccion genero-->
-                <div class="options-group">
-                    <label for="gender">Género</label>
-                    <br>
-                    <label for="hombre">Hombre</label>
-                    <input type="radio" id="hombre" name="gender" value="hombre" required>
-                    <br>
-                    <label for="mujer">Mujer</label>
-                    <input type="radio" id="mujer" name="gender" value="mujer" required>
-                    <br>
-                    <label for="otro">Otros</label>
-                    <input type="radio" id="otro" name="gender" value="otro" required>
-                </div>
-            
 
-            
                 <label for="cumpleaños">Fecha de nacimiento:</label>
                 <input type="date" id="cumpleaños" name="cumpleaños"  required>
-                <br><br>
+                
                 <div class="options-group">
-                <input type="checkbox" value="aceptar" required> Acepto los términos y condiciones de uso.
+                <input type="checkbox" id="terminos" value="aceptar" required><!-- input no necesita cerrarse,es tipo void -->
+                <label for="terminos" >Acepto los términos y condiciones de uso</label>
                 </div>
-                <br><br>
+                
+                
                 <!-- botón de envío -->
-                <input type="submit" value="Registrarse">
-                <a href="index.html" class="back-home">volver al inicio</a>
+                <input type="submit" class="btn-chico" value="Registrarse">
+                </form>
+                <a href="index.html" class="btn btn-secundario btn-chico">volver al inicio</a>
+                <a href="iniciosesion.html" class="btn btn-secundario btn-chico">ya registrado? inicia sesion!</a>
             </section>
         </main>
 
@@ -80,6 +70,8 @@
             <p>el tp, alumnos, profesor, y todo es relacionado</p>
             <p>la pagina es un trademark de boys from merlo. © 2026</p>
             <p>ahreloco</p>
+            <a href="sobrenosotros.html">sobre nosotros</a>
         </footer>
 
     </body>
+</html>

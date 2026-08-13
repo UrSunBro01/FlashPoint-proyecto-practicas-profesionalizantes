@@ -3,17 +3,76 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>tp GrooveSpace</title>
+        <title>reservas</title>
         <!-- con este "link" llamo el estilo del archivo CSS a la pagina,hay que ponerlas entodas las sub paginas-->
         <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/fuentes.css">
     </head>
     <body>
         <header>
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <img src="../imagenes/logo.png" alt="Logo de GrooveSpace" class="logo-image">
+                    <img src="../iconos/logo.png" alt="Logo de GrooveSpace" class="logo-image">
                 </a>
                 <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
             </div>
+
+            <nav>
+                <ul>
+                    <li><a href="registrarse.html" class="btn btn-principal btn-chico">registrarse</a></li>
+                    <li><a href="iniciosesion.html" class="btn btn-principal btn-chico">iniciar sesión</a></li>
+                    <li><a href="consultar.html" class="btn btn-principal btn-chico">consultar salas</a></li>
+                    <!-- esta ultima debe aparecer despues de login/singin-->
+                    <li><a href="reservar.html" class="btn btn-principal btn-chico">reservar sala</a></li>
+                </ul>
+            </nav>
         </header>
+        <main>
+            <section class="form-container">
+                <h1>reservas:</h1>
+                    <!-- formulario de registro -->
+                <form action="registrado.html" method="get">
+                    <!-- lista deslizante de sala -->
+                <label for="sala">Elegí tu sala:</label>
+                <select  id="sala" name="sala" required>
+                    <option value="">-- Seleccioná una opción --</option>
+                    <option value="standard">Sala Standard</option>
+                    <option value="premium">Sala Premium</option>
+                    <option value="bateria">Sala de Batería</option>
+                </select>
+                <br>
+                <!-- fecha-->
+                <label for="fecha">Fecha del ensayo:</label>
+                <input type="date" id="fecha" name="fecha"  required>
+                <!-- hora -->
+                <label for="horario">Horario de inicio:</label>
+                <input type="time" id="horario" name="horario" required>
+                <!-- turnos de 2hs mínimo: falta validar con JS/backend a futuro -->
+
+                <!-- terminos y condiciones-->
+                <div class="options-group">
+                <input type="checkbox" id="terminos" value="aceptar"><!-- input no necesita cerrarse,es tipo void -->
+                <label for="terminos" >agregar equipamiento
+                    <strong>ATENCION:</strong>puede agregar costo extra
+                </label>
+                </div>
+                <div class="options-group">
+                <input type="checkbox" id="terminos" value="aceptar" required><!-- input no necesita cerrarse,es tipo void -->
+                <label for="convivencia" >Acepto las reglas de convivencia</label>
+                </div>
+                
+                
+                <!-- botón de envío -->
+                <input type="submit" class="btn-chico" value="Reservar">
+                </form>
+                <a href="index.html" class="btn btn-secundario btn-chico">volver al inicio</a>
+            </section>
+        </main>
+        <footer>
+            <p>el tp, alumnos, profesor, y todo es relacionado</p>
+            <p>la pagina es un trademark de boys from merlo. © 2026</p>
+            <p>ahreloco actualizacion 2</p>
+            <a href="sobrenosotros.html">sobre nosotros</a>
+        </footer>
     </body>
+</html>
