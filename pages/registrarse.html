@@ -27,9 +27,10 @@
 
                     <!-- formulario de registro -->
                     <!-- hagamos de cuenta que safa -->
-                <form action="procesar_registro.html" method="post">
+                <form action="registrado.html" method="get">
+                
                     <!-- usuario-->
-                    <label for="username">Nombre de usuario:</label>
+                <label for="username">Nombre de usuario:</label>
                 <input type="text" id="username" name="username" placeholder="nombre de usuario" minlength="4" maxlength="15"  required>
                 
                 <!-- email-->
@@ -46,23 +47,21 @@
                 
                 <label for="confirm_password">Confirmar contraseña:</label>
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="confirma tu contraseña" minlength="4" maxlength="15" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{4,15}$" title="Debe contener al menos una mayúscula y un número, entre 4 y 15 caracteres" required>
-                
-                
-            
 
-            
                 <label for="cumpleaños">Fecha de nacimiento:</label>
                 <input type="date" id="cumpleaños" name="cumpleaños"  required>
                 
                 <div class="options-group">
-                <input type="checkbox" value="aceptar" required> Acepto los términos y condiciones de uso.
+                <input type="checkbox" id="terminos" value="aceptar" required><!-- input no necesita cerrarse,es tipo void -->
+                <label for="terminos" >Acepto los términos y condiciones de uso</label>
                 </div>
                 
                 
                 <!-- botón de envío -->
-                <input type="submit" value="Registrarse">
+                <input type="submit" class="btn-chico" value="Registrarse">
                 </form>
-                <a href="index.html" class="back-home">volver al inicio</a>
+                <a href="index.html" class="btn btn-secundario btn-chico">volver al inicio</a>
+                <a href="iniciosesion.html" class="btn btn-secundario btn-chico">ya registrado? inicia sesion!</a>
             </section>
         </main>
 
@@ -71,6 +70,7 @@
             <p>el tp, alumnos, profesor, y todo es relacionado</p>
             <p>la pagina es un trademark de boys from merlo. © 2026</p>
             <p>ahreloco</p>
+            <a href="sobrenosotros.html">sobre nosotros</a>
         </footer>
 
     </body>
