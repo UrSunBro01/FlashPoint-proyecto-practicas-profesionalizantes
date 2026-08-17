@@ -60,3 +60,52 @@ agregar boton que lleve al inicio de pagina
 agregar imagenes ya sean de stock o de ia para ilustrar 
 crear y arreglar las paginas reservar y consultar,una un forms y otra asumo que ya tiene que ver con javascript
 cambiar los "li" de index
+
+## Especificación del caso de uso: Solicitar reserva
+Nombre: Solicitud de reserva
+Tipo: Base
+Descripción General: El Músico, tras autenticarse en el sistema, seleccionará de manera
+secuencial la sala de ensayo y la fecha deseada. El sistema verificará la disponibilidad y
+mostrará los horarios libres. Una vez confirmada la reserva, esta quedará registrada en
+estado pendiente y se enviará al Músico una notificación con los detalles correspondientes.
+
+Actores Principales: Músico / Banda
+Actores Secundarios: -
+
+Autor: Analista
+
+Fecha de Creación: 15/4
+
+Precondiciones: Completar el inicio de sesión o registro.
+
+Puntos de Extensión: No tiene extensiones a otros CU.
+
+Flujo Normal
+1. El músico selecciona el caso de uso “Solicitar Reserva”
+2. El sistema carga las salas de ensayo disponibles
+3. El musica selecciona la sala deseada
+4. El sistema carga los horarios disponibles en la sala seleccionada
+5. El músico selecciona fecha
+6. El sistema consulta horarios disponibles en esa fecha
+7. El músico selecciona una hora
+8. El sistema muestra un resumen con los detalles de la sala que incluye fecha y horario
+9. El músico confirmó reserva 
+10. El sistema registra esta solicitud y la marca como “Pendiente”, dispara el módulo de notificación con los detalles en el correo del músico, y finaliza el caso de uso.
+
+Poscondición: Solicitud de Reserva registrada en el sistema bajo “Pendiente”
+
+*Flujos Alternativos*
+
+● A0: Cancelación: -
+*) En cualquier momento antes del paso 9 - -
+*El Paciente oprime “cancelar”
+*El sistema finaliza este caso de uso.
+
+● A1: No hay espacio para reservas: -
+*) El Sistema muestra un mensaje de “No tenemos reservas disponibles” y
+muestra una fecha disponible en la agenda de GrooveSpace(El músico selecciona esta fecha sugerida)
+El sistema finaliza este caso de
+uso. (volvemos al paso 6)
+
+● A2: Sistema caído: -
+Simplemente no tenemos sistema
