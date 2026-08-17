@@ -1,0 +1,68 @@
+<head>
+    <meta charset="UTF-8">
+    <title>GrooveSpace - Registro</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="../img/logo.png" alt="GrooveSpace Logo" class="logo">
+        <p>Completa tu registro</p>
+        <button id="toggle-dark" class="btn-dark">🌙</button>
+    </header>
+
+    <main>
+        <main class="registro-container">
+    <section class="login-card">
+        <h2>Registro completo</h2>
+        <form id="registroForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+
+            <label for="fecha">Fecha de nacimiento:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="btn-morado">Crear cuenta</button>
+        </form>
+    </section>
+</main>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>GrooveSpace - Tu lugar, tu música</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+<script>
+document.getElementById("registroForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // evita que se recargue la página, me paso una sola ves no se pq
+
+    const usuario = document.getElementById("usuario").value;
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    const email = document.getElementById("email").value;
+
+    // Bueno, todo vamos a probar con localstorage hasta ver una manera mas practica
+    localStorage.setItem("usuario", usuario);
+    localStorage.setItem("nombre", nombre);
+    localStorage.setItem("apellido", apellido);
+    localStorage.setItem("email", email);
+
+    // Volvemos a la principal
+    window.location.href = "../index.html";
+});
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GrooveSpace - Mis Reservas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="../img/logo.png" alt="GrooveSpace Logo" class="logo">
+        <p>Tu lugar, tu música</p>
+        <button id="toggle-dark" class="btn-dark">🌙</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="reservar.html">Reservar</a></li>
+            <li><a href="mis_reservas.html">Mis Reservas</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="reservas-container">
+        <section class="login-card">
+            <h2>Mis Reservas</h2>
+            <p id="bienvenida"></p>
+            <table class="reservas-table">
+                <thead>
+                    <tr>
+                        <th>Sala</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-reservas">
+                    <!-- Lo del js wachin -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>GrooveSpace - Tu lugar, tu música</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

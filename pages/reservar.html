@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GrooveSpace - Reservar</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="../img/logo.png" alt="GrooveSpace Logo" class="logo">
+        <p>Tu lugar, tu música</p>
+        <button id="toggle-dark" class="btn-dark">🌙</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="reservar.html">Reservar</a></li>
+            <li><a href="mis_reservas.html">Mis Reservas</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="reservar-container">
+        <section class="login-card">
+            <h2>Reservar Sala</h2>
+            <p id="bienvenida"></p>
+            <form id="formReservar">
+                <label for="sala">Sala:</label>
+                <select id="sala" name="sala" required>
+                    <option value="">Selecciona una sala</option>
+                    <option value="Sala 1">Sala 1</option>
+                    <option value="Sala 2">Sala 2</option>
+                    <option value="Sala 3">Sala 3</option>
+                </select>
+
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" required>
+
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora" required>
+
+                <button type="submit" class="btn-morado">Confirmar Reserva</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>GrooveSpace - Tu lugar, tu música</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

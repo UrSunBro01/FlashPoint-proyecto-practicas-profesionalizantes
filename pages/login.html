@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - GrooveSpace</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+    <a href="../index.html">
+        <img src="../img/logo.png" alt="GrooveSpace Logo" class="logo">
+    </a>
+    <button id="toggle-dark" class="btn-dark">🌙</button>
+    <p>Accedé a tu cuenta o registrate</p>
+</header>
+
+
+    <main class="auth-container">
+        <!-- Espacio de login -->
+        <section class="login-card">
+            <h2>Iniciar Sesión</h2>
+            <form>
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" required>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="btn-morado">Login</button>
+            </form>
+            <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+        </section>
+
+        <!-- Espacio de registro -->
+<section class="login-card">
+    <h2>Aún no estás registrado?</h2>
+    <form action="registro.html" method="get">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="newpass">Contraseña:</label>
+        <input type="password" id="newpass" name="newpass" required>
+
+        <button type="submit" class="btn-morado">Registrarse</button>
+    </form>
+</section>
+
+    </main>
+
+    <footer>
+        <p>GrooveSpace - Tu lugar, tu música</p>
+    </footer>
+  <script src="../js/script.js"></script>
+
+</body>
+</html>

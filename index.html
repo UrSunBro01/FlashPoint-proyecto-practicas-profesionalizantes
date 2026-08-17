@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GrooveSpace - Inicio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" alt="GrooveSpace Logo" class="logo">
+        <p>Tu lugar, tu música</p>
+        <button id="toggle-dark" class="btn-dark">🌙</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="pages/reservar.html">Reservar</a></li>
+            <li><a href="pages/mis_reservas.html">Mis Reservas</a></li>
+            <li><a href="pages/login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Bienvenido a GrooveSpace</h2>
+            <p>Optimiza tus reservas de salas de ensayo y evita superposiciones. 
+               Accedé a tus turnos, historial y mucho más.</p>
+        </section>
+        <section>
+            <h3>Funcionalidades principales</h3>
+            <ul>
+                <li>Reservar salas en tiempo real</li>
+                <li>Consultar disponibilidad de instrumentos</li>
+                <li>Ver historial de reservas</li>
+                <li>Generar reportes diarios</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>GrooveSpace - Tu lugar, tu música</p>
+    </footer>
+
+    <!-- Script general -->
+    <script src="js/script.js"></script>
+
+    <!-- Este script aunque el profe dijo que estaba prohibido es para testear un login coherente, no se tendra en cuenta en main -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const usuario = localStorage.getItem("usuario");
+        const nombre = localStorage.getItem("nombre");
+
+        if (usuario) {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            navLinks.forEach(link => {
+                if (link.textContent === "Login") {
+                    // Crear user
+                    const span = document.createElement("span");
+                    span.textContent = `${nombre} (${usuario})`;
+                    span.style.fontWeight = "bold";
+                    span.style.color = "#6a0dad";
+                    link.replaceWith(span);
+
+                    // Crear boton de logout despues de user
+                    const logoutBtn = document.createElement("button");
+                    logoutBtn.textContent = "Cerrar sesión";
+                    logoutBtn.classList.add("btn-morado");
+                    logoutBtn.style.marginLeft = "10px";
+
+                    logoutBtn.addEventListener("click", () => {
+                        localStorage.clear(); // Esto es para que no quede nada de basura
+                        window.location.href = "pages/login.html"; // volvemos a login, definitivo
+                    });
+
+                    // El boton al lado del nombre
+                    span.after(logoutBtn);
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

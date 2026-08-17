@@ -1,0 +1,261 @@
+/* Logo de nahuel */
+.logo {
+    width: 180px;          /* tamaño del logo */
+    border-radius: 20px;   /* esquinas redondeadas */
+    margin-bottom: 10px;   /* espacio con el subtítulo */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* sombra suave */
+}
+
+/* Modo claro (default) */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #f8f6fb, #eae6f7); /* fondo suave */
+    color: #2d2d2d;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header con transparencia */
+header {
+    position: relative; /* necesario para posicionar el botón */
+    background-color: rgba(106, 13, 173, 0.9); /* morado con transparencia */
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Botón modo oscuro arriba a la derecha */
+.btn-dark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.btn-dark:hover {
+    color: #9b59b6;
+}
+
+/* Navbar con estilo pill, gracias moriusdev */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #6a0dad;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+/* Secciones con tarjetas */
+main section {
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Footer discreto */
+footer {
+    background-color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+    color: #555;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Botón morado general */
+.btn-morado {
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-morado:hover {
+    background-color: #9b59b6;
+}
+
+/* Contenedor centrado tipo batitarjeta de credito */
+.login-card {
+    background-color: rgba(255,255,255,0.85);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 350px;
+    margin: 30px auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Inputs estilizados, le copie a una pagina de riot lol. */
+.login-card input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.login-card input:focus {
+    border-color: #6a0dad;
+}
+
+/* Contenedor con dos cards lado a lado */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* para que en pantallas chicas se apilen */
+}
+
+/* Márgenes laterales para controlar la distancia */
+.login-card {
+    margin: 0 15px;
+}
+
+/* Esto es el modo oscuro, me dio mil problemas hasta que entendi como activar el localstorage en el navegador.*/
+body.dark-mode {
+    background: linear-gradient(135deg, #1e1e2f, #2c2c3a);
+    color: #f0f0f0;
+}
+
+body.dark-mode header {
+    background-color: rgba(30, 30, 47, 0.9);
+    color: #fff;
+}
+
+body.dark-mode nav ul {
+    background-color: rgba(50,50,70,0.7);
+}
+
+body.dark-mode nav ul li a {
+    color: #f0f0f0;
+}
+
+body.dark-mode nav ul li a:hover {
+    background-color: #6a0dad;
+    color: #fff;
+}
+
+body.dark-mode main section {
+    background-color: rgba(40,40,60,0.9);
+    color: #fff;
+}
+
+body.dark-mode footer {
+    background-color: rgba(30,30,47,0.7);
+    color: #ccc;
+}
+
+body.dark-mode .login-card {
+    background-color: rgba(40,40,60,0.9);
+    color: #fff;
+}
+
+body.dark-mode .login-card input {
+    background-color: #2c2c3a;
+    border: 1px solid #555;
+    color: #f0f0f0;
+}
+
+body.dark-mode .login-card input:focus {
+    border-color: #9b59b6;
+}
+
+body.dark-mode .btn-morado {
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+body.dark-mode .btn-morado:hover {
+    background-color: #6a0dad;
+}
+
+body.dark-mode .btn-dark {
+    color: #f0f0f0;
+}
+/* No pude usar el mismo del login asique meto otro. */
+.registro-container {
+    display: flex;
+    justify-content: center; /* hori */
+    align-items: center;     /* verti */
+    min-height: 80vh;        /* trato de hacerlo fullscreen */
+}
+/* Contenedor centrado para reservas */
+.reservas-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 70vh;
+}
+
+/* Tabla de reservas */
+.reservas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.reservas-table th,
+.reservas-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.reservas-table th {
+    background-color: #6a0dad;
+    color: white;
+}
+
+.dark-mode .reservas-table th {
+    background-color: #444;
+}
+/* Contenedor centrado para reservar */
+.reservar-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 70vh;
+}
+
+.reservar-container .login-card {
+    max-width: 400px;
+    width: 100%;
+}
