@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sobre nosotros | GrooveSpace</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fuentes.css">
+
+    <style>
+        .sobre-nosotros {
+            width: 100%;
+            max-width: 1000px;
+            margin: 25px auto;
+        }
+
+        .sobre-nosotros-card {
+            padding: 30px;
+
+            background: rgba(10, 10, 26, 0.82);
+
+            border: 1px solid rgba(0, 155, 173, 0.25);
+            border-radius: 12px;
+
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
+
+            text-align: center;
+        }
+
+        .sobre-nosotros-card h1 {
+            margin: 0 0 10px;
+
+            font-size: 30px;
+            letter-spacing: 1px;
+        }
+
+        .sobre-nosotros-card > p {
+            margin: 0 0 25px;
+
+            color: #9999a8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .foto-grupo {
+            width: 100%;
+            max-width: 850px;
+
+            margin: 0 auto 30px;
+        }
+
+        .foto-grupo img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            border-radius: 10px;
+
+            border: 1px solid rgba(0, 155, 173, 0.18);
+
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
+        }
+
+        .foto-grupo figcaption {
+            margin-top: 10px;
+
+            color: #858594;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 11px;
+
+            letter-spacing: 0.5px;
+        }
+
+        .integrantes {
+            padding: 25px;
+
+            background: rgba(24, 25, 128, 0.35);
+
+            border: 1px solid rgba(0, 155, 173, 0.18);
+            border-radius: 10px;
+
+            text-align: left;
+        }
+
+        .integrantes h2 {
+            margin: 0 0 18px;
+
+            font-size: 22px;
+            letter-spacing: 0.8px;
+        }
+
+        .integrantes ul {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 10px 25px;
+
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+        }
+
+        .integrantes li {
+            padding: 12px 15px;
+
+            background: rgba(10, 10, 26, 0.55);
+
+            border-left: 3px solid var(--color-secundario);
+            border-radius: 5px;
+
+            color: #b8b8c8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .acciones {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            margin-top: 25px;
+        }
+
+        @media (max-width: 650px) {
+
+            .sobre-nosotros {
+                margin: 10px auto;
+            }
+
+            .sobre-nosotros-card {
+                padding: 18px;
+            }
+
+            .sobre-nosotros-card h1 {
+                font-size: 25px;
+            }
+
+            .integrantes {
+                padding: 18px;
+            }
+
+            .integrantes ul {
+                grid-template-columns: 1fr;
+            }
+
+            .acciones {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="top"></div>
+
+    <header>
+
+        <div class="logo">
+
+            <a href="index.html" class="logo-link">
+
+                <img
+                    src="../iconos/logo.png"
+                    alt="Logo de GrooveSpace"
+                    class="logo-image"
+                >
+
+            </a>
+
+            <p class="subtitulo">
+                Trabajo práctico · Leopoldo Marechal
+            </p>
+
+        </div>
+
+        <nav>
+
+            <ul class="pibes">
+
+                <li>
+                    <a
+                        href="registrarse.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Registrarse
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="iniciosesion.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Iniciar sesión
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="consultar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Consultar salas
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="reservar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Reservar sala
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="sobre-nosotros">
+
+            <div class="sobre-nosotros-card">
+
+                <span class="seccion-etiqueta">
+                    GROOVESPACE
+                </span>
+
+                <h1>
+                    Sobre nosotros
+                </h1>
+
+                <p>
+                    Conocé al equipo detrás de GrooveSpace.
+                </p>
+
+
+                <figure class="foto-grupo">
+
+                    <img
+                        src="../imagenes/grupo.jpeg"
+                        alt="Foto grupal del equipo de GrooveSpace"
+                        title="Equipo de GrooveSpace"
+                    >
+
+                    <figcaption>
+                        Equipo de GrooveSpace
+                    </figcaption>
+
+                </figure>
+
+
+                <section class="integrantes">
+
+                    <h2>
+                        Integrantes
+                    </h2>
+
+                    <ul>
+
+                        <li>
+                            Fernandez Leandro
+                        </li>
+
+                        <li>
+                            Romero Axel
+                        </li>
+
+                        <li>
+                            Parga Nahuel
+                        </li>
+
+                        <li>
+                            Otro integrante
+                        </li>
+
+                        <li>
+                            Otro integrante
+                        </li>
+
+                    </ul>
+
+                </section>
+
+
+                <div class="acciones">
+
+                    <a
+                        href="index.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Volver al inicio
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Trabajo práctico · GrooveSpace
+        </p>
+
+        <p>
+            Boys From Merlo · © 2026
+        </p>
+
+        <a href="sobrenosotros.html">
+            Sobre nosotros
+        </a>
+
+    </footer>
+
+
+    <a
+        href="#top"
+        class="btntop"
+    >
+        ^
+    </a>
+
+</body>
+
+</html>

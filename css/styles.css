@@ -1,0 +1,294 @@
+/* Esto es un comentario en css y abajo dejare en comentarios "buenas practicas"de css que lei */
+/* RESET / NORMALIZACIÓN VARIABLES CSS (custom properties*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {/*ultimo cambio de colores:cyberpunk glow */
+    --color-fondo: #0a0a1a;
+    --color-fondo-sec: #181980;
+    --color-texto: #d0d0e0;
+    --color-primario: #3d127b;
+    --color-secundario:#009bad ;
+    --color-acento: #b8025d;
+    --hover-btn:#044d55;
+    --sombra-neon: 0 0 15px color-mix(in srgb, var(--color-secundario) 40%, transparent);
+    
+}
+
+/* ESTILOS GLOBALES */
+body {
+    background-image: url("../imagenes/cieloestrellado3.jpg");
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: "Orbitron", "Segoe UI", 'Arial';
+    font-size: 26px;
+    min-height: 100vh;
+    margin: 0 0 0 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    letter-spacing: 2.5px;
+    margin-bottom:15px;
+}
+
+
+/* LAYOUT PRINCIPAL */
+h1{
+    margin-bottom: 15px;
+    font-size: 40px;
+    color: var(--color-acento);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2{
+    font-family: "Orbitron", "Segoe UI", 'Arial', sans-serif;
+    font-size: 40px;
+    color: var(--color-acento);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header{
+    top:0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px 0 10px;
+    flex-wrap: wrap;
+    box-shadow: var(--sombra-neon);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 40px;
+    margin-top: 50px;
+    font-size: 20px;
+    
+}
+
+/* COMPONENTES (botones, formularios, tarjetas, tablas)*/
+ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    white-space: nowrap;
+}
+
+aside {
+    background-color: var(--color-fondo);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+strong {
+    font-weight: bold;
+    color: red;
+}
+
+/* Campos de texto todos medio a reworkear*/
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="time"],
+input[type="date"],
+select{
+    width: 100%;
+    padding: 12px;
+    font-size: 20px;
+    margin: 15px 0px 15px 0px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Radios y checkbox */
+input[type="checkbox"] {
+    width: auto;
+    transform: scale(1.2);
+}
+
+
+/* UTILIDADES (clases reutilizables como .text-center, .hidden)*/
+.fotos{
+    max-width: 1000px;
+}
+
+.ubicacion{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 80%;
+}
+
+.img-ubicacion{
+    max-height: 30%;
+    max-width: 95%;
+}
+
+.texto-lista{
+    
+}
+
+/* logo que a su vez es boton con sabor a tamarindo y se identifica como helicoptero apache */
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.logo-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-primario);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.logo-image {
+    width: auto;
+    height: 200px;
+    object-fit: contain;
+    
+}
+
+.logo-image:hover {
+    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
+    transform: scale(1.05);
+}
+
+.logo .subtitulo {
+    margin-top: 2px;
+    font-size: 1.5rem;
+    color: var(--color-secundario);
+    letter-spacing: 2px;
+    font-weight: 300;
+
+}
+
+/* formulario*/
+.form-container{
+    font-family: "Orbitron", "Segoe UI", 'Arial';
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+    padding: 18px;
+    margin-top: 20px;
+    width: 90%;
+    width:420px;
+    border-radius: 10px;
+    box-shadow:var(--sombra-neon);
+}
+
+.options-group{
+    
+    flex-direction: column;
+    margin: 15px 0px 15px 0px;
+}
+
+/*botones (como el abel)*/
+.btn,input[type="submit"]{
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    color: var(--color-texto);
+    background-color: var(--color-secundario);
+    padding: 2.5%;
+    font: inherit;
+    appearance: none;
+    border: none;
+    margin-top: 0.8%;
+}
+    
+.btn:hover{
+    background-color: var(--hover-btn);
+    transform: scale(1.05);
+}
+
+input[type="submit"]:hover{
+    background-color: var(--hover-btn);
+    transform: scale(1.05);
+}
+    
+.btn-principal{
+    background-color: var(--color-secundario);
+}
+
+.btn-secundario{
+    background-color: var(--color-acento);
+}
+
+.btn-grande{
+    min-width: 800px;
+}
+
+.btn-chico{
+    min-width: 250px;
+}
+
+.btntop{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 48px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: var(--sombra-neon);
+    transition: 0.3s;
+    z-index: 100;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btntop:hover{
+    background-color: var(--hover-btn);
+    transform: scale(1.05);
+}
+
+/*tarjeta*/
+.tarjeta {
+    background-color: var(--color-fondo-sec);
+    color: var(--color-texto);
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--sombra-neon);
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 20px;
+}

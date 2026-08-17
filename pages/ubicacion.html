@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ubicación | GrooveSpace</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fuentes.css">
+
+    <style>
+        .ubicacion-pagina {
+            width: 100%;
+            max-width: 1000px;
+            margin: 25px auto;
+        }
+
+        .ubicacion-card {
+            padding: 30px;
+
+            background: rgba(10, 10, 26, 0.82);
+
+            border: 1px solid rgba(0, 155, 173, 0.25);
+            border-radius: 12px;
+
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
+
+            text-align: center;
+        }
+
+        .ubicacion-card h1 {
+            margin: 0 0 10px;
+
+            font-size: 30px;
+            letter-spacing: 1px;
+        }
+
+        .ubicacion-card > p {
+            margin: 0 0 25px;
+
+            color: #9999a8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .ubicacion-imagen {
+            width: 100%;
+            max-width: 850px;
+
+            margin: 0 auto 25px;
+        }
+
+        .ubicacion-imagen img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            border-radius: 10px;
+
+            border: 1px solid rgba(0, 155, 173, 0.18);
+
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
+        }
+
+        .ubicacion-imagen figcaption {
+            margin-top: 10px;
+
+            color: #858594;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 11px;
+
+            letter-spacing: 0.5px;
+        }
+
+        .informacion-ubicacion {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+        .dato-ubicacion {
+            padding: 20px;
+
+            background: rgba(24, 25, 128, 0.35);
+
+            border: 1px solid rgba(0, 155, 173, 0.18);
+            border-radius: 10px;
+        }
+
+        .dato-ubicacion h2 {
+            margin: 0 0 10px;
+
+            font-size: 17px;
+        }
+
+        .dato-ubicacion p {
+            margin: 0;
+
+            color: #9999a8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+        .acciones-ubicacion {
+            margin-top: 25px;
+        }
+
+        @media (max-width: 750px) {
+
+            .informacion-ubicacion {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            .ubicacion-pagina {
+                margin: 10px auto;
+            }
+
+            .ubicacion-card {
+                padding: 18px;
+            }
+
+            .ubicacion-card h1 {
+                font-size: 25px;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="top"></div>
+
+    <header>
+
+        <div class="logo">
+
+            <a href="index.html" class="logo-link">
+
+                <img
+                    src="../iconos/logo.png"
+                    alt="Logo de GrooveSpace"
+                    class="logo-image"
+                >
+
+            </a>
+
+            <p class="subtitulo">
+                Trabajo práctico · Leopoldo Marechal
+            </p>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a
+                        href="registrarse.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Registrarse
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="iniciosesion.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Iniciar sesión
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="consultar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Consultar salas
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="reservar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Reservar sala
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="ubicacion-pagina">
+
+            <div class="ubicacion-card">
+
+                <span class="seccion-etiqueta">
+                    GROOVESPACE
+                </span>
+
+                <h1>
+                    ¿Dónde estamos?
+                </h1>
+
+                <p>
+                    Encontrá nuestro establecimiento y conocé nuestros
+                    horarios de atención.
+                </p>
+
+
+                <figure class="ubicacion-imagen">
+
+                    <img
+                        src="../imagenes/ciudadsinnombre.jpg"
+                        alt="Ubicación de GrooveSpace"
+                        title="Ubicación de GrooveSpace"
+                    >
+
+                    <figcaption>
+                        Ubicación del establecimiento
+                    </figcaption>
+
+                </figure>
+
+
+                <section class="informacion-ubicacion">
+
+                    <div class="dato-ubicacion">
+
+                        <h2>
+                            Dirección
+                        </h2>
+
+                        <p>
+                            Calle Falsa 123
+                        </p>
+
+                    </div>
+
+
+                    <div class="dato-ubicacion">
+
+                        <h2>
+                            Horarios
+                        </h2>
+
+                        <p>
+                            Lunes a sábados<br>
+                            9:00 a 23:00
+                        </p>
+
+                    </div>
+
+
+                    <div class="dato-ubicacion">
+
+                        <h2>
+                            Contacto
+                        </h2>
+
+                        <p>
+                            Teléfono: 555-492
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+                <div class="acciones-ubicacion">
+
+                    <a
+                        href="index.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Volver al inicio
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Trabajo práctico · GrooveSpace
+        </p>
+
+        <p>
+            Boys From Merlo · © 2026
+        </p>
+
+        <a href="sobrenosotros.html">
+            Sobre nosotros
+        </a>
+
+    </footer>
+
+
+    <a
+        href="#top"
+        class="btntop"
+    >
+        ^
+    </a>
+
+</body>
+
+</html>

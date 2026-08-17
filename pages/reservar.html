@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reservar sala | GrooveSpace</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fuentes.css">
+
+    <style>
+
+        .pagina-reserva {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reserva {
+            width: 100%;
+            max-width: 700px;
+            margin: 35px auto;
+
+            padding: 30px;
+
+            background: rgba(10, 10, 26, 0.82);
+
+            border: 1px solid rgba(0, 155, 173, 0.25);
+            border-radius: 12px;
+
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
+        }
+
+        .seccion-etiqueta {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: var(--color-secundario);
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+        .reserva h1 {
+            margin: 0 0 10px;
+
+            text-align: left;
+
+            font-size: 32px;
+
+            letter-spacing: 1px;
+        }
+
+        .reserva-descripcion {
+            margin: 0 0 25px;
+
+            color: #b8b8c8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .formulario-reserva {
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+        }
+
+        .formulario-reserva label {
+            margin-bottom: 7px;
+
+            color: #d8d8e2;
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+
+            letter-spacing: 0.8px;
+        }
+
+        .formulario-reserva input[type="date"],
+        .formulario-reserva input[type="time"],
+        .formulario-reserva select {
+            width: 100%;
+
+            height: 42px;
+
+            margin: 0 0 20px;
+            padding: 8px 12px;
+
+            background: rgba(10, 10, 26, 0.9);
+
+            color: var(--color-texto);
+
+            border: 1px solid rgba(0, 155, 173, 0.4);
+            border-radius: 7px;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 14px;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .formulario-reserva input[type="date"]:focus,
+        .formulario-reserva input[type="time"]:focus,
+        .formulario-reserva select:focus {
+            border-color: var(--color-secundario);
+
+            box-shadow: 0 0 0 2px rgba(0, 155, 173, 0.12);
+        }
+
+        .opcion-reserva {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+
+            margin-bottom: 15px;
+            padding: 14px 16px;
+
+            background: rgba(24, 25, 128, 0.35);
+
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 8px;
+        }
+
+        .opcion-reserva input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+
+            margin: 2px 0 0;
+
+            accent-color: var(--color-secundario);
+
+            flex-shrink: 0;
+        }
+
+        .opcion-reserva label {
+            margin: 0;
+
+            color: #b8b8c8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 12px;
+            font-weight: normal;
+
+            line-height: 1.5;
+            letter-spacing: 0.2px;
+        }
+
+        .opcion-reserva strong {
+            color: var(--color-secundario);
+
+            font-weight: bold;
+        }
+
+        .acciones-reserva {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            gap: 12px;
+
+            width: 100%;
+
+            margin-top: 10px;
+        }
+
+        .acciones-reserva input[type="submit"],
+        .acciones-reserva .btn {
+            min-width: 180px;
+
+            margin: 0;
+            padding: 10px 18px;
+
+            border-radius: 7px;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        body > footer {
+            margin-top: 35px;
+
+            padding: 20px;
+
+            font-size: 12px;
+
+            letter-spacing: 0.5px;
+
+            opacity: 0.8;
+        }
+
+        @media (max-width: 650px) {
+
+            .reserva {
+                margin: 20px auto;
+
+                padding: 20px;
+            }
+
+            .reserva h1 {
+                font-size: 25px;
+            }
+
+            .reserva-descripcion {
+                font-size: 13px;
+            }
+
+            .acciones-reserva {
+                flex-direction: column;
+            }
+
+            .acciones-reserva input[type="submit"],
+            .acciones-reserva .btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+
+            <a href="index.html" class="logo-link">
+
+                <img
+                    src="../iconos/logo.png"
+                    alt="Logo de GrooveSpace"
+                    class="logo-image"
+                >
+
+            </a>
+
+            <p class="subtitulo">
+                Trabajo práctico · Leopoldo Marechal
+            </p>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li>
+
+                    <a
+                        href="registrarse.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Registrarse
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="iniciosesion.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Iniciar sesión
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="consultar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Consultar salas
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="reservar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Reservar sala
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="pagina-reserva">
+
+            <section class="reserva">
+
+                <span class="seccion-etiqueta">
+                    GROOVESPACE
+                </span>
+
+                <h1>
+                    Reservar una sala
+                </h1>
+
+                <p class="reserva-descripcion">
+                    Completá los datos para reservar una sala de ensayo
+                    y organizar tu próximo turno.
+                </p>
+
+                <form
+                    action="registrado.html"
+                    method="get"
+                    class="formulario-reserva"
+                >
+
+                    <label for="sala">
+                        Elegí tu sala
+                    </label>
+
+                    <select
+                        id="sala"
+                        name="sala"
+                        required
+                    >
+
+                        <option value="">
+                            Seleccioná una opción
+                        </option>
+
+                        <option value="standard">
+                            Sala Standard
+                        </option>
+
+                        <option value="premium">
+                            Sala Premium
+                        </option>
+
+                        <option value="bateria">
+                            Sala de Batería
+                        </option>
+
+                    </select>
+
+                    <label for="fecha">
+                        Fecha del ensayo
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fecha"
+                        name="fecha"
+                        required
+                    >
+
+                    <label for="horario">
+                        Horario de inicio
+                    </label>
+
+                    <input
+                        type="time"
+                        id="horario"
+                        name="horario"
+                        required
+                    >
+
+                    <div class="opcion-reserva">
+
+                        <input
+                            type="checkbox"
+                            id="equipamiento"
+                            name="equipamiento"
+                            value="aceptar"
+                        >
+
+                        <label for="equipamiento">
+                            Agregar equipamiento adicional.
+                            <strong>Atención:</strong>
+                            puede generar un costo extra.
+                        </label>
+
+                    </div>
+
+                    <div class="opcion-reserva">
+
+                        <input
+                            type="checkbox"
+                            id="convivencia"
+                            name="convivencia"
+                            value="aceptar"
+                            required
+                        >
+
+                        <label for="convivencia">
+                            Acepto las reglas de convivencia.
+                        </label>
+
+                    </div>
+
+                    <div class="acciones-reserva">
+
+                        <input
+                            type="submit"
+                            class="btn btn-principal btn-chico"
+                            value="Reservar sala"
+                        >
+
+                        <a
+                            href="index.html"
+                            class="btn btn-secundario btn-chico"
+                        >
+                            Volver al inicio
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <p>
+            Trabajo práctico · GrooveSpace
+        </p>
+
+        <p>
+            Boys From Merlo · © 2026
+        </p>
+
+        <p>
+            Ahreloco actualización 2
+        </p>
+
+        <a href="sobrenosotros.html">
+            Sobre nosotros
+        </a>
+
+    </footer>
+
+</body>
+
+</html>

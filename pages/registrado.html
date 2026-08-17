@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro exitoso | GrooveSpace</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fuentes.css">
+
+    <style>
+
+        .pagina-resultado {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resultado {
+            width: 100%;
+            max-width: 900px;
+            margin: 35px auto;
+
+            padding: 35px;
+
+            background: rgba(10, 10, 26, 0.82);
+
+            border: 1px solid rgba(0, 155, 173, 0.25);
+            border-radius: 12px;
+
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
+
+            text-align: center;
+        }
+
+        .resultado-etiqueta {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--color-secundario);
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 11px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+        .resultado h1 {
+            margin: 0 0 10px;
+
+            font-size: 32px;
+
+            letter-spacing: 1px;
+        }
+
+        .resultado > p {
+            margin: 0 0 25px;
+
+            color: #b8b8c8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+        .gohan-contenedor {
+            width: 100%;
+
+            margin: 0 auto 25px;
+            padding: 20px;
+
+            background: rgba(24, 25, 128, 0.35);
+
+            border: 1px solid rgba(0, 155, 173, 0.18);
+            border-radius: 10px;
+        }
+
+        .gohan-contenedor img {
+            display: block;
+
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+
+            margin: 0 auto;
+
+            border-radius: 8px;
+        }
+
+        .mensaje-exito {
+            margin: 0 0 20px;
+
+            color: #d8d8e2;
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+        .mensaje-exito span {
+            color: var(--color-secundario);
+        }
+
+        .acciones-resultado {
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 12px;
+
+            width: 100%;
+        }
+
+        .acciones-resultado .btn {
+            min-width: 180px;
+
+            margin: 0;
+
+            padding: 10px 18px;
+
+            border-radius: 7px;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        body > footer {
+            margin-top: 35px;
+
+            padding: 20px;
+
+            font-size: 12px;
+
+            letter-spacing: 0.5px;
+
+            opacity: 0.8;
+        }
+
+        @media (max-width: 650px) {
+
+            .resultado {
+                margin: 20px auto;
+
+                padding: 20px;
+            }
+
+            .resultado h1 {
+                font-size: 25px;
+            }
+
+            .resultado > p {
+                font-size: 13px;
+            }
+
+            .gohan-contenedor {
+                padding: 12px;
+            }
+
+            .mensaje-exito {
+                font-size: 15px;
+            }
+
+            .acciones-resultado {
+                flex-direction: column;
+            }
+
+            .acciones-resultado .btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="top"></div>
+
+    <header>
+
+        <div class="logo">
+
+            <a href="index.html" class="logo-link">
+
+                <img
+                    src="../iconos/logo.png"
+                    alt="Logo de GrooveSpace"
+                    class="logo-image"
+                >
+
+            </a>
+
+            <p class="subtitulo">
+                Trabajo práctico · Leopoldo Marechal
+            </p>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li>
+
+                    <a
+                        href="registrarse.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Registrarse
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="iniciosesion.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Iniciar sesión
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="consultar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Consultar salas
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="reservar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Reservar sala
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="pagina-resultado">
+
+            <section class="resultado">
+
+                <span class="resultado-etiqueta">
+                    GROOVESPACE
+                </span>
+
+                <h1>
+                    ¡Registro exitoso!
+                </h1>
+
+                <p>
+                    Tu cuenta fue creada correctamente.
+                </p>
+
+                <div class="gohan-contenedor">
+
+                    <img
+                        src="../imagenes/gohan.jpg"
+                        alt="Gohan felicitando por el registro"
+                    >
+
+                </div>
+
+                <p class="mensaje-exito">
+                    ¡<span>Felicidades, wachín</span> por registrarte!
+                </p>
+
+                <p>
+                    Ya sos parte de GrooveSpace. Ahora podés volver al inicio
+                    y comenzar a utilizar el sistema.
+                </p>
+
+                <div class="acciones-resultado">
+
+                    <a
+                        href="index.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Volver al inicio
+                    </a>
+
+                    <a
+                        href="consultar.html"
+                        class="btn btn-secundario btn-chico"
+                    >
+                        Consultar salas
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <p>
+            Trabajo práctico · GrooveSpace
+        </p>
+
+        <p>
+            Boys From Merlo · © 2026
+        </p>
+
+        <p>
+            Ahreloco actualización 2
+        </p>
+
+        <a href="sobrenosotros.html">
+            Sobre nosotros
+        </a>
+
+    </footer>
+
+    <a
+        href="#top"
+        class="btntop"
+    >
+        ^
+    </a>
+
+</body>
+
+</html>
