@@ -1,0 +1,17 @@
+GROOVESPACE - Notas del parche v0.5
+================================
+
+El dia de hoy 19/8 tuvimos clase presencial donde expusimos el proyecto,a partir de mirar junto con los profesores y mirando errores lo tome como un minifeedback:
+el profesor Jorge Marinoni(me olvide de preguntarle si el es al que le dicen tony stark) menciono el error de que paginas como "consultar salas no tiene el mismo navegador",corregido.ademas tampoco estaba puesta la fuente de letra
+me gustaria aun mas feedback de los profes.
+también (desconozco el porqué) al momento de subir la pagina los botones de header se ven debajo del logo y no listados a su derecha siendo que antes de su pull se mostraban bien,arreglado con un max-widht en px de emergencia en la clase .logo .subtitulo.
+
+CONTENIDO
+agregadas imágenes a la carpeta del mismo nombre para ilustrar las salas
+cambiado la pagina sobre nosotros y agregada imagen meme
+cambiada la sección de consultar disponibilidad de salas
+dios alguien ayude a desenredar el spagetti
+agrandado el width de registro inicio sesión,por ahora.
+con la creación de las clases "tarjetas" cambie index,sobrenosotros,ubicacion y consultar salas con el sistema tarjetas porteado en parte por Axel,aunque me quedaron errores visuales a cambiar 
+también clases como fila-contenido y fotos fueron modificadas para mejor legibilidad de las imágenes
+agregado con cinta adhesiva el sistema tablas.
