@@ -6,6 +6,7 @@
         <title>tp GrooveSpace</title>
         <!-- con este "link" llamo el estilo del archivo CSS a la pagina,hay que ponerlas entodas las sub paginas-->
         <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/fuentes.css">
     </head>
     <body>
         <header>
@@ -16,33 +17,179 @@
                 <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
             </div>
             <nav>
-                
+                <ul>
+                    <li><a href="registrarse.html" class="btn btn-principal btn-chico">registrarse</a></li>
+                    <li><a href="iniciosesion.html" class="btn btn-principal btn-chico">iniciar sesión</a></li>
+                    <li><a href="consultar.html" class="btn btn-principal btn-chico">consultar salas</a></li>
+                    <li><a href="reservar.html" class="btn btn-principal btn-chico">reservar sala</a></li>
+                </ul>
             </nav>
         </header>
+
+<!-- port from axel-->
         <main>
-            <table><!-- experimental para mi,es como un modo excel-->
-                <tr class="tarjeta">
-                    <th>Sala</th>
-                    <th>Estado</th>
-                </tr>
-                <tr class="tarjeta">
-                    <td>Sala Standard</td>
-                    <td>Libre</td>
-                </tr>
-                <tr class="tarjeta">
-                    <td>Sala Premium</td>
-                    <td>Ocupada</td>
-                </tr>
-                <tr class="tarjeta">
-                    <td>Sala de Batería</td>
-                    <td>Ocupada</td>
-                </tr>
-            </table>
+            <div class="tarjeta tarjeta--completa">
+
+                <section class="tarjeta tarjeta--completa tarjeta--izquierda">
+                    <span class="seccion-etiqueta">DISPONIBILIDAD</span>
+                    <h1>Consultar disponibilidad</h1>
+                    <p>Consultá el estado y la disponibilidad de las salas de ensayo para organizar tu próximo turno.</p>
+                </section>
+
+
+                <form class="panel-secundario" action="consultar.html" method="get">
+                    <div class="filtro">
+                        <label for="fecha">Fecha de consulta</label>
+                        <input type="date" id="fecha" name="fecha">
+                    </div>
+
+                    <div class="filtro">
+                        <label for="sala">Sala</label>
+                        <select id="sala" name="sala">
+                            <option value="todas">Todas las salas</option>
+                            <option value="standard">Sala Standard</option>
+                            <option value="premium">Sala Premium</option>
+                            <option value="bateria">Sala de Batería</option>
+                        </select>
+                    </div>
+
+                    <div class="filtro-accion">
+                        <button type="submit" class="btn btn-principal">Consultar</button>
+                    </div>
+                </form>
+
+                <section class="grid-info">
+                    <div class="panel-secundario panel-secundario--horizontal">
+                        <div class="resumen-numero">3</div>
+                        <div class="resumen-info">
+                            <span class="resumen-texto">Salas disponibles</span>
+                            <span class="resumen-descripcion">Disponibles para reservar</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-secundario panel-secundario--horizontal">
+                        <div class="resumen-numero">3</div>
+                        <div class="resumen-info">
+                            <span class="resumen-texto">Salas ocupadas</span>
+                            <span class="resumen-descripcion">Con reservas activas</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-secundario panel-secundario--horizontal">
+                        <div class="resumen-numero">0</div>
+                        <div class="resumen-info">
+                            <span class="resumen-texto">En mantenimiento</span>
+                            <span class="resumen-descripcion">Temporalmente bloqueadas</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tarjeta tarjeta--completa tarjeta--izquierda panel-secundario">
+                    <div class="disponibilidad-header">
+                        <div>
+                            <span class="seccion-etiqueta">HORARIOS</span>
+                            <h2>Disponibilidad de salas</h2>
+                            <p>Consultá los horarios disponibles para realizar una nueva reserva.</p>
+                        </div>
+
+                        <div class="actualizacion">
+                            <span class="actualizacion-indicador"></span>
+                            <span>Estado actualizado</span>
+                        </div>
+                    </div>
+
+                    <div class="tabla-contenedor">
+                        <table class="tabla-disponibilidad">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sala</th>
+                                    <th scope="col">16:00</th>
+                                    <th scope="col">17:00</th>
+                                    <th scope="col">18:00</th>
+                                    <th scope="col">19:00</th>
+                                    <th scope="col">20:00</th>
+                                    <th scope="col">21:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="nombre-sala">
+                                        <span>Sala Standard</span>
+                                        <small>Capacidad estándar</small>
+                                    </th>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                    <td class="ocupada"><span>Ocupada</span></td>
+                                    <td class="ocupada"><span>Ocupada</span></td>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="nombre-sala">
+                                        <span>Sala Premium</span>
+                                        <small>Equipamiento profesional</small>
+                                    </th>
+                                    <td class="ocupada"><span>Ocupada</span></td>
+                                    <td class="ocupada"><span>Ocupada</span></td>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                    <td class="ocupada"><span>Ocupada</span></td>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="nombre-sala">
+                                        <span>Sala de Batería</span>
+                                        <small>Equipamiento para batería</small>
+                                    </th>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                    <td class="ocupada"><span>Ocupada</span></td>
+                                    <td class="ocupada"><span>Ocupada</span></td>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                    <td class="disponible"><span>Disponible</span></td>
+                                    <td class="ocupada"><span>Ocupada</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="referencia-estados">
+                        <span>Referencia:</span>
+                        <div class="estado">
+                            <span class="estado-indicador estado-indicador--disponible"></span>
+                            <span>Disponible</span>
+                        </div>
+                        <div class="estado">
+                            <span class="estado-indicador estado-indicador--ocupada"></span>
+                            <span>Ocupada</span>
+                        </div>
+                        <div class="estado">
+                            <span class="estado-indicador estado-indicador--mantenimiento"></span>
+                            <span>En mantenimiento</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel-destacado">
+                    <span class="seccion-etiqueta">INFORMACIÓN</span>
+                    <h2>Sobre la disponibilidad</h2>
+                    <p>La disponibilidad mostrada corresponde al estado actual registrado por GrooveSpace. Los horarios ocupados no pueden seleccionarse para una nueva reserva.</p>
+                    <p>Si una sala se encuentra en mantenimiento, su disponibilidad permanecerá bloqueada hasta que el personal del estudio habilite nuevamente el espacio.</p>
+                </section>
+
+                <div class="tarjeta-acciones">
+                    <a href="reservar.html" class="btn btn-principal btn-chico">Reservar una sala</a>
+                    <a href="index.html" class="btn btn-secundario btn-chico">Volver al inicio</a>
+                </div>
+
+            </div>
+        </main>
+
         </main>
         <footer>
             <p>el tp, alumnos, profesor, y todo es relacionado</p>
             <p>la pagina es un trademark de boys from merlo. © 2026</p>
-            <p>ahreloco actualizacion 2</p>
             <a href="sobrenosotros.html">sobre nosotros</a>
         </footer>
+        <a href="#top" class="btntop">^</a><!-- boton de volver arriba,como las pag mas profesionales,re copado-->
     </body>
+</html>

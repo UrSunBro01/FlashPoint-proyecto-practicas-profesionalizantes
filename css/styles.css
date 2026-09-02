@@ -10,12 +10,19 @@
     --color-fondo: #0a0a1a;
     --color-fondo-sec: #181980;
     --color-texto: #d0d0e0;
+    --color-texto-sec: #9999a8;
     --color-primario: #3d127b;
     --color-secundario:#009bad ;
     --color-acento: #b8025d;
-    --hover-btn:#044d55;
+    --hover-btn:#0a0a1a;/*color redundante aun asi lo dejo aparte*/
     --sombra-neon: 0 0 15px color-mix(in srgb, var(--color-secundario) 40%, transparent);
-    
+    /*paneles by axel*/
+    --panel-fondo: rgba(10, 10, 26, 0.82);       /* fondo "vidrio" de una tarjeta */
+    --panel-fondo-sec: rgba(24, 25, 128, 0.35);  /* fondo de un panel secundario/inset */
+    --panel-borde: 1px solid rgba(0, 155, 173, 0.25);
+    --panel-borde-sutil: 1px solid rgba(0, 155, 173, 0.18);
+    --panel-sombra: 0 6px 22px rgba(0, 0, 0, 0.3);
+
 }
 /* ESTILOS GLOBALES */
 body {
@@ -27,31 +34,30 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: "Orbitron", "Segoe UI", 'Arial';/* no conocia segoe,ta flama*/
-    font-size: 26px;
+    font-size: 18px;
     min-height: 100vh;
     margin: 0 0 0 0px;
     display: flex;
     flex-direction: column;
     align-items: center;        /* para que no choque todo */
-    letter-spacing: 2.5px;
+    letter-spacing: 1.5px;
     margin-bottom:15px;
 }
-
 
 /* LAYOUT PRINCIPAL */
 h1{
     margin-bottom: 15px;
-    font-size: 40px;
+    font-size: 30px;
     color: var(--color-acento);
     text-align: center;
     margin-bottom: 20px;
 }
-h2{/* no se si dejar este h2 y h1 de variable*/
+h2,h3{/* no se si dejar este h2 y h1 de variable*/
     font-family: "Orbitron", "Segoe UI", 'Arial', sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     color: var(--color-acento);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 header{
@@ -80,15 +86,13 @@ footer{
     justify-content: center;
     width: 100%;
     gap: 40px;        /* te quiero gap*/
-    margin-top: 50px;
-    font-size: 20px;
-    
+    margin-top: 20px;
 }
 
 /* COMPONENTES (botones, formularios, tarjetas, tablas)*/
 ul {/* ya se que englobar todo el ul es malo pero weno,a rework*/
     display: flex;
-    gap: 1rem; /* 1.5rem de espacio entre cada enlace */
+    gap: 0.8rem; /* 0.5rem de espacio entre cada enlace */
     list-style-type: none;/* con esto desaparece el tipico puntito de la lista*/
     white-space: nowrap;
 }
@@ -103,6 +107,14 @@ strong {
     font-weight: bold;
     color: red;
 }
+label {/* regla padre*/
+    display: block;
+    margin-bottom: 7px;
+    color: #d8d8e2;
+    font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+}
 /* Campos de texto todos medio a reworkear*/
 input[type="text"],
 input[type="email"],
@@ -111,13 +123,29 @@ input[type="password"],
 input[type="time"],
 input[type="date"],
 select{
-    width: 100%;
-    padding: 12px;
-    font-size: 20px;
-    margin: 15px 0px 15px 0px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    width: 95%;
+    height: 44px;
+    padding: 8px 12px;
+    font-size: 16px;
+    margin: 0px 0px 15px;
+    border: var(--panel-borde-sutil);
+    border-radius: 7px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    outline:none;/* apaga el borde por defecto del navegador continua abajo*/
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
+/* al apagar el outline hay que especificarle al navegador como la queres chinwenwencha*/
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+input[type="time"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 2px rgba(0, 155, 173, 0.12);
+}
+
 /* Radios y checkbox */
 input[type="checkbox"] {
     width: auto;
@@ -126,27 +154,45 @@ input[type="checkbox"] {
 
 
 /* UTILIDADES (clases reutilizables como .text-center, .hidden)*/
-.fotos{
-    max-width: 1000px;
+.fotos {
+    width:100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
-.ubicacion{
+
+.fotos img {
+    display: block;
+    width: 90%;
+    height: auto;
+    border-radius: 15px;
+    border: var(--panel-borde-sutil);
+}
+
+
+.fila-contenido {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 30px;
-    max-width: 80%;
+    margin: 30px 0;
 }
-.img-ubicacion{
-    max-height: 30%;
-    max-width: 95%;
+.fila-contenido image {
+    flex: 1 1 300px;
 }
-.texto-lista{
-    
+
+.texto-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;           /* <- */
+    flex: 1 1 280px;
+    list-style: none;
+    white-space: normal;
 }
 /* logo que a su vez es boton con sabor a tamarindo y se identifica como helicoptero apache */
 .logo{
     display: flex;
     align-items: center;
-    gap: 50px; /* separación entre logo y subtítulo */
+    gap: 30px; /* separación entre logo y subtítulo */
 }
 
 .logo-link {
@@ -154,24 +200,26 @@ input[type="checkbox"] {
     text-decoration: none;
     color: var(--color-primario);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
+    margin:5px;
 }
 .logo-image {
     width: auto;
-    height: 200px;
+    height: 150px;
     object-fit: contain;
     
 }
 .logo-image:hover {/* los hover son cuando pasa el mouse por encima del objeto*/
-    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
+    filter: drop-shadow(var(--color-secundario) 0px 0px 15px);
     transform: scale(1.05);
 }
 .logo .subtitulo {
     margin-top: 2px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--color-secundario);
     letter-spacing: 2px;
     font-weight: 300;
+    max-width: 400px;/* parche rapido,no se por que esto se hizo gigante haciendo que los botones se vayan abajo*/
 
 }
 /* formulario*/
@@ -179,17 +227,39 @@ input[type="checkbox"] {
     font-family: "Orbitron", "Segoe UI", 'Arial';
     background-color: var(--color-primario);
     color: var(--color-texto);
-    padding: 18px;
+    padding: 20px;
     margin-top: 20px;
     width: 90%;
-    width:420px;
+    max-width:750px;
     border-radius: 10px;
     box-shadow:var(--sombra-neon);
 }
 .options-group{/* para agrupar los checkbox y radios*/
-    
-    flex-direction: column;
-    margin: 15px 0px 15px 0px;
+    display:flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 14px 16px;
+    background: var(--color-fondo-sec);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    font-size: 17px;
+}
+.options-group input[type="checkbox"] {
+    margin-top: 2px;
+    accent-color: var(--color-secundario);
+    flex-shrink: 0;
+}
+.options-group label {
+    margin: 0;
+    color: var(--color-texto-tenue);
+    font-weight: normal;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+.options-group strong {
+    color: var(--color-acento);
+    font-weight: bold;
 }
 /*botones (como el abel)*/
 .btn,input[type="submit"]{/*no existen herencias como en poo,sera todo a mano nomas,BOTON BASE*/
@@ -199,23 +269,28 @@ input[type="checkbox"] {
     transition: all 0.3s ease;
     text-align: center;
     cursor: pointer;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     color: var(--color-texto);
     background-color: var(--color-secundario);
-    padding: 2.5%;
-    font: inherit;/*aca pude arreglar el boton de input que se veia distinto los formularios NO heredan tipografía del resto de la página. a menos que se le especifique*/
+    padding: 10px 15px;
+    font-size: 15px;
+    font:inherit;
     appearance: none;
     border: none;
-    margin-top: 0.8%;
+    margin: 0.8%;
     }
     
 .btn:hover{
     background-color: var(--hover-btn);
+    color: var(--color-acento);
     transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
 }
 input[type="submit"]:hover{
     background-color: var(--hover-btn);
+    color: var(--color-acento);
     transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
 }
     
 .btn-principal{/*mas quilombo de botones,primero color,despues tamaños*/
@@ -227,8 +302,7 @@ input[type="submit"]:hover{
 }
 
 .btn-grande{
-    min-width: 800px;
-
+    min-width: 600px;
 }
 
 .btn-chico{
@@ -262,15 +336,112 @@ input[type="submit"]:hover{
     transform: scale(1.05);
 }
 /*tarjeta*/
+/*alguien hagase cristiano que aca se pudre*/
 .tarjeta {
-    background-color: var(--color-fondo-sec);
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 10px;
+    background: var(--panel-fondo);
+    border: var(--panel-borde);
+    border-radius: 12px;
+    box-shadow: var(--panel-sombra);
     color: var(--color-texto);
     text-align: center;
-    padding: 30px;
+}
+.tarjeta h1,
+.tarjeta h2,
+.tarjeta h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+
+.tarjeta--chica {
+    max-width: 1000px;
+}
+
+.tarjeta--mediana {
+    max-width: 1150px;
+}
+
+.tarjeta--completa {
+    max-width: 1500px;
+}
+
+.tarjeta--izquierda {
+    text-align: left;
+}
+.tarjeta--izquierda h1,
+.tarjeta--izquierda h2 {
+    text-align: left;
+}
+/*paneles port by rodri*/
+.panel-secundario {
+    max-width: 99%;
+    padding: 18px;
+    background: var(--panel-fondo-sec);
+    border: var(--panel-borde-sutil);
     border-radius: 10px;
-    box-shadow: var(--sombra-neon);
+    margin-top:10px;
+}
+/*grillas*/
+.grid-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
     width: 100%;
-    max-width: 600px;
-    margin: auto;
     margin-bottom: 20px;
+}
+/* lista en 2 columnas, reemplaza el grid a mano que tenia .integrantes ul */
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 25px;
+    list-style: none;
+}
+
+.grid-2col li {
+    padding: 12px 15px;
+    background: rgba(10, 10, 26, 0.55);
+    border-left: 3px solid var(--color-secundario);
+    border-radius: 5px;
+    color: var(--color-texto-tenue);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 13px;
+}
+
+/*sistema de tablas,un infierno este port*/
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    margin: 10px 0px 10px 0px;
+}
+
+.tabla-disponibilidad {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 20px;
+}
+
+.tabla-disponibilidad th,
+.tabla-disponibilidad td {
+    padding: 12px 8px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.tabla-disponibilidad thead th {
+    height: 45px;
+    background: rgba(24, 25, 128, 0.7);
+    color: #d9d9e5;
+    font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.8px;
 }
