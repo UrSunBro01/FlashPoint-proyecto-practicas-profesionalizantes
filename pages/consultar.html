@@ -5,14 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>tp GrooveSpace</title>
         <!-- con este "link" llamo el estilo del archivo CSS a la pagina,hay que ponerlas entodas las sub paginas-->
+        <link rel="stylesheet" href="../css/rodri.css">
         <link rel="stylesheet" href="../css/styles.css">
+        
         <link rel="stylesheet" href="../css/fuentes.css">
     </head>
     <body>
         <header>
             <div class="logo">
                 <a href="index.html" class="logo-link">
-                    <img src="../iconos/logo.png" alt="Logo de GrooveSpace" class="logo-image">
+                    <picture>
+                        <source media="(max-width: 650px)" srcset="../iconos/iconosinletra.svg">
+                        <img src="../iconos/iconovector.svg" alt="Logo de GrooveSpace" class="logo-image">
+                    </picture>
                 </a>
                 <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
             </div>
@@ -190,6 +195,8 @@
             <p>la pagina es un trademark de boys from merlo. © 2026</p>
             <a href="sobrenosotros.html">sobre nosotros</a>
         </footer>
-        <a href="#top" class="btntop">^</a><!-- boton de volver arriba,como las pag mas profesionales,re copado-->
+        <a href="#top" class="btntop">
+            <img src="../iconos/btntop.svg" alt="Volver arriba" title="Volver arriba">
+        </a><!-- boton de volver arriba,como las pag mas profesionales,re copado-->
     </body>
 </html>
