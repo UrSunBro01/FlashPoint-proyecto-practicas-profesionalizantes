@@ -22,8 +22,14 @@
     --panel-borde: 1px solid rgba(0, 155, 173, 0.25);
     --panel-borde-sutil: 1px solid rgba(0, 155, 173, 0.18);
     --panel-sombra: 0 6px 22px rgba(0, 0, 0, 0.3);
-
+    /*CONFIGURACIONES DEL GAP,perfecto otro sistema standarizador(? va en multiplos de 5 como todo sensato haria(?*/
+    --espacio-xs: 0.25rem;
+    --espacio-sm: 0.5rem;
+    --espacio-md: 1rem;
+    --espacio-lg: 1.5rem;
+    --espacio-xl: 2.5rem;
 }
+
 /* ESTILOS GLOBALES */
 body {
     background-image: url("../imagenes/cieloestrellado3.jpg");
@@ -34,7 +40,7 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: "Orbitron", "Segoe UI", 'Arial';/* no conocia segoe,ta flama*/
-    font-size: 18px;
+    font-size: 1.45rem;
     min-height: 100vh;
     margin: 0 0 0 0px;
     display: flex;
@@ -47,18 +53,26 @@ body {
 /* LAYOUT PRINCIPAL */
 h1{
     margin-bottom: 15px;
-    font-size: 30px;
+    font-size: 1.5rem;
     color: var(--color-acento);
     text-align: center;
     margin-bottom: 20px;
 }
 h2,h3{/* no se si dejar este h2 y h1 de variable*/
     font-family: "Orbitron", "Segoe UI", 'Arial', sans-serif;
-    font-size: 30px;
+    font-size: 1.5rem;
     color: var(--color-acento);
     text-align: center;
     margin-bottom: 10px;
 }
+h4,h5{
+    font-family: "Orbitron", "Segoe UI", 'Arial', sans-serif;
+    font-size: 1rem;
+    color: var(--color-texto);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 
 header{
     /* remuevo temporalmente el position:sticky; y el background-image: url("../imagenes/cieloestrellado3.jpg"); */
@@ -69,7 +83,7 @@ header{
     align-items: center;
     width: 100%;
     margin: 0 auto;          /* centrado horizontal */
-    padding: 0 10px 0 10px;
+    padding: 5px;
     flex-wrap: wrap; /* para que los elementos se ajusten en pantallas pequeñas */
     box-shadow: var(--sombra-neon);
 }
@@ -84,18 +98,21 @@ main{
 footer{
     display: flex;
     justify-content: center;
-    width: 100%;
-    gap: 40px;        /* te quiero gap*/
+    width: 98%;
+    gap: var(--espacio-lg);        /* te quiero gap*/
     margin-top: 20px;
 }
 
 /* COMPONENTES (botones, formularios, tarjetas, tablas)*/
 ul {/* ya se que englobar todo el ul es malo pero weno,a rework*/
     display: flex;
-    gap: 0.8rem; /* 0.5rem de espacio entre cada enlace */
+    gap: var(--espacio-md);
     list-style-type: none;/* con esto desaparece el tipico puntito de la lista*/
     white-space: nowrap;
+    flex-wrap: wrap;
 }
+
+
 aside {
     background-color: var(--color-fondo);
     padding: 20px;
@@ -126,7 +143,7 @@ select{
     width: 95%;
     height: 44px;
     padding: 8px 12px;
-    font-size: 16px;
+    font-size: 1rem;
     margin: 0px 0px 15px;
     border: var(--panel-borde-sutil);
     border-radius: 7px;
@@ -135,13 +152,13 @@ select{
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 /* al apagar el outline hay que especificarle al navegador como la queres chinwenwencha*/
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="password"]:focus,
-input[type="time"]:focus,
-input[type="date"]:focus,
-select:focus {
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="tel"]:focus-visible,
+input[type="password"]:focus-visible,
+input[type="time"]:focus-visible,
+input[type="date"]:focus-visible,
+select:focus-visible {
     border-color: var(--color-secundario);
     box-shadow: 0 0 0 2px rgba(0, 155, 173, 0.12);
 }
@@ -173,7 +190,7 @@ input[type="checkbox"] {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: var(--espacio-lg);
     margin: 30px 0;
 }
 .fila-contenido image {
@@ -183,7 +200,7 @@ input[type="checkbox"] {
 .texto-lista {
     display: flex;
     flex-direction: column;
-    gap: 12px;           /* <- */
+    gap: var(--espacio-sm);
     flex: 1 1 280px;
     list-style: none;
     white-space: normal;
@@ -192,7 +209,7 @@ input[type="checkbox"] {
 .logo{
     display: flex;
     align-items: center;
-    gap: 30px; /* separación entre logo y subtítulo */
+    gap: var(--espacio-lg); /* separación entre logo y subtítulo */
 }
 
 .logo-link {
@@ -200,7 +217,7 @@ input[type="checkbox"] {
     text-decoration: none;
     color: var(--color-primario);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem;
     margin:5px;
 }
 .logo-image {
@@ -215,9 +232,9 @@ input[type="checkbox"] {
 }
 .logo .subtitulo {
     margin-top: 2px;
-    font-size: 1rem;
+    font-size: var(--espacio-md);
     color: var(--color-secundario);
-    letter-spacing: 2px;
+    letter-spacing: var(--espacio-xs);
     font-weight: 300;
     max-width: 400px;/* parche rapido,no se por que esto se hizo gigante haciendo que los botones se vayan abajo*/
 
@@ -230,15 +247,15 @@ input[type="checkbox"] {
     padding: 20px;
     margin-top: 20px;
     width: 90%;
-    max-width:750px;
+    max-width:550px;
     border-radius: 10px;
     box-shadow:var(--sombra-neon);
 }
 .options-group{/* para agrupar los checkbox y radios*/
     display:flex;
     align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: var(--espacio-sm);
+    margin-bottom: var(--espacio-md);
     padding: 14px 16px;
     background: var(--color-fondo-sec);
     border: 1px solid rgba(255, 255, 255, 0.07);
@@ -273,11 +290,11 @@ input[type="checkbox"] {
     color: var(--color-texto);
     background-color: var(--color-secundario);
     padding: 10px 15px;
-    font-size: 15px;
+    font-size: 0.95rem;
     font:inherit;
     appearance: none;
     border: none;
-    margin: 0.8%;
+    margin: 1.5%;
     }
     
 .btn:hover{
@@ -302,19 +319,19 @@ input[type="submit"]:hover{
 }
 
 .btn-grande{
-    min-width: 600px;
+    
 }
 
 .btn-chico{
-    min-width: 250px;
+    
 }
 
 .btntop{/*me re copo la idea de este boton.siempre lo veo en pag profesionales,sin javascript hice este basico*/
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 70px;
-    height: 70px;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -323,7 +340,7 @@ input[type="submit"]:hover{
     padding: 10px 15px;
     border-radius: 50%;
     text-decoration: none;
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: bold;
     text-decoration: none;
     box-shadow: var(--sombra-neon);
@@ -379,7 +396,7 @@ input[type="submit"]:hover{
 }
 /*paneles port by rodri*/
 .panel-secundario {
-    max-width: 99%;
+    max-width: 98%;
     padding: 18px;
     background: var(--panel-fondo-sec);
     border: var(--panel-borde-sutil);
@@ -390,16 +407,18 @@ input[type="submit"]:hover{
 .grid-info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: var(--espacio-md);
     width: 100%;
     margin-bottom: 20px;
+    overflow-x: auto
 }
 /* lista en 2 columnas, reemplaza el grid a mano que tenia .integrantes ul */
 .grid-2col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px 25px;
+    gap: var(--espacio-sm) var(--espacio-md);
     list-style: none;
+    overflow-x: auto
 }
 
 .grid-2col li {
@@ -444,4 +463,46 @@ input[type="submit"]:hover{
     font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
     font-size: 16px;
     letter-spacing: 0.8px;
+}
+
+
+
+
+@media (max-width: 650px) {/*comienzo a convertir a celular que bardo xd*/
+    body {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+    .logo-image {
+        height: 60px;
+    }
+    .btn-chico {
+        min-width: 60px;
+        font-size: 0.65rem;
+    }
+    .btntop {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    .btn-grande {
+        min-width: 100%;
+        font-size: 0.85rem;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: var(--espacio-sm);
+    }
+    footer {
+        flex-direction: column;
+        gap: var(--espacio-sm);
+        text-align: center;
+    }
+    .grid-info {
+        grid-template-columns: 1fr;
+    }
+    .grid-2col {
+        grid-template-columns: 1fr;
+    }
 }
