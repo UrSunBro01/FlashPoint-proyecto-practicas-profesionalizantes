@@ -326,6 +326,7 @@ input[type="submit"]:hover{
     
 }
 
+
 .btntop{/*me re copo la idea de este boton.siempre lo veo en pag profesionales,sin javascript hice este basico*/
     position: fixed;
     bottom: 25px;
@@ -464,6 +465,23 @@ input[type="submit"]:hover{
     font-size: 16px;
     letter-spacing: 0.8px;
 }
+/*banderas*/
+.bandera {
+
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 5px 8px;
+    color:var(--color-texto);
+    background-color: var(--color-secundario);
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    font:inherit;
+    appearance: none;
+    border: none;
+    margin: 1.5%;
+}
+
+
 
 
 

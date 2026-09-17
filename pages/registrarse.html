@@ -6,6 +6,7 @@
         <title>registro GrooveSpace</title>
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/fuentes.css">
+        <script src="../js/script.js" defer></script>
     </head>
     <body>
         <header>
@@ -30,7 +31,7 @@
 
                     <!-- formulario de registro -->
                     <!-- hagamos de cuenta que safa -->
-                <form action="registrado.html" method="get">
+                <form action="registrado.html" method="get" id="form-registro">
                 
                     <!-- usuario-->
                 <label for="username">Nombre de usuario:</label>
@@ -53,6 +54,9 @@
 
                 <label for="cumpleaños">Fecha de nacimiento:</label>
                 <input type="date" id="cumpleaños" name="cumpleaños"  required>
+
+                <label for="banda">posee banda? :</label>
+                <input type="text" id="banda" name="banda" placeholder="ingrese nombre de su banda(sino deje el campo en blanco)">
                 
                 <div class="options-group">
                 <input type="checkbox" id="terminos" value="aceptar" required><!-- input no necesita cerrarse,es tipo void -->
@@ -62,10 +66,11 @@
                 
                 <!-- botón de envío -->
                 <input type="submit" class="btn-chico" value="Registrarse">
+                
                 <a href="index.html" class="btn btn-secundario btn-chico">volver al inicio</a>
                 <a href="iniciosesion.html" class="btn btn-secundario btn-chico">ya registrado? inicia sesion!</a>
                 </form>
-                
+                <button class="btn btn-chico btn-secundario" onclick="saludar()">pupy</button>
             </section>
         </main>
 

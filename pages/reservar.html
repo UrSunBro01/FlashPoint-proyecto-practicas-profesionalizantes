@@ -23,7 +23,7 @@
             <nav>
                 <ul>
                     <li><a href="registrarse.html" class="btn btn-principal btn-chico">registrarse</a></li>
-                    <li><a href="iniciosesion.html" class="btn btn-principal btn-chico">iniciar sesión</a></li>
+                    <li><a href="iniciosesion.html" class="btn btn-principal btn-chico" id="nav-login">iniciar sesión</a></li>
                     <li><a href="consultar.html" class="btn btn-principal btn-chico">disponibilidad de salas</a></li>
                     <!-- esta ultima debe aparecer despues de login/singin-->
                     <li><a href="reservar.html" class="btn btn-principal btn-chico">reservar sala</a></li>
@@ -34,7 +34,7 @@
             <section class="form-container">
                 <h1>reservas:</h1>
                     <!-- formulario de registro -->
-                <form action="registrado.html" method="get">
+                <form action="registrado.html" method="get" id="formReservar">
                     <!-- lista deslizante de sala -->
                 <label for="sala">Elegí tu sala:</label>
                 <select  id="sala" name="sala" required>
@@ -54,7 +54,7 @@
 
                 <!-- terminos y condiciones-->
                 <div class="options-group">
-                <input type="checkbox" id="terminos" value="aceptar"><!-- input no necesita cerrarse,es tipo void -->
+                <input type="checkbox" id="equipamiento" value="aceptar"><!-- input no necesita cerrarse,es tipo void -->
                 <label for="terminos" >agregar equipamiento
                     <strong>ATENCION:</strong>puede agregar costo extra
                 </label>

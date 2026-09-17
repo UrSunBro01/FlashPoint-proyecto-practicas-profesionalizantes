@@ -7,8 +7,8 @@
         <!-- con este "link" llamo el estilo del archivo CSS a la pagina,hay que ponerlas entodas las sub paginas-->
         <link rel="stylesheet" href="../css/rodri.css">
         <link rel="stylesheet" href="../css/styles.css">
-        
         <link rel="stylesheet" href="../css/fuentes.css">
+        
     </head>
     <body>
         <header>
@@ -24,7 +24,7 @@
             <nav>
                 <ul>
                     <li><a href="registrarse.html" class="btn btn-principal btn-chico">registrarse</a></li>
-                    <li><a href="iniciosesion.html" class="btn btn-principal btn-chico">iniciar sesión</a></li>
+                    <li><a href="iniciosesion.html" class="btn btn-principal btn-chico" id="nav-login">iniciar sesión</a></li>
                     <li><a href="consultar.html" class="btn btn-principal btn-chico">consultar salas</a></li>
                     <li><a href="reservar.html" class="btn btn-principal btn-chico">reservar sala</a></li>
                 </ul>
@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="tabla-contenedor">
-                        <table class="tabla-disponibilidad">
+                        <table class="tabla-disponibilidad" id="lista-reservas">
                             <thead>
                                 <tr>
                                     <th scope="col">Sala</th>
