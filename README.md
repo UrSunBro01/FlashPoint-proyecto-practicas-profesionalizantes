@@ -34,11 +34,12 @@ El sitio está desarrollado únicamente con **HTML semántico** y **CSS básico*
 Proyecto-groovespace/
 │
 ├── README.md
-
+│
 ├── css/
 │   ├── fuentes.css
 │   ├── rodri.css(este archivo existe como transcicion)
 │   └── styles.css
+│
 ├── SFX
 │
 ├── iconos
