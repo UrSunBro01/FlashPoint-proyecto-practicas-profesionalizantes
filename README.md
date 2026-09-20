@@ -30,24 +30,56 @@ Permite a los usuarios:
 El sitio está desarrollado únicamente con **HTML semántico** y **CSS básico**, sin frameworks ni JavaScript, cumpliendo con las restricciones del trabajo práctico que especifico el profe.
 
 ---
+```
+Proyecto-groovespace/
+│
+├── README.md
 
-##  Estructura de carpetas
-proyectos programacion\proyecto groovespace
-├──apuntes
-├──css
-│ └── styles.css # Hoja de estilos externa
-├──documentacion #iconos
-├──iconos #para iconos
-├──imagenes
-│ └── logo.png #logo de la pagina made in canvas
-├──pages
-│ └── index.html # pagina principal
-│ └── iniciosesion.html #pagina inicio sesion
-│ └── registrarse.html #pagina registrarse
-│ └── reservar.html #pagina para reservar despues de identificarse
-│ └── consultar.html #pagina para consultar la reserva 
-├──sfx
-
+├── css/
+│   ├── fuentes.css
+│   ├── rodri.css(este archivo existe como transcicion)
+│   └── styles.css
+├── SFX
+│
+├── iconos
+│   ├──btntop.svg
+│   ├──contornoB.svg
+│   ├──contornoN.svg
+│   ├──iconosinletras.svg
+│   ├──iconovector.svg
+│   ├──letras.svg
+│   └──logo.png
+│
+├── js/
+│   └── scripts.js
+│
+├── data/
+│   └── usuarios.json
+│
+├── imagenes/
+│   ├──cieloestrellado3.jpg
+│   ├──casodeuso.jpg
+│   ├──salabateriareddit.webp
+│   ├──salapremium.jpg
+│   ├──salastandar.jpg
+│   ├──ciudadsinnombre.jpg
+│   ├──grupo.jpeg
+│   ├──extras.webp
+│
+└── pages/
+    ├── admin.html
+    ├── consultar.html
+    ├── indexhtml
+    ├── iniciosesion.html
+    ├── micuenta.html
+    ├── plantilla.html
+    ├── registrado.html
+    ├── registrarse.html
+    ├── reservar.html
+    ├── sobrenosotros.html
+    ├── turnos.html
+    └── ubicacion.html
+```
 
 ## Especificación del caso de uso: Solicitar reserva
 Nombre: Solicitud de reserva
