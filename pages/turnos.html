@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>registrado</title>
+        <title>turnos</title>
+        <link rel="stylesheet" href="../css/rodri.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/fuentes.css">
         <script src="../js/script.js" defer></script>
@@ -26,27 +27,47 @@
                     <li><a href="registrarse.html" class="btn btn-principal btn-chico">registrarse</a></li>
                     <li><a href="iniciosesion.html" class="btn btn-principal btn-chico" id="nav-login">iniciar sesión</a></li>
                     <li><a href="consultar.html" class="btn btn-principal btn-chico">disponibilidad de salas</a></li>
+                    <!-- esta ultima debe aparecer despues de login/singin-->
                     <li><a href="reservar.html" class="btn btn-principal btn-chico">reservar sala</a></li>
+                    <li><a href="micuenta.html" class="btn btn-principal btn-chico">mi cuenta</a></li>
                 </ul>
             </nav>
         </header>
         
         <main>
+            <div class="tarjeta tarjeta--completa">
+                <section class="tarjeta tarjeta--completa tarjeta--izquierda panel-secundario">
+                    <div>
+                        <div>
+                            <h1 class="seccion-etiqueta">Mis Turnos</h1>
+                            <span>Consultá los horarios de tus reservas.</span>
+                        </div>
+                    </div>
 
-            <section class="tarjeta">
-                <h1>
-                    te has registrado!/iniciado sesion omedeto!
-                </h1>
-                <p>
-                    felicidades,ahora puedes volver al inicio
-                </p>
-                <a href="index.html" class="btn">volver al inicio</a>
-            </section>
+                    <div class="tabla-contenedor">
+                        <table class="tabla-disponibilidad">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">hora inicio</th>
+                                    <th scope="col">hora fin</th>
+                                    <th scope="col">sala elegida</th>
+                                    <th scope="col">equipo agregado</th>
+                                    <th scope="col">descargar ticket</th>
+                                    <th scope="col">cancelar reserva</th>
+                                    <th scope="col">reprogramar</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="listaDeTurnos"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
         </main>
         <footer>
             <p>el tp, alumnos, profesor, y todo es relacionado</p>
             <p>la pagina es un trademark de boys from merlo. © 2026</p>
-            <p>ahreloco actualizacion 2</p>
             <a href="sobrenosotros.html">sobre nosotros</a>
         </footer>
         <a href="#top" class="btntop">^</a><!-- boton de volver arriba,como las pag mas profesionales,re copado-->

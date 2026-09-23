@@ -36,14 +36,7 @@
     justify-content: center;
 }
 
-.disponibilidad-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 20px;
-}
+
 
 @media (max-width: 900px) {
     .filtros {
@@ -130,6 +123,76 @@
     margin-bottom: 15px;
 }
 
+
+
+.nombre-sala small {
+    display: block;
+    margin-top: 3px;
+    color: #747483;
+    font-size: 9px;
+    font-weight: normal;
+}
+
+
+
+@media (max-width: 650px) {
+    .tabla-disponibilidad {
+        min-width: 750px;
+    }
+}
+
+.referencia-estados {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    color: #8d8d9b;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 11px;
+}
+
+.estado {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.estado-indicador {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.estado-indicador--disponible {
+    background: #55c9d4;
+}
+
+.estado-indicador--ocupada {
+    background: #d67aa4;
+}
+
+.estado-indicador--mantenimiento {
+    background: #8d8d99;
+}
+/*dejo lo siguiente a modo de resapaldo,por si necesito hacer rollback
+
+
+.disponibilidad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 900px) {
+    .filtros {
+@@ -130,60 +123,7 @@
+    margin-bottom: 15px;
+}
+
 .tabla-disponibilidad {
     width: 100%;
     border-collapse: collapse;
@@ -187,9 +250,7 @@
 
 .nombre-sala small {
     display: block;
-    margin-top: 3px;
-    color: #747483;
-    font-size: 9px;
+@@ -193,30 +133,8 @@
     font-weight: normal;
 }
 
@@ -215,44 +276,4 @@
 .tabla-disponibilidad td.ocupada span {
     background: rgba(184, 2, 93, 0.10);
     color: #d67aa4;
-    border: 1px solid rgba(184, 2, 93, 0.18);
-}
-@media (max-width: 650px) {
-    .tabla-disponibilidad {
-        min-width: 750px;
-    }
-}
-
-.referencia-estados {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 18px;
-    color: #8d8d9b;
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 11px;
-}
-
-.estado {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.estado-indicador {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-}
-
-.estado-indicador--disponible {
-    background: #55c9d4;
-}
-
-.estado-indicador--ocupada {
-    background: #d67aa4;
-}
-
-.estado-indicador--mantenimiento {
-    background: #8d8d99;
-}
+    border: 1px solid rgba(184, 2, 93, 0.18);*/

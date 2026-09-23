@@ -72,6 +72,33 @@ h4,h5{
     text-align: center;
     margin-bottom: 10px;
 }
+nav{
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	/* justify-content:
+		space-between
+		flex-end
+		flex-start
+		space-around
+		space-evenly
+	/ */
+	align-items: center;
+	flex-wrap: wrap;
+	/* flex-wrap:
+		wrap
+		nowrap
+		wrap-reverse/ */
+}
+
+
+nav a {
+	display: block;
+	padding: 15px 20px;
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
 
 
 header{
@@ -289,7 +316,7 @@ input[type="checkbox"] {
     letter-spacing: 1px;
     color: var(--color-texto);
     background-color: var(--color-secundario);
-    padding: 10px 15px;
+    
     font-size: 0.95rem;
     font:inherit;
     appearance: none;
@@ -319,12 +346,13 @@ input[type="submit"]:hover{
 }
 
 .btn-grande{
-    
+    padding: 10px 20px;
 }
 
 .btn-chico{
-    
+    padding: 5px 5px;
 }
+
 
 .btntop{/*me re copo la idea de este boton.siempre lo veo en pag profesionales,sin javascript hice este basico*/
     position: fixed;
@@ -464,6 +492,23 @@ input[type="submit"]:hover{
     font-size: 16px;
     letter-spacing: 0.8px;
 }
+/*banderas*/
+.bandera {
+
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 5px 8px;
+    color:var(--color-texto);
+    background-color: var(--color-secundario);
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    font:inherit;
+    appearance: none;
+    border: none;
+    margin: 1.5%;
+}
+
+
 
 
 
