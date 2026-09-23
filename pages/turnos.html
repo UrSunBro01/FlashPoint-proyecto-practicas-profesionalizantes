@@ -27,8 +27,9 @@
                     <li><a href="registrarse.html" class="btn btn-principal btn-chico">registrarse</a></li>
                     <li><a href="iniciosesion.html" class="btn btn-principal btn-chico" id="nav-login">iniciar sesión</a></li>
                     <li><a href="consultar.html" class="btn btn-principal btn-chico">disponibilidad de salas</a></li>
+                    <!-- esta ultima debe aparecer despues de login/singin-->
                     <li><a href="reservar.html" class="btn btn-principal btn-chico">reservar sala</a></li>
-                    <li><a href="turnos.html" class="btn btn-principal btn-chico">mis turnos</a></li>
+                    <li><a href="micuenta.html" class="btn btn-principal btn-chico">mi cuenta</a></li>
                 </ul>
             </nav>
         </header>
@@ -58,18 +59,7 @@
                                 </tr>
                             </thead>
 
-                            <tbody>
-                                <tr>
-                                    <th scope="col">11/9/2001</th>
-                                    <td class="bandera">11:30</td>
-                                    <td class="bandera">15:30</td>
-                                    <th class="">sala standard</th>
-                                    <td class="">no</td>
-                                    <td><button class="btn btn-principal">consultar</button></td>
-                                    <td><button class="btn btn-secundario">cancelar</button></td>
-                                    <td><button class="btn btn-secundario">reprogramar</button></td>
-                                </tr>
-                            </tbody>
+                            <tbody id="listaDeTurnos"></tbody>
                         </table>
                     </div>
                 </section>

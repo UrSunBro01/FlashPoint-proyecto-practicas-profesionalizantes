@@ -1,5 +1,0 @@
-[
-    { "usuario": "dueño", "contraseña": "1234", "nombre": "Nahuel Parga", "rol": "dueño" },
-    { "usuario": "encargado", "contraseña": "1234", "nombre": "Axel Romero", "rol": "encargado" },
-    { "usuario": "invitado", "contraseña": "1234", "nombre": "Invitado", "rol": "usuario" }
-]

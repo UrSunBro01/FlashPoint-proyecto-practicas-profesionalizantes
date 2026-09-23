@@ -1,131 +1,167 @@
+//soy un comentario
+//recuerda:backsticks(`).es ALT+96
+
+// ============================================================
+    // LOCAL STORAGE ZONE
+// ============================================================
+
+const STORAGE_KEY = "grooveSpaceData";
+const SESSION_KEY = "grooveSpaceUsuario";
+
+function guardarDatosGlobales(datos) {
+	localStorage.setItem(STORAGE_KEY, JSON.stringify(datos));//Para guardar objetos o arrays utilizamos JSON.stringify()//
+}
+
+function guardarUsuarioActual(usuario) {
+	localStorage.setItem(SESSION_KEY, JSON.stringify(usuario));
+}
+
+async function obtenerDatosGlobales() {
+	const ruta = resolverRuta("data/datos.json");
+	const respuesta = await fetch(ruta);
+	const datosIniciales = await respuesta.json();
+
+	const datosGuardados = localStorage.getItem(STORAGE_KEY);
+
+	if (!datosGuardados) {
+		guardarDatosGlobales(datosIniciales);
+		return datosIniciales;
+	}
+
+	const datosGuardadosParseados = JSON.parse(datosGuardados);//y para recuperar objetos o arrays: JSON.parse//
+
+	return {
+		...datosIniciales,
+		...datosGuardadosParseados
+	};
+}
+
+function obtenerUsuarioActual() {
+	const usuario = localStorage.getItem(SESSION_KEY);
+	return usuario ? JSON.parse(usuario) : null;
+}
+
+function cerrarSesion() {
+	//esta funciona se llama directamente desde HTML.
+	localStorage.removeItem(SESSION_KEY);
+	window.location.href = resolverRuta("index.html");
+}
+
+// ============================================================
+    //utilidad aca quedo medio fusion con lo del prof
+// ============================================================
+function resolverRuta(path){
+    const dentrodepages=window.location.pathname.includes("/pages/");
+    return dentrodepages? `../${path}`: path;//ya lo vi en el libro el(a?b:c) es un selector trinario.
+}
+function normalizarRol(rol) {
+	return rol === "" ? "" : rol;//no sabria calcularlo en el ternario
+}
+
+
+
+
+// ============================================================
+    //buscar el usuario
+// ============================================================
+async function buscarUser(nombreIngresado, passwordIngresada){
+    const response = await fetch(resolverRuta("/data/datos.json"));
+    const data = await response.json();
+    console.table(data.usuarios);
+    return data.usuarios.find(u=>
+        u.usuario === nombreIngresado &&
+        u.contraseña === passwordIngresada
+    );
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
+// ============================================================
+    // iniciar sesion
+// ============================================================
+    const formLogin = document.querySelector("#form-login");
+    if(formLogin){
+        formLogin.addEventListener("submit",async(event)=>{
+            event.preventDefault();
 
-    // LOGIN
-    const formLogin = document.getElementById("form-login");
-    if (formLogin) {
-        formLogin.addEventListener("submit", async (e) => {
-            e.preventDefault();
+            const nombreIngresado = document.querySelector("#username").value.trim();
+            const passIngresada = document.querySelector("#password").value.trim();
+            const usuarioencontrado =await buscarUser(nombreIngresado,passIngresada);
 
-            const usuarioIngresado = document.getElementById("username").value.trim();
-            const passIngresada = document.getElementById("password").value;
-
-            let usuarios = [];
-            try {
-                const respuesta = await fetch("../js/usuarios.json");
-                usuarios = await respuesta.json();
-            } catch (error) {
-                console.error("No se pudo cargar usuarios.json", error);
-            }
-
-            const registrados = JSON.parse(localStorage.getItem("usuariosRegistrados")) || [];
-            const todosLosUsuarios = usuarios.concat(registrados);
-
-            const encontrado = todosLosUsuarios.find(
-                (u) => u.usuario === usuarioIngresado && u.contraseña === passIngresada
-            );
-
-            if (encontrado) {
-                localStorage.setItem("usuario", encontrado.usuario);
-                localStorage.setItem("nombre", encontrado.nombre || encontrado.usuario);
-                localStorage.setItem("rol", encontrado.rol || "usuario");
-                window.location.href = "index.html";
-            } else {
-                alert("Usuario o contraseña incorrectos");
+            if(usuarioencontrado){
+                localStorage.setItem("idUsuario",usuarioencontrado.id);//el error estaba aca,puse un . en vez de la coma para idUsuario
+                localStorage.setItem("nombreUsuario",usuarioencontrado.usuario);
+                alert(`bienvenido señor ${usuarioencontrado.nombre}`);
+                window.location.href="index.html";
+            }else{
+                alert("usuario o contraseña incorrectos");
             }
         });
     }
 
-    // REGISTRO
-    const formRegistro = document.getElementById("form-registro");
-    if (formRegistro) {
-        formRegistro.addEventListener("submit", (e) => {
-            e.preventDefault();
+    //function renderizarPageLogin() {//esto lo agregue del git del profe
+	//const formulario = document.querySelector("#form-login");
+	//if (formulario) {
+	//	formulario.addEventListener("submit", interceptarIniciarSesion);
+	//}
+//}
+// ============================================================
+    // GUARDAR RESERVA,sin base de datos
+// ============================================================
+    const formReservar = document.querySelector("#formReservar");
+    if(formReservar){// este if hace que lo siguiente solo se ejecute si estamos en la ventana correcta
+        formReservar.addEventListener("submit", (event) => {
+            event.preventDefault();
 
-            const nuevoUsuario = {
-                usuario: document.getElementById("username").value.trim(),
-                contraseña: document.getElementById("password").value,
-                nombre: document.getElementById("username").value.trim(),
-                rol: "usuario"
-            };
-
-            const registrados = JSON.parse(localStorage.getItem("usuariosRegistrados")) || [];
-            registrados.push(nuevoUsuario);
-            localStorage.setItem("usuariosRegistrados", JSON.stringify(registrados));
-
-            alert("Registrado correctamente");
-            window.location.href = "registrado.html";
-        });
-    }
-
-    // SESION ACTIVA EN EL NAV
-    const usuario = localStorage.getItem("usuario");
-    const nombre = localStorage.getItem("nombre");
-
-    if (usuario) {
-        const loginLink = document.getElementById("nav-login");
-        if (loginLink) {
-            const span = document.createElement("span");
-            span.textContent = `${nombre} (${usuario})`;
-            span.classList.add("nav-usuario-activo");
-            loginLink.replaceWith(span);
-
-            const logoutLink = document.createElement("a");
-            logoutLink.href = "#";
-            logoutLink.textContent = "Cerrar sesión";
-            logoutLink.classList.add("btn", "btn-secundario", "btn-chico");
-            logoutLink.addEventListener("click", (e) => {
-                e.preventDefault();
-                localStorage.removeItem("usuario");
-                localStorage.removeItem("nombre");
-                localStorage.removeItem("rol");
-                window.location.href = "iniciosesion.html";
-            });
-
-            const li = document.createElement("li");
-            li.appendChild(logoutLink);
-            span.parentElement.after(li);
-        }
-    }
-
-    // LISTADO DE RESERVAS
-    const reservasTable = document.getElementById("lista-reservas");
-    const bienvenidaReservas = document.getElementById("bienvenida");
-
-    if (reservasTable && usuario) {
-        if (bienvenidaReservas) {
-            bienvenidaReservas.textContent = `Bienvenido, ${nombre} (${usuario}). Aquí están tus reservas:`;
-        }
-
-        const reservasGuardadas = JSON.parse(localStorage.getItem("reservas")) || [];
-        reservasGuardadas.forEach((r) => {
-            const fila = document.createElement("tr");
-            fila.innerHTML = `
-                <td>${r.sala}</td>
-                <td>${r.fecha}</td>
-                <td>${r.horario}</td>
-                <td>${r.estado}</td>
-            `;
-            reservasTable.appendChild(fila);
-        });
-    }
-
-    // GUARDAR RESERVA
-    const formReservar = document.getElementById("formReservar");
-    if (formReservar) {
-        formReservar.addEventListener("submit", (e) => {
-            e.preventDefault();
-
-            const sala = document.getElementById("sala").value;
-            const fecha = document.getElementById("fecha").value;
-            const horario = document.getElementById("horario").value;
-
-            const reservasGuardadas = JSON.parse(localStorage.getItem("reservas")) || [];
-            reservasGuardadas.push({ sala, fecha, horario, estado: "Pendiente" });
-            localStorage.setItem("reservas", JSON.stringify(reservasGuardadas));
-
-            alert("Reserva creada con éxito");
+            const sala = document.querySelector("#sala").value;
+            const fecha = document.querySelector("#fecha").value;
+            const horario = document.querySelector("#horario").value;
+            
+            alert( `reserva creada para el ${fecha} a las ${horario} en la sala ${sala}`);
             window.location.href = "turnos.html";
         });
     }
 
-});
+const idUsuarioActivo = localStorage.getItem("idUsuario");
+    if (idUsuarioActivo) {
+        fetch(resolverRuta("data/datos.json"))
+            .then(response => response.json())
+            .then(datos => tablaTurnos(datos.turnos, idUsuarioActivo));
+    }
+// ============================================================
+    //la tabla de los turnos render,todavia no arranca y ni llame a local storage
+// ============================================================
+function tablaTurnos(tTurnos,idUsuario){
+    const tabla = document.querySelector("#listaDeTurnos");
+    if(!tabla) return;
+    const misTurnos=tTurnos.filter(t=>t.usuarioID===idUsuario);
+    //const misTurnos = JSON.parse(localStorage.getItem("turnos")) || [];
+    misTurnos.foreach(turno=>{
+        const fila = document.createElement("tr");
+        fila.innerHTML =`
+        <td>${turno.fecha}</td>
+        <td>${turno.horaI}</td>
+        <td>${turno.hora}</td>
+        <td>${turno.sala}</td>
+        <td>${turno.aDDs? "si":"no"}</td>
+        <td><a href="rodri.html" class="btn btn-principal">ticket</a></td>
+        <td><button class="btn btn-secundario">cancelar reserva</button></td>
+        <td><button class="btn btn-secundario">reprogramar</button></td>
+        `;//la segunda td hora hay que sumar +2horas a la hora base
+        tabla.appendChild(fila);
+    });
+
+    const idUsuarioActivo = localStorage.getItem("idUsuario");
+    if (idUsuarioActivo) {
+        fetch(resolverRuta("data/datos.json"))
+            .then(response => response.json())
+            .then(datos => tablaTurnos(datos.turnos, idUsuarioActivo));
+    }
+    
+}
+
+
+
+
+
+})
