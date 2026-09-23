@@ -30,9 +30,6 @@ Permite a los usuarios:
 El sitio está desarrollado únicamente con **HTML semántico** y **CSS básico**, sin frameworks ni JavaScript, cumpliendo con las restricciones del trabajo práctico que especifico el profe.
 
 ---
-
-##  Estructura de carpetas
----
 ```
 Proyecto-groovespace/
 │
@@ -84,19 +81,6 @@ Proyecto-groovespace/
     ├── turnos.html
     └── ubicacion.html
 ```
-
-## funcionalidades previstas para la siguiente entrega:
-mejorar prolijidad
-arreglar errores de css
-fusionar en un grid el inicio sesion con el registro(request parga)
-hacer que las paginas tipo formulario al menos devuelvan al inicio
-los botones reservar y consultar aparecer y desparacer si el usuario inicio sesion o no
-agregar animacion al header
-casos de uso
-agregar boton que lleve al inicio de pagina
-agregar imagenes ya sean de stock o de ia para ilustrar 
-crear y arreglar las paginas reservar y consultar,una un forms y otra asumo que ya tiene que ver con javascript
-cambiar los "li" de index
 
 ## Especificación del caso de uso: Solicitar reserva
 Nombre: Solicitud de reserva
