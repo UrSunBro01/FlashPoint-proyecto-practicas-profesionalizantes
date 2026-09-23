@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ticket de reserva | GrooveSpace</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fuentes.css">
+
+    <style>
+
+        .pagina-ticket {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        .ticket-contenedor {
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto;
+
+            background: #10101f;
+
+            border: 1px solid rgba(0, 155, 173, 0.35);
+            border-radius: 14px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(0, 155, 173, 0.06);
+
+            overflow: hidden;
+        }
+
+        .ticket-superior {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            min-height: 130px;
+            padding: 25px 35px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(24, 25, 128, 0.65),
+                    rgba(10, 10, 26, 0.9)
+                );
+
+            border-bottom: 1px solid rgba(0, 155, 173, 0.25);
+        }
+
+        .ticket-marca {
+            margin-bottom: 7px;
+
+            color: var(--color-secundario);
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 4px;
+        }
+
+        .ticket-titulo {
+            margin: 0;
+
+            color: #ffffff;
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 24px;
+
+            letter-spacing: 1px;
+        }
+
+        .ticket-subtitulo {
+            margin: 7px 0 0;
+
+            color: #9696a8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .ticket-codigo {
+            min-width: 180px;
+            padding-left: 25px;
+
+            text-align: right;
+
+            border-left: 1px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .ticket-codigo span {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #7e7e91;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 10px;
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+        }
+
+        .ticket-codigo strong {
+            color: var(--color-secundario);
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 18px;
+
+            letter-spacing: 2px;
+        }
+
+        .ticket-contenido {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+        }
+
+        .ticket-seccion {
+            padding: 28px 35px;
+        }
+
+        .ticket-seccion + .ticket-seccion {
+            border-left: 1px dashed rgba(255, 255, 255, 0.15);
+        }
+
+        .ticket-seccion h2 {
+            margin: 0 0 22px;
+
+            color: #ffffff;
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 13px;
+
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .datos-reserva {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px 30px;
+        }
+
+        .dato-ticket {
+            min-width: 0;
+        }
+
+        .dato-ticket span {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: #77778a;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 10px;
+            font-weight: bold;
+
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .dato-ticket strong {
+            display: block;
+
+            color: #eeeeF4;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 15px;
+
+            font-weight: 600;
+
+            word-break: break-word;
+        }
+
+        .dato-destacado {
+            grid-column: span 2;
+
+            padding: 16px;
+
+            background: rgba(0, 155, 173, 0.07);
+
+            border: 1px solid rgba(0, 155, 173, 0.18);
+            border-radius: 8px;
+        }
+
+        .dato-destacado strong {
+            color: var(--color-secundario);
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 18px;
+        }
+
+        .ticket-extra {
+            margin-top: 20px;
+            padding: 13px 15px;
+
+            background: rgba(255, 255, 255, 0.025);
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+        }
+
+        .ticket-extra span {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: var(--color-secundario);
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 10px;
+
+            letter-spacing: 1px;
+        }
+
+        .ticket-extra strong {
+            color: #d8d8e2;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 13px;
+
+            font-weight: normal;
+
+            line-height: 1.5;
+        }
+
+        .ticket-corte {
+            position: relative;
+
+            height: 1px;
+
+            border-top: 1px dashed rgba(255, 255, 255, 0.18);
+        }
+
+        .ticket-corte::before,
+        .ticket-corte::after {
+            content: "";
+
+            position: absolute;
+            top: -9px;
+
+            width: 18px;
+            height: 18px;
+
+            background: #0a0a1a;
+
+            border-radius: 50%;
+        }
+
+        .ticket-corte::before {
+            left: -9px;
+        }
+
+        .ticket-corte::after {
+            right: -9px;
+        }
+
+        .ticket-pie {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 20px 35px;
+
+            background: rgba(24, 25, 128, 0.22);
+        }
+
+        .ticket-estado {
+            color: #9696a8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .ticket-estado strong {
+            color: var(--color-secundario);
+        }
+
+        .acciones-ticket {
+            display: flex;
+            gap: 10px;
+        }
+
+        .acciones-ticket button,
+        .acciones-ticket .btn {
+            width: 145px;
+            min-width: 145px;
+            height: 38px;
+
+            padding: 10px 18px;
+
+            box-sizing: border-box;
+
+            border: none;
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+
+            text-decoration: none;
+            text-align: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-imprimir {
+            background: var(--color-secundario);
+            color: #ffffff;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .btn-imprimir:hover {
+            background: #00afc4;
+            transform: translateY(-1px);
+        }
+
+        .mensaje-error {
+            max-width: 700px;
+
+            margin: 60px auto;
+            padding: 40px 30px;
+
+            text-align: center;
+
+            background: #10101f;
+
+            border: 1px solid rgba(184, 2, 93, 0.35);
+            border-radius: 12px;
+        }
+
+        .mensaje-error h1 {
+            margin: 0 0 10px;
+
+            color: #ffffff;
+
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 24px;
+        }
+
+        .mensaje-error p {
+            margin: 0 0 25px;
+
+            color: #b8b8c8;
+
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 14px;
+        }
+
+
+        @media (max-width: 750px) {
+
+            .pagina-ticket {
+                padding: 25px 10px;
+            }
+
+            .ticket-superior {
+                align-items: flex-start;
+                flex-direction: column;
+
+                gap: 20px;
+
+                padding: 25px;
+            }
+
+            .ticket-codigo {
+                width: 100%;
+
+                padding: 15px 0 0;
+
+                text-align: left;
+
+                border-top: 1px dashed rgba(255, 255, 255, 0.2);
+                border-left: none;
+            }
+
+            .ticket-contenido {
+                grid-template-columns: 1fr;
+            }
+
+            .ticket-seccion {
+                padding: 25px;
+            }
+
+            .ticket-seccion + .ticket-seccion {
+                border-top: 1px dashed rgba(255, 255, 255, 0.15);
+                border-left: none;
+            }
+
+            .datos-reserva {
+                grid-template-columns: 1fr;
+            }
+
+            .dato-destacado {
+                grid-column: span 1;
+            }
+
+            .ticket-pie {
+                align-items: stretch;
+                flex-direction: column;
+
+                padding: 20px 25px;
+            }
+
+            .acciones-ticket {
+                flex-direction: column;
+            }
+
+            .acciones-ticket button,
+            .acciones-ticket .btn {
+                width: 100%;
+            }
+
+        }
+
+
+        /* IMPRESIÓN */
+
+        @media print {
+
+            @page {
+                size: auto;
+                margin: 0;
+            }
+
+            html,
+            body {
+                width: 100%;
+                margin: 0 !important;
+                padding: 0 !important;
+
+                background: #ffffff !important;
+            }
+
+            header,
+            footer,
+            .acciones-ticket {
+                display: none !important;
+            }
+
+            main {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .pagina-ticket {
+                width: 100%;
+                max-width: none;
+
+                margin: 0 !important;
+                padding: 10mm !important;
+            }
+
+            .ticket-contenedor {
+                width: 100%;
+                max-width: none;
+
+                margin: 0 !important;
+
+                background: #ffffff !important;
+
+                border: 2px solid #000000;
+                border-radius: 0;
+
+                box-shadow: none;
+
+                color: #000000;
+
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .ticket-superior {
+                min-height: auto;
+
+                padding: 18px 25px;
+
+                background: #ffffff !important;
+
+                border-bottom: 2px solid #000000;
+            }
+
+            .ticket-marca,
+            .ticket-codigo strong,
+            .dato-destacado strong,
+            .ticket-extra span,
+            .ticket-estado strong {
+                color: #000000 !important;
+            }
+
+            .ticket-titulo,
+            .ticket-seccion h2,
+            .dato-ticket strong {
+                color: #000000 !important;
+            }
+
+            .ticket-subtitulo,
+            .ticket-codigo span,
+            .dato-ticket span,
+            .ticket-extra strong,
+            .ticket-estado {
+                color: #333333 !important;
+            }
+
+            .ticket-contenido {
+                background: #ffffff !important;
+            }
+
+            .ticket-seccion {
+                background: #ffffff !important;
+
+                padding: 20px 25px;
+            }
+
+            .ticket-seccion + .ticket-seccion {
+                border-left: 1px dashed #555555;
+            }
+
+            .dato-destacado {
+                background: #ffffff !important;
+
+                border: 1px solid #000000;
+            }
+
+            .ticket-extra {
+                background: #ffffff !important;
+
+                border: 1px solid #555555;
+            }
+
+            .ticket-corte {
+                border-top: 1px dashed #000000;
+            }
+
+            .ticket-corte::before,
+            .ticket-corte::after {
+                background: #ffffff !important;
+
+                border: 1px solid #000000;
+            }
+
+            .ticket-pie {
+                padding: 14px 25px;
+
+                background: #ffffff !important;
+
+                border-top: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="logo">
+
+            <a href="index.html" class="logo-link">
+
+                <img
+                    src="../iconos/logo.png"
+                    alt="Logo de GrooveSpace"
+                    class="logo-image"
+                >
+
+            </a>
+
+            <p class="subtitulo">
+                Trabajo práctico · Leopoldo Marechal
+            </p>
+
+        </div>
+
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a
+                        href="registrarse.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Registrarse
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="iniciosesion.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Iniciar sesión
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="consultar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Consultar salas
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="reservar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Reservar sala
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <div class="pagina-ticket">
+
+            <section id="ticket" class="ticket-contenedor">
+
+                <div class="ticket-superior">
+
+                    <div>
+
+                        <div class="ticket-marca">
+                            GROOVESPACE
+                        </div>
+
+                        <h1 class="ticket-titulo">
+                            Comprobante de reserva
+                        </h1>
+
+                        <p class="ticket-subtitulo">
+                            Presentá este comprobante el día de tu reserva.
+                        </p>
+
+                    </div>
+
+
+                    <div class="ticket-codigo">
+
+                        <span>
+                            CÓDIGO DE RESERVA
+                        </span>
+
+                        <strong id="codigo">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ticket-contenido">
+
+                    <div class="ticket-seccion">
+
+                        <h2>
+                            Datos de la reserva
+                        </h2>
+
+
+                        <div class="datos-reserva">
+
+                            <div class="dato-ticket dato-destacado">
+
+                                <span>
+                                    Sala reservada
+                                </span>
+
+                                <strong id="sala">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div class="dato-ticket">
+
+                                <span>
+                                    Fecha
+                                </span>
+
+                                <strong id="fecha">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div class="dato-ticket">
+
+                                <span>
+                                    Horario
+                                </span>
+
+                                <strong id="horario">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div class="dato-ticket">
+
+                                <span>
+                                    Duración
+                                </span>
+
+                                <strong id="duracion">
+                                    -
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="ticket-seccion">
+
+                        <h2>
+                            Datos del cliente
+                        </h2>
+
+
+                        <div class="dato-ticket">
+
+                            <span>
+                                Nombre completo
+                            </span>
+
+                            <strong id="nombre">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="ticket-extra">
+
+                            <span>
+                                Teléfono de contacto
+                            </span>
+
+                            <strong id="contacto">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="ticket-extra">
+
+                            <span>
+                                Equipamiento adicional
+                            </span>
+
+                            <strong id="equipamiento">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ticket-corte"></div>
+
+
+                <div class="ticket-pie">
+
+                    <div class="ticket-estado">
+
+                        Estado:
+                        <strong>
+                            Reserva generada
+                        </strong>
+
+                    </div>
+
+
+                    <div class="acciones-ticket">
+
+                        <button
+                            type="button"
+                            class="btn-imprimir"
+                            onclick="window.print()"
+                        >
+                            Imprimir ticket
+                        </button>
+
+
+                        <a
+                            href="reservar.html"
+                            class="btn btn-principal btn-chico"
+                        >
+                            Nueva reserva
+                        </a>
+
+
+                        <a
+                            href="index.html"
+                            class="btn btn-secundario btn-chico"
+                        >
+                            Volver al inicio
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Trabajo práctico · GrooveSpace
+        </p>
+
+        <p>
+            Boys From Merlo · © 2026
+        </p>
+
+        <p>
+            Ahreloco actualización 2
+        </p>
+
+        <a href="sobrenosotros.html">
+            Sobre nosotros
+        </a>
+
+    </footer>
+
+
+    <script>
+
+        const reservaGuardada = localStorage.getItem("reserva");
+
+        if (reservaGuardada) {
+
+            const reserva = JSON.parse(reservaGuardada);
+
+            document.getElementById("codigo").textContent =
+                reserva.codigo;
+
+            document.getElementById("nombre").textContent =
+                reserva.nombre;
+
+            document.getElementById("contacto").textContent =
+                reserva.contacto;
+
+            document.getElementById("sala").textContent =
+                reserva.sala;
+
+            document.getElementById("fecha").textContent =
+                reserva.fecha;
+
+            document.getElementById("horario").textContent =
+                reserva.horario;
+
+            document.getElementById("duracion").textContent =
+                reserva.duracion + " hora(s)";
+
+            document.getElementById("equipamiento").textContent =
+                reserva.equipamiento
+                    ? "Sí, se agregó equipamiento adicional"
+                    : "No se agregó equipamiento adicional";
+
+        } else {
+
+            document.getElementById("ticket").innerHTML = `
+
+                <div class="mensaje-error">
+
+                    <h1>
+                        No hay ninguna reserva
+                    </h1>
+
+                    <p>
+                        No se encontró una reserva guardada.
+                        Primero tenés que completar el formulario de reserva.
+                    </p>
+
+                    <a
+                        href="reservar.html"
+                        class="btn btn-principal btn-chico"
+                    >
+                        Ir a reservar
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+

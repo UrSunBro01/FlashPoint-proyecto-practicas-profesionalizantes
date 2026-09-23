@@ -16,219 +16,244 @@
 
         .pagina-reserva {
             width: 100%;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-        }
-
-        .reserva {
-            width: 100%;
-            max-width: 700px;
-            margin: 35px auto;
-
-            padding: 30px;
-
-            background: rgba(10, 10, 26, 0.82);
-
-            border: 1px solid rgba(0, 155, 173, 0.25);
-            border-radius: 12px;
-
-            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
-        }
-
-        .seccion-etiqueta {
-            display: block;
-
-            margin-bottom: 7px;
-
-            color: var(--color-secundario);
-
-            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
-            font-size: 11px;
-            font-weight: bold;
-
-            letter-spacing: 2px;
-        }
-
-        .reserva h1 {
-            margin: 0 0 10px;
-
-            text-align: left;
-
-            font-size: 32px;
-
-            letter-spacing: 1px;
-        }
-
-        .reserva-descripcion {
-            margin: 0 0 25px;
-
-            color: #b8b8c8;
-
-            font-family: "Segoe UI", Arial, sans-serif;
-            font-size: 14px;
-
-            line-height: 1.6;
+            padding: 45px 20px;
         }
 
         .formulario-reserva {
-            display: flex;
-            flex-direction: column;
-
-            width: 100%;
+            padding: 35px;
+            background: #10101f;
+            border: 1px solid rgba(0, 155, 173, 0.35);
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
         }
 
-        .formulario-reserva label {
-            margin-bottom: 7px;
-
-            color: #d8d8e2;
-
+        .titulo-reserva {
+            margin: 0 0 8px;
+            color: #ffffff;
             font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-
-            letter-spacing: 0.8px;
+            font-size: 26px;
         }
 
-        .formulario-reserva input[type="date"],
-        .formulario-reserva input[type="time"],
-        .formulario-reserva select {
-            width: 100%;
-
-            height: 42px;
-
-            margin: 0 0 20px;
-            padding: 8px 12px;
-
-            background: rgba(10, 10, 26, 0.9);
-
-            color: var(--color-texto);
-
-            border: 1px solid rgba(0, 155, 173, 0.4);
-            border-radius: 7px;
-
+        .descripcion-reserva {
+            margin: 0 0 30px;
+            color: #9696a8;
             font-family: "Segoe UI", Arial, sans-serif;
             font-size: 14px;
-
-            outline: none;
-
-            transition:
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
         }
 
-        .formulario-reserva input[type="date"]:focus,
-        .formulario-reserva input[type="time"]:focus,
-        .formulario-reserva select:focus {
-            border-color: var(--color-secundario);
-
-            box-shadow: 0 0 0 2px rgba(0, 155, 173, 0.12);
+        .grupo-formulario {
+            margin-bottom: 22px;
         }
 
-        .opcion-reserva {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-
-            margin-bottom: 15px;
-            padding: 14px 16px;
-
-            background: rgba(24, 25, 128, 0.35);
-
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 8px;
-        }
-
-        .opcion-reserva input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-
-            margin: 2px 0 0;
-
-            accent-color: var(--color-secundario);
-
-            flex-shrink: 0;
-        }
-
-        .opcion-reserva label {
-            margin: 0;
-
-            color: #b8b8c8;
-
+        .grupo-formulario label {
+            display: block;
+            margin: 0 0 8px;
+            color: #ffffff;
             font-family: "Segoe UI", Arial, sans-serif;
-            font-size: 12px;
-            font-weight: normal;
-
-            line-height: 1.5;
-            letter-spacing: 0.2px;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 18px;
         }
 
-        .opcion-reserva strong {
-            color: var(--color-secundario);
-
-            font-weight: bold;
+        .grupo-formulario input,
+        .grupo-formulario select {
+            display: block;
+            width: 100%;
+            height: 44px;
+            box-sizing: border-box;
+            padding: 0 14px;
+            background: #181828;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 7px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 14px;
+            outline: none;
         }
 
-        .acciones-reserva {
+        .grupo-formulario input:focus,
+        .grupo-formulario select:focus {
+            border-color: var(--color-secundario);
+        }
+
+        .fila-formulario {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .fila-formulario .grupo-formulario {
+            min-width: 0;
+        }
+
+        .fila-formulario input[type="date"] {
+            padding: 0 10px 0 14px;
+        }
+
+        .fila-formulario input[type="number"] {
+            padding: 0 14px;
+        }
+
+        .selector-horario {
             display: flex;
             justify-content: center;
-            align-items: center;
-
-            gap: 12px;
-
-            width: 100%;
-
-            margin-top: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .acciones-reserva input[type="submit"],
-        .acciones-reserva .btn {
-            min-width: 180px;
-
+        .selector-horario label {
+            position: relative;
+            flex: 0 0 calc(25% - 10px);
+            box-sizing: border-box;
             margin: 0;
-            padding: 10px 18px;
+        }
 
+        .selector-horario input {
+            position: absolute;
+            width: auto;
+            height: auto;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .horario-opcion {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 42px;
+            box-sizing: border-box;
+            background: #181828;
+            color: #c8c8d4;
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 7px;
-
+            text-align: center;
+            cursor: pointer;
             font-family: "Segoe UI", Arial, sans-serif;
-            font-size: 12px;
+            font-size: 13px;
+            transition:
+                background 0.2s ease,
+                border 0.2s ease,
+                color 0.2s ease;
+        }
+
+        .selector-horario input:checked + .horario-opcion {
+            background: rgba(0, 155, 173, 0.18);
+            color: #ffffff;
+            border-color: var(--color-secundario);
+        }
+
+        .selector-horario label:hover .horario-opcion {
+            border-color: var(--color-secundario);
+        }
+
+        .grupo-horarios {
+            margin-bottom: 22px;
+        }
+
+        .titulo-horarios {
+            display: block;
+            margin-bottom: 8px;
+            color: #ffffff;
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 13px;
             font-weight: 600;
         }
 
-        body > footer {
-            margin-top: 35px;
+        .titulo-bloque {
+            margin: 18px 0 10px;
+            color: #77778a;
+            font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-            padding: 20px;
+        .opciones {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
 
-            font-size: 12px;
+        .opciones label {
+            margin: 0;
+            color: #c8c8d4;
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 13px;
+            font-weight: normal;
+            line-height: normal;
+        }
 
-            letter-spacing: 0.5px;
+        .opciones input {
+            width: auto;
+            height: auto;
+            margin: 0;
+            accent-color: var(--color-secundario);
+        }
 
-            opacity: 0.8;
+        .botones-reserva {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .botones-reserva button,
+        .botones-reserva a {
+            flex: 1;
+            padding: 12px 18px;
+            border-radius: 7px;
+            text-align: center;
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .boton-reservar {
+            border: none;
+            background: var(--color-secundario);
+            color: #ffffff;
+        }
+
+        .boton-reservar:hover {
+            background: #00afc4;
+        }
+
+        .boton-volver {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: transparent;
+            color: #ffffff;
         }
 
         @media (max-width: 650px) {
 
-            .reserva {
-                margin: 20px auto;
-
-                padding: 20px;
+            .pagina-reserva {
+                padding: 25px 12px;
             }
 
-            .reserva h1 {
-                font-size: 25px;
+            .formulario-reserva {
+                padding: 25px 20px;
             }
 
-            .reserva-descripcion {
-                font-size: 13px;
+            .fila-formulario {
+                grid-template-columns: 1fr;
             }
 
-            .acciones-reserva {
+            .selector-horario {
+                gap: 10px;
+            }
+
+            .selector-horario label {
+                flex: 0 0 calc(50% - 5px);
+            }
+
+            .botones-reserva {
                 flex-direction: column;
-            }
-
-            .acciones-reserva input[type="submit"],
-            .acciones-reserva .btn {
-                width: 100%;
             }
 
         }
@@ -264,47 +289,39 @@
             <ul>
 
                 <li>
-
                     <a
                         href="registrarse.html"
                         class="btn btn-principal btn-chico"
                     >
                         Registrarse
                     </a>
-
                 </li>
 
                 <li>
-
                     <a
                         href="iniciosesion.html"
                         class="btn btn-principal btn-chico"
                     >
                         Iniciar sesión
                     </a>
-
                 </li>
 
                 <li>
-
                     <a
                         href="consultar.html"
                         class="btn btn-principal btn-chico"
                     >
                         Consultar salas
                     </a>
-
                 </li>
 
                 <li>
-
                     <a
                         href="reservar.html"
                         class="btn btn-principal btn-chico"
                     >
                         Reservar sala
                     </a>
-
                 </li>
 
             </ul>
@@ -313,138 +330,392 @@
 
     </header>
 
+
     <main>
 
         <div class="pagina-reserva">
 
-            <section class="reserva">
+            <form id="formReserva" class="formulario-reserva">
 
-                <span class="seccion-etiqueta">
-                    GROOVESPACE
-                </span>
-
-                <h1>
+                <h1 class="titulo-reserva">
                     Reservar una sala
                 </h1>
 
-                <p class="reserva-descripcion">
-                    Completá los datos para reservar una sala de ensayo
-                    y organizar tu próximo turno.
+                <p class="descripcion-reserva">
+                    Completá los datos para generar tu reserva.
                 </p>
 
-                <form
-                    action="registrado.html"
-                    method="get"
-                    class="formulario-reserva"
-                >
+
+                <div class="fila-formulario">
+
+                    <div class="grupo-formulario">
+
+                        <label for="nombre">
+                            Nombre completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="grupo-formulario">
+
+                        <label for="contacto">
+                            Teléfono de contacto
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="contacto"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="grupo-formulario">
 
                     <label for="sala">
-                        Elegí tu sala
+                        Sala
                     </label>
 
-                    <select
-                        id="sala"
-                        name="sala"
-                        required
-                    >
+                    <select id="sala" required>
 
-                        <option value="">
-                            Seleccioná una opción
+                        <option value="" disabled selected>
+                            Seleccioná una sala
                         </option>
 
-                        <option value="standard">
+                        <option value="Sala Standard">
                             Sala Standard
                         </option>
 
-                        <option value="premium">
+                        <option value="Sala Premium">
                             Sala Premium
                         </option>
 
-                        <option value="bateria">
+                        <option value="Sala de Batería">
                             Sala de Batería
                         </option>
 
                     </select>
 
-                    <label for="fecha">
-                        Fecha del ensayo
-                    </label>
+                </div>
 
-                    <input
-                        type="date"
-                        id="fecha"
-                        name="fecha"
-                        required
-                    >
 
-                    <label for="horario">
-                        Horario de inicio
-                    </label>
+                <div class="fila-formulario">
 
-                    <input
-                        type="time"
-                        id="horario"
-                        name="horario"
-                        required
-                    >
+                    <div class="grupo-formulario">
 
-                    <div class="opcion-reserva">
-
-                        <input
-                            type="checkbox"
-                            id="equipamiento"
-                            name="equipamiento"
-                            value="aceptar"
-                        >
-
-                        <label for="equipamiento">
-                            Agregar equipamiento adicional.
-                            <strong>Atención:</strong>
-                            puede generar un costo extra.
+                        <label for="fecha">
+                            Fecha
                         </label>
 
-                    </div>
-
-                    <div class="opcion-reserva">
-
                         <input
-                            type="checkbox"
-                            id="convivencia"
-                            name="convivencia"
-                            value="aceptar"
+                            type="date"
+                            id="fecha"
                             required
                         >
 
-                        <label for="convivencia">
-                            Acepto las reglas de convivencia.
+                    </div>
+
+
+                    <div class="grupo-formulario">
+
+                        <label for="duracion">
+                            Duración
+                        </label>
+
+                        <input
+                            type="number"
+                            id="duracion"
+                            min="1"
+                            max="8"
+                            placeholder="Ej: 2"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="grupo-horarios">
+
+                    <span class="titulo-horarios">
+                        Horario
+                    </span>
+
+
+                    <p class="titulo-bloque">
+                        Mañana
+                    </p>
+
+                    <div class="selector-horario">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="08:00"
+                                required
+                            >
+
+                            <span class="horario-opcion">
+                                08:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="09:00"
+                            >
+
+                            <span class="horario-opcion">
+                                09:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="10:00"
+                            >
+
+                            <span class="horario-opcion">
+                                10:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="11:00"
+                            >
+
+                            <span class="horario-opcion">
+                                11:00
+                            </span>
                         </label>
 
                     </div>
 
-                    <div class="acciones-reserva">
 
-                        <input
-                            type="submit"
-                            class="btn btn-principal btn-chico"
-                            value="Reservar sala"
-                        >
+                    <p class="titulo-bloque">
+                        Tarde
+                    </p>
 
-                        <a
-                            href="index.html"
-                            class="btn btn-secundario btn-chico"
-                        >
-                            Volver al inicio
-                        </a>
+                    <div class="selector-horario">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="12:00"
+                            >
+
+                            <span class="horario-opcion">
+                                12:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="13:00"
+                            >
+
+                            <span class="horario-opcion">
+                                13:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="14:00"
+                            >
+
+                            <span class="horario-opcion">
+                                14:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="15:00"
+                            >
+
+                            <span class="horario-opcion">
+                                15:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="16:00"
+                            >
+
+                            <span class="horario-opcion">
+                                16:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="17:00"
+                            >
+
+                            <span class="horario-opcion">
+                                17:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="18:00"
+                            >
+
+                            <span class="horario-opcion">
+                                18:00
+                            </span>
+                        </label>
 
                     </div>
 
-                </form>
 
-            </section>
+                    <p class="titulo-bloque">
+                        Noche
+                    </p>
+
+                    <div class="selector-horario">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="19:00"
+                            >
+
+                            <span class="horario-opcion">
+                                19:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="20:00"
+                            >
+
+                            <span class="horario-opcion">
+                                20:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="21:00"
+                            >
+
+                            <span class="horario-opcion">
+                                21:00
+                            </span>
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="horario"
+                                value="22:00"
+                            >
+
+                            <span class="horario-opcion">
+                                22:00
+                            </span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="opciones">
+
+                    <input
+                        type="checkbox"
+                        id="equipamiento"
+                    >
+
+                    <label for="equipamiento">
+                        Agregar equipamiento adicional
+                    </label>
+
+                </div>
+
+
+                <div class="opciones">
+
+                    <input
+                        type="checkbox"
+                        id="convivencia"
+                        required
+                    >
+
+                    <label for="convivencia">
+                        Acepto las normas de convivencia de GrooveSpace
+                    </label>
+
+                </div>
+
+
+                <div class="botones-reserva">
+
+                    <button
+                        type="submit"
+                        class="boton-reservar"
+                    >
+                        Reservar sala
+                    </button>
+
+                    <a
+                        href="index.html"
+                        class="boton-volver"
+                    >
+                        Volver al inicio
+                    </a>
+
+                </div>
+
+            </form>
 
         </div>
 
     </main>
+
 
     <footer>
 
@@ -465,6 +736,42 @@
         </a>
 
     </footer>
+
+
+    <script>
+
+        document.getElementById("formReserva").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+            const contacto = document.getElementById("contacto").value;
+            const sala = document.getElementById("sala").value;
+            const fecha = document.getElementById("fecha").value;
+            const horario = document.querySelector('input[name="horario"]:checked').value;
+            const duracion = document.getElementById("duracion").value;
+            const equipamiento = document.getElementById("equipamiento").checked;
+
+            const codigo = "GS-" + Math.floor(Math.random() * 100000);
+
+            const reserva = {
+                codigo: codigo,
+                nombre: nombre,
+                contacto: contacto,
+                sala: sala,
+                fecha: fecha,
+                horario: horario,
+                duracion: duracion,
+                equipamiento: equipamiento
+            };
+
+            localStorage.setItem("reserva", JSON.stringify(reserva));
+
+            window.location.href = "ticket.html";
+
+        });
+
+    </script>
 
 </body>
 
