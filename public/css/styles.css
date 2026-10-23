@@ -7,18 +7,18 @@
 }
 
 :root {/*ultimo cambio de colores:cyberpunk glow */
-    --color-fondo: #0a0a1a;
-    --color-fondo-sec: #181980;
-    --color-texto: #d0d0e0;
-    --color-texto-sec: #9999a8;
+    --color-fondo-claro: linear-gradient(135deg, #f8f6fb, #eae6f7);
+    --color-fondo-oscuro:linear-gradient(135deg, #1e1e2f, #2c2c3a);
+    --color-texto-claro: #2d2d2d;
+    --color-texto-oscuro: #f0f0f0;
     --color-primario: #3d127b;
     --color-secundario:#009bad ;
     --color-acento: #b8025d;
-    --hover-btn:#0a0a1a;/*color redundante aun asi lo dejo aparte*/
-    --sombra-neon: 0 0 15px color-mix(in srgb, var(--color-secundario) 40%, transparent);
+    --hover-btn:#9b59b6;
+    --sombra-neon: 0 0 15px color-mix(in srgb, var(--color-secundario) 70%, transparent);
     /*paneles by axel*/
-    --panel-fondo: rgba(10, 10, 26, 0.82);       /* fondo "vidrio" de una tarjeta */
-    --panel-fondo-sec: rgba(24, 25, 128, 0.35);  /* fondo de un panel secundario/inset */
+    --panel-fondo-claro: #ffffffcc;       /* fondo "vidrio" de una tarjeta */
+    --panel-fondo-oscuro: rgba(24, 25, 128, 0.35);  /* fondo de un panel secundario/inset */
     --panel-borde: 1px solid rgba(0, 155, 173, 0.25);
     --panel-borde-sutil: 1px solid rgba(0, 155, 173, 0.18);
     --panel-sombra: 0 6px 22px rgba(0, 0, 0, 0.3);
@@ -29,92 +29,60 @@
     --espacio-lg: 1.5rem;
     --espacio-xl: 2.5rem;
 }
-
+/* modo claro y default */
 /* ESTILOS GLOBALES */
 body {
-    background-image: url("../imagenes/cieloestrellado3.jpg");
-    background-size:cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    font-family: "Orbitron", "Segoe UI", 'Arial';/* no conocia segoe,ta flama*/
-    font-size: 1.45rem;
-    min-height: 100vh;
-    margin: 0 0 0 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;        /* para que no choque todo */
-    letter-spacing: 1.5px;
-    margin-bottom:15px;
+    font-family: "Orbitron", 'Segoe UI', Arial, sans-serif;
+    background: var(--color-fondo-claro);
+    color: var(--color-texto-claro);
+    margin: 0;
+    padding: 0;
 }
+
 
 /* LAYOUT PRINCIPAL */
-h1{
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-    color: var(--color-acento);
+header {
+    position: relative;
+    background-color:var(--color-primario);
+    color: var(--color-texto-oscuro);
+    padding: 40px 20px;
     text-align: center;
-    margin-bottom: 20px;
-}
-h2,h3{/* no se si dejar este h2 y h1 de variable*/
-    font-family: "Orbitron", "Segoe UI", 'Arial', sans-serif;
-    font-size: 1.5rem;
-    color: var(--color-acento);
-    text-align: center;
-    margin-bottom: 10px;
-}
-h4,h5{
-    font-family: "Orbitron", "Segoe UI", 'Arial', sans-serif;
-    font-size: 1rem;
-    color: var(--color-texto);
-    text-align: center;
-    margin-bottom: 10px;
-}
-nav{
-	list-style: none;
-	display: flex;
-	justify-content: center;
-	/* justify-content:
-		space-between
-		flex-end
-		flex-start
-		space-around
-		space-evenly
-	/ */
-	align-items: center;
-	flex-wrap: wrap;
-	/* flex-wrap:
-		wrap
-		nowrap
-		wrap-reverse/ */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-
-nav a {
-	display: block;
-	padding: 15px 20px;
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
-}
-
-
-header{
-    /* remuevo temporalmente el position:sticky; y el background-image: url("../imagenes/cieloestrellado3.jpg"); */
-    top:0;
-    z-index: 10;
+nav ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;          /* centrado horizontal */
-    padding: 5px;
-    flex-wrap: wrap; /* para que los elementos se ajusten en pantallas pequeñas */
-    box-shadow: var(--sombra-neon);
+    justify-content: center;
+    list-style: none;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: var(--color-fondo-claro);
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-main{
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--color-primario);
+    color: var(--color-texto-oscuro);
+}
+
+
+main section{
     display: flex;
     flex-direction: column;  /* para que los elementos se apilen verticalmente */
     align-items: center;     /* centrado horizontal */
@@ -122,12 +90,17 @@ main{
     margin: 0 auto;          /* centrado horizontal */
     padding: 20px;
 }
+
 footer{
-    display: flex;
-    justify-content: center;
+    background-color: var(--color-fondo-claro);
+    color:var(--color-texto-claro);
+    text-align: center;
+    padding: 15px;
     width: 98%;
+    font-size: 0.9em;
     gap: var(--espacio-lg);        /* te quiero gap*/
-    margin-top: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 /* COMPONENTES (botones, formularios, tarjetas, tablas)*/
@@ -141,7 +114,7 @@ ul {/* ya se que englobar todo el ul es malo pero weno,a rework*/
 
 
 aside {
-    background-color: var(--color-fondo);
+    background-color: var(--color-fondo-claro);
     padding: 20px;
     border-radius: 10px;
     /* XD */
@@ -202,6 +175,7 @@ input[type="checkbox"] {
     width:100%;
     max-width: 600px;
     margin: 0 auto;
+    
 }
 
 .fotos img {
@@ -233,10 +207,11 @@ input[type="checkbox"] {
     white-space: normal;
 }
 /* logo que a su vez es boton con sabor a tamarindo y se identifica como helicoptero apache */
-.logo{
-    display: flex;
-    align-items: center;
-    gap: var(--espacio-lg); /* separación entre logo y subtítulo */
+.logo {
+    width: 180px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .logo-link {
@@ -248,28 +223,18 @@ input[type="checkbox"] {
     margin:5px;
 }
 .logo-image {
-    width: auto;
     height: 150px;
     object-fit: contain;
-    
 }
 .logo-image:hover {/* los hover son cuando pasa el mouse por encima del objeto*/
     filter: drop-shadow(var(--color-secundario) 0px 0px 15px);
     transform: scale(1.05);
 }
-.logo .subtitulo {
-    margin-top: 2px;
-    font-size: var(--espacio-md);
-    color: var(--color-secundario);
-    letter-spacing: var(--espacio-xs);
-    font-weight: 300;
-    max-width: 400px;/* parche rapido,no se por que esto se hizo gigante haciendo que los botones se vayan abajo*/
 
-}
 /* formulario*/
 .form-container{
     font-family: "Orbitron", "Segoe UI", 'Arial';
-    background-color: var(--color-primario);
+    background-color: var(--color-fondo-claro);
     color: var(--color-texto);
     padding: 20px;
     margin-top: 20px;
@@ -307,51 +272,24 @@ input[type="checkbox"] {
 }
 /*botones (como el abel)*/
 .btn,input[type="submit"]{/*no existen herencias como en poo,sera todo a mano nomas,BOTON BASE*/
-    display: inline-block;
+    color: var(--color-texto-oscuro);
+    background-color: var(--color-primario);
     text-decoration: none;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    border:none;
+    font-weight: bold;
     text-align: center;
     cursor: pointer;
     letter-spacing: 1px;
-    color: var(--color-texto);
-    background-color: var(--color-secundario);
-    
-    font-size: 0.95rem;
+    border-radius: 25px;
+    padding: 12px 25px;
+    margin: var(--espacio-sm);
     font:inherit;
-    appearance: none;
-    border: none;
-    margin: 1.5%;
-    }
-    
+    transition: background-color 0.3s ease;
+}
 .btn:hover{
     background-color: var(--hover-btn);
-    color: var(--color-acento);
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
-}
-input[type="submit"]:hover{
-    background-color: var(--hover-btn);
-    color: var(--color-acento);
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.8));
-}
-    
-.btn-principal{/*mas quilombo de botones,primero color,despues tamaños*/
-    background-color: var(--color-secundario);
 }
 
-.btn-secundario{
-    background-color: var(--color-acento);
-}
-
-.btn-grande{
-    padding: 10px 20px;
-}
-
-.btn-chico{
-    padding: 5px 5px;
-}
 
 
 .btntop{/*me re copo la idea de este boton.siempre lo veo en pag profesionales,sin javascript hice este basico*/
@@ -380,48 +318,36 @@ input[type="submit"]:hover{
     background-color: var(--hover-btn);
     transform: scale(1.05);
 }
+/* Boton modo oscuro arriba a la derecha by leandro*/
+.btn-dark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.btn-dark:hover {
+    color: #9b59b6;
+}
 /*tarjeta*/
 /*alguien hagase cristiano que aca se pudre*/
 .tarjeta {
-    width: 100%;
-    max-width: 700px;
+    width: 90%;
     margin: 20px auto;
     padding: 10px;
-    background: var(--panel-fondo);
+    background: var(--panel-fondo-claro);
     border: var(--panel-borde);
     border-radius: 12px;
     box-shadow: var(--panel-sombra);
     color: var(--color-texto);
     text-align: center;
 }
-.tarjeta h1,
-.tarjeta h2,
-.tarjeta h3 {
-    margin: 0 0 10px;
-    font-size: 20px;
-    letter-spacing: 1px;
-}
 
-
-.tarjeta--chica {
-    max-width: 1000px;
-}
-
-.tarjeta--mediana {
-    max-width: 1150px;
-}
-
-.tarjeta--completa {
-    max-width: 1500px;
-}
-
-.tarjeta--izquierda {
-    text-align: left;
-}
-.tarjeta--izquierda h1,
-.tarjeta--izquierda h2 {
-    text-align: left;
-}
 /*paneles port by rodri*/
 .panel-secundario {
     max-width: 98%;
@@ -507,47 +433,73 @@ input[type="submit"]:hover{
     border: none;
     margin: 1.5%;
 }
-
-
-
-
-
-
-@media (max-width: 650px) {/*comienzo a convertir a celular que bardo xd*/
-    body {
-        font-size: 16px;
-        letter-spacing: 1px;
-    }
-    .logo-image {
-        height: 60px;
-    }
-    .btn-chico {
-        min-width: 60px;
-        font-size: 0.65rem;
-    }
-    .btntop {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-    }
-    .btn-grande {
-        min-width: 100%;
-        font-size: 0.85rem;
-    }
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        gap: var(--espacio-sm);
-    }
-    footer {
-        flex-direction: column;
-        gap: var(--espacio-sm);
-        text-align: center;
-    }
-    .grid-info {
-        grid-template-columns: 1fr;
-    }
-    .grid-2col {
-        grid-template-columns: 1fr;
-    }
+/*modo oscuro*/
+body.dark-mode {
+    background: linear-gradient(135deg, #1e1e2f, #2c2c3a);
+    color: #f0f0f0;
 }
+
+body.dark-mode header {
+    background-color: rgba(30, 30, 47, 0.9);
+    color: #fff;
+}
+
+body.dark-mode nav ul {
+    background-color: rgba(50,50,70,0.7);
+}
+
+body.dark-mode nav ul li a {
+    color: #f0f0f0;
+}
+
+body.dark-mode nav ul li a:hover {
+    background-color: #6a0dad;
+    color: #fff;
+}
+
+body.dark-mode main section {
+    background-color: rgba(40,40,60,0.9);
+    color: #fff;
+}
+
+body.dark-mode footer {
+    background-color: rgba(30,30,47,0.7);
+    color: #ccc;
+}
+
+body.dark-mode .login-card {
+    background-color: rgba(40,40,60,0.9);
+    color: #fff;
+}
+
+body.dark-mode .login-card input,
+body.dark-mode .login-card select {
+    background-color: #2c2c3a;
+    border: 1px solid #555;
+    color: #f0f0f0;
+}
+
+body.dark-mode .login-card input:focus,
+body.dark-mode .login-card select:focus {
+    border-color: #9b59b6;
+}
+
+body.dark-mode .btn-morado {
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+body.dark-mode .btn-morado:hover {
+    background-color: #6a0dad;
+}
+
+body.dark-mode .btn-dark {
+    color: #f0f0f0;
+}
+
+
+
+
+
+
+

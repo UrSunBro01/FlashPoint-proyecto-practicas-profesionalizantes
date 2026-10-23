@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOOM | GrooveSpace</title>
+
+    <!-- Cargamos los estilos y el emulador js-dos desde Internet -->
+    <link rel="stylesheet" href="../css/fuentes.css">
+    <link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
+    <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
+
+    <style>
+        /* Evita que el padding y los bordes alteren los tamaños */
+        * { box-sizing: border-box; }
+
+        /* Estilos generales de la página */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #0a0a1a;
+            color: #eeeeee;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        /* Encabezado de GrooveSpace */
+        header {
+            padding: 20px;
+            text-align: center;
+            background: #111122;
+            border-bottom: 2px solid #b8025d;
+        }
+
+        /* Reemplazamos el texto DOOM por el logo personalizado */
+        .logo-doom {
+            display: block;
+            width: min(500px, 90%);
+            max-height: 150px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        header p { margin: 8px 0 0; color: #aaaabb; }
+
+        /* Limita el ancho del contenido y lo centra */
+        main { width: min(1500px, 96%); margin: 25px auto; }
+        .titulo { margin-bottom: 20px; text-align: center; }
+        .titulo h2 { margin-bottom: 8px; }
+        .titulo p { color: #aaaabb; }
+
+        /* Área donde se muestra el juego */
+        .doom-juego {
+            width: 100%;
+            height: min(78vh, 850px);
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            border: 2px solid #7a1515;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(184, 2, 93, 0.2);
+        }
+
+        #dos { width: 100%; height: 100%; background: #000; }
+
+        /* Mensaje que aparece mientras se carga el juego */
+        .cargando {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 24px;
+            background: #000;
+            text-align: center;
+        }
+
+        .cargando h3 { margin: 0; color: #e32626; }
+        .cargando p { color: #bbb; line-height: 1.6; }
+        .error { color: #ff7777 !important; }
+
+        /* Distribuye los botones y define su apariencia */
+        .controles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        button, .boton {
+            padding: 12px 20px;
+            border: 1px solid #b8025d;
+            border-radius: 5px;
+            background: #181980;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover, .boton:hover { background: #3d127b; }
+
+        /* Recuadro con las instrucciones */
+        .instrucciones {
+            margin-top: 25px;
+            padding: 20px;
+            background: #111122;
+            border: 1px solid #292945;
+            border-radius: 8px;
+        }
+
+        .instrucciones h3 { margin-top: 0; color: #e32626; }
+        .instrucciones ul { padding-left: 22px; line-height: 1.9; color: #ccccdd; }
+        .nota { color: #aaaabb; font-size: 13px; line-height: 1.6; }
+        .volver { margin: 25px 0; text-align: center; }
+
+        footer {
+            padding: 18px;
+            background: #111122;
+            border-top: 1px solid #292945;
+            color: #777788;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* Adaptamos los tamaños para pantallas pequeñas */
+        @media (max-width: 768px) {
+            main { width: 96%; margin: 15px auto; }
+            .doom-juego { height: 60vh; min-height: 350px; }
+            .instrucciones { padding: 15px; }
+            .logo-doom { max-height: 110px; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Mostramos el logo guardado en la carpeta imagenes -->
+        <img src="../iconos/doom-groove-space.png" alt="GrooveSpace" class="logo-doom">
+        <p>El secreto de GrooveSpace</p>
+    </header>
+
+    <main>
+        <section class="titulo">
+            <h2>Bienvenido al infierno</h2>
+            <p>Tomate un descanso de tus ensayos y metete a matar demonios.</p>
+        </section>
+        <div class="volver">
+            <a class="boton" href="index.html">Volver a GrooveSpace</a>
+        </div>
+
+        <!-- El emulador se dibuja dentro de este contenedor -->
+        <section class="doom-juego" id="contenedor-juego">
+            <div id="dos"></div>
+
+            <!-- Mensaje temporal de carga que JavaScript oculta al terminar -->
+            <div class="cargando" id="pantalla-carga">
+                <h3>Iniciando DOOM...</h3>
+                <p id="estado-carga">Cargando el jueguito. Esperá unos segundos y no seas impaciente wachin.</p>
+            </div>
+        </section>
+
+        <div class="controles">
+            <button type="button" id="pantalla-completa">Pantalla completa</button>
+            <button type="button" id="recargar">Reiniciar juego</button>
+        </div>
+
+        <section class="instrucciones">
+            <h3>Controles pa juga</h3>
+            <ul>
+                <li><strong>W:</strong> avanzar.</li>
+                <li><strong>S:</strong> retroceder.</li>
+                <li><strong>A / D:</strong> desplazarse lateralmente.</li>
+                <li><strong>Mouse:</strong> girar y apuntar.</li>
+                <li><strong>Clic izquierdo:</strong> disparar.</li>
+                <li><strong>E:</strong> abrir puertas y activar mecanismos.</li>
+                <li><strong>Shift:</strong> correr.</li>
+                <li><strong>Esc:</strong> menú del juego.</li>
+            </ul>
+            <p class="nota">
+                Si encuentran algún error, comuníquense para que podamos solucionarlo.
+                Estos controles son orientativos: la configuración real depende del juego.
+            </p>
+        </section>
+
+        
+    </main>
+
+    <footer>GrooveSpace · Leopoldo Marechal</footer>
+
+    <script>
+        // Guardamos referencias a los elementos que vamos a modificar
+        const contenedorDoom = document.getElementById("dos");
+        const pantallaCarga = document.getElementById("pantalla-carga");
+        const estadoCarga = document.getElementById("estado-carga");
+
+        // Inicia el emulador y le indica dónde encontrar el paquete del juego
+        async function iniciarDoom() {
+            pantallaCarga.style.display = "flex";
+            estadoCarga.classList.remove("error");
+            estadoCarga.textContent = "Conectando con el emulador y cargando el juego...";
+
+            // Comprobamos que la biblioteca externa se haya cargado
+            if (typeof Dos !== "function") {
+                estadoCarga.classList.add("error");
+                estadoCarga.textContent = "No se pudo cargar js-dos. Revisá la conexión a Internet.";
+                return;
+            }
+
+            try {
+                contenedorDoom.innerHTML = "";
+
+                // URL del paquete del juego que intenta ejecutar js-dos
+                await Dos(contenedorDoom, {
+                    url: "https://v8.js-dos.com/bundles/doom.jsdos"
+                });
+
+                // Ocultamos el mensaje cuando termina la inicialización
+                pantallaCarga.style.display = "none";
+            } catch (error) {
+                // Registramos el error y mostramos un aviso
+                console.error("Error al iniciar DOOM:", error);
+                estadoCarga.classList.add("error");
+                estadoCarga.textContent =
+                    "No se pudo cargar el juego. Revisá la conexión y la disponibilidad del paquete.";
+            }
+        }
+
+        // Activa o desactiva la pantalla completa
+        document.getElementById("pantalla-completa").addEventListener("click", async () => {
+            const contenedor = document.getElementById("contenedor-juego");
+
+            try {
+                if (!document.fullscreenElement) {
+                    await contenedor.requestFullscreen();
+                } else {
+                    await document.exitFullscreen();
+                }
+            } catch (error) {
+                console.error("Error al activar pantalla completa:", error);
+            }
+        });
+
+        // Al pulsar reiniciar, volvemos a ejecutar la función de inicio
+        document.getElementById("recargar").addEventListener("click", iniciarDoom);
+
+        // Arrancamos el juego al cargar la página
+        iniciarDoom();
+    </script>
+</body>
+</html>
