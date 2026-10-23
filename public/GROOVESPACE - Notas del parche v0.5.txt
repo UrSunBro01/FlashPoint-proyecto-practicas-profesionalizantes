@@ -1,0 +1,9 @@
+GROOVESPACE - Notas del parche v0.7
+================================
+
+rework visual total de la pagina,tanto en versión pc como móvil,en móvil medio que se copio la interfaz de tiktok,mientras que en pc la de mercado libre
+separe el css en dos:el modo claro y el oscuro,asi el botón cambiador de tema puede existir
+nuevos iconos(temporales) a modo default
+por fin implemente el botón toggle entre modo oscuro y claro,agregado por insistencia de fernandez.
+añadidas las puertas del infierno (secret)
+seguire en versión 0.7b
