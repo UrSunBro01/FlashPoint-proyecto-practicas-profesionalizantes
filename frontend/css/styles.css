@@ -92,6 +92,7 @@ main section{
 }
 
 footer{
+    margin-top: 30px;
     background-color: var(--color-fondo-claro);
     color:var(--color-texto-claro);
     text-align: center;
@@ -127,7 +128,7 @@ strong {
 label {/* regla padre*/
     display: block;
     margin-bottom: 7px;
-    color: #d8d8e2;
+    
     font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
     font-weight: bold;
     letter-spacing: 0.1px;
@@ -171,8 +172,18 @@ input[type="checkbox"] {
 
 
 /* UTILIDADES (clases reutilizables como .text-center, .hidden)*/
+.login-card {
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-claro);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    margin: 30px auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
 .fotos {
-    width:100%;
+    max-width:100%;
     max-width: 600px;
     margin: 0 auto;
     
@@ -194,9 +205,7 @@ input[type="checkbox"] {
     gap: var(--espacio-lg);
     margin: 30px 0;
 }
-.fila-contenido image {
-    flex: 1 1 300px;
-}
+
 
 .texto-lista {
     display: flex;
@@ -243,6 +252,14 @@ input[type="checkbox"] {
     border-radius: 10px;
     box-shadow:var(--sombra-neon);
 }
+.form-container form .btn,
+.form-container form input[type="submit"] {
+    display: flex;
+    width: 100%;
+    margin: var(--espacio-sm) 0;
+}
+
+
 .options-group{/* para agrupar los checkbox y radios*/
     display:flex;
     align-items: flex-start;
@@ -270,27 +287,85 @@ input[type="checkbox"] {
     color: var(--color-acento);
     font-weight: bold;
 }
+.galeria-salas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-lg);
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.galeria-salas .fotos {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.galeria-salas .fotos img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-salas .fotos img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--sombra-neon);
+}
+
+.galeria-salas figcaption {
+    margin-top: var(--espacio-sm);
+    font-size: 0.95rem;
+}
 /*botones (como el abel)*/
-.btn,input[type="submit"]{/*no existen herencias como en poo,sera todo a mano nomas,BOTON BASE*/
+.btn,
+input[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
     color: var(--color-texto-oscuro);
     background-color: var(--color-primario);
     text-decoration: none;
-    border:none;
+    border: none;
+    font: inherit;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
     letter-spacing: 1px;
     border-radius: 25px;
     padding: 12px 25px;
-    margin: var(--espacio-sm);
-    font:inherit;
-    transition: background-color 0.3s ease;
+    margin: var(--espacio-md);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.btn:hover{
+.btn:hover,
+input[type="submit"]:hover {
     background-color: var(--hover-btn);
+    transform: translateY(-1px);
+    box-shadow: var(--sombra-neon);
 }
 
+.btn-principal {
+    background-color: var(--color-primario);
+}
 
+.btn-secundario {
+    color: var(--color-texto-oscuro);
+    background-color: var(--color-primario);
+    color: var(--color-texto-oscuro);
+}
+
+.btn-secundario:hover {
+    background-color: var(--color-primario);
+    color: #fff;
+}
+
+.btn-chico {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
 
 .btntop{/*me re copo la idea de este boton.siempre lo veo en pag profesionales,sin javascript hice este basico*/
     position: fixed;
@@ -337,10 +412,11 @@ input[type="checkbox"] {
 /*tarjeta*/
 /*alguien hagase cristiano que aca se pudre*/
 .tarjeta {
-    width: 90%;
+    max-width: 80%;
+    
     margin: 20px auto;
     padding: 10px;
-    background: var(--panel-fondo-claro);
+    background: transparent;
     border: var(--panel-borde);
     border-radius: 12px;
     box-shadow: var(--panel-sombra);
@@ -372,7 +448,9 @@ input[type="checkbox"] {
     grid-template-columns: 1fr 1fr;
     gap: var(--espacio-sm) var(--espacio-md);
     list-style: none;
-    overflow-x: auto
+    overflow-x: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    white-space: normal;
 }
 
 .grid-2col li {
@@ -383,6 +461,99 @@ input[type="checkbox"] {
     color: var(--color-texto-tenue);
     font-family: "Segoe UI", Arial, sans-serif;
     font-size: 13px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+/*.integrantes en sobre nosotros.decidi pasarlo todo a parte*/
+.integrantes {
+    align-items: stretch;
+}
+
+.integrante {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    padding: 14px 16px;
+    background: rgba(10, 10, 26, 0.55);
+    border: var(--panel-borde-sutil);
+    border-left: 3px solid var(--color-secundario);
+    border-radius: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+/* hueco de foto: si la imagen no existe, queda el circulo con las iniciales */
+.integrante-foto {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    border: 2px solid var(--color-secundario);
+    border-radius: 50%;
+}
+
+.integrante-foto::before {
+    content: "?";
+    position: absolute;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.integrante-foto img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: none;
+}
+
+.integrante-datos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-xs);
+    min-width: 0;
+    text-align: left;
+}
+
+.integrante-nombre {
+    color: #f0f0f0;
+    font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    overflow-wrap: anywhere;
+}
+
+.integrante-rol {
+    color: var(--color-secundario);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+.secreto {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: var(--espacio-sm);
+    background: currentColor;
+    border-radius: 50%;
+    opacity: 0.10;
+    transition: opacity 0.3s ease;
+}
+
+.secreto:hover,
+.secreto:focus-visible {
+    opacity: 0.8;
 }
 
 /*sistema de tablas,un infierno este port*/
@@ -497,9 +668,73 @@ body.dark-mode .btn-dark {
     color: #f0f0f0;
 }
 
+/* etiquetas legibles en modo oscuro */
+body.dark-mode .form-container label {
+    color: var(--color-texto-oscuro);
+}
+.solo-movil,
+.bottom-nav {
+    display: none;
+}
+/* BARRA INFERIOR MOVIL: oculta en pc, mobile.css la muestra */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: min(420px, 92%);
+    height: 64px;
+    align-items: center;
+    justify-content: space-around;
+    background: rgba(24, 25, 128, 0.55);
+    border: var(--panel-borde);
+    border-radius: 22px;
+    box-shadow: var(--panel-sombra);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
 
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: #a9a6bd;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
 
+.nav-item svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
 
+.nav-item.active {
+    color: var(--color-secundario);
+}
 
+.plus-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-secundario);
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    box-shadow: var(--sombra-neon);
+}
 
-
+/* mobile.css invierte estos dos en celular */
+.solo-movil { display: none; }
+.solo-pc { display: block; }

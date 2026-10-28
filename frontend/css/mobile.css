@@ -70,6 +70,7 @@ footer {
  */
 body header,
 body.dark-mode header {
+    max-height: 8rem;
     position: sticky;
     top: 0;
     z-index: 900;
@@ -566,6 +567,7 @@ body.dark-mode .nav-item {
     font-weight: 600;
     white-space: nowrap;
 }
+#nav-login-movil::after { content: "Cuenta"; }
 
 /* el js le pone un color violeta fijo al icono de cuenta cuando hay sesion,
    solo eso w */
@@ -938,4 +940,46 @@ body.dark-mode .btn-salir {
     .nav-item::after {
         font-size: 9.5px;
     }
+}
+@media (max-width: 600px) {
+    .galeria-salas {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .grid-2col.integrantes {
+        grid-template-columns: 1fr;
+    }
+}
+.grid-2col,
+.grid-2col.integrantes {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.integrante {
+    padding: 12px;
+    gap: var(--espacio-sm);
+}
+
+.integrante-foto {
+    flex-basis: 56px;
+    width: 56px;
+    height: 56px;
+}
+/* asegura la barra fija aunque falte la regla base */
+body .bottom-nav,
+body.dark-mode .bottom-nav {
+    position: fixed;
+    z-index: 1000;
+}
+
+/* tu index usa nav-login-movil, el selector actual solo cubre #nav-login */
+#nav-login-movil::after { content: "Cuenta"; }
+
+/* el boton de volver arriba subia encima de la barra */
+.btntop {
+    bottom: calc(84px + env(safe-area-inset-bottom));
+    right: 16px;
+    width: 48px;
+    height: 48px;
 }
