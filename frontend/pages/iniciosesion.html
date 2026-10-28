@@ -7,30 +7,33 @@
         <!-- con este "link" llamo el estilo del archivo CSS a la pagina,hay que ponerlas entodas las sub paginas-->
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/fuentes.css">
+        <link rel="stylesheet" href="../css/mobile.css" media="(max-width: 767px)">
         <script src="../js/script.js" defer></script>
     </head>
     <body>
-    <div id="top"></div><!-- un ancla,para evitar javascript-->
+        <div id="top"></div><!-- un ancla,para evitar javascript-->
         <header>
-            <a href="index.html" class="logo-link">
+            <a href="../index.html" class="logo-link">
                 <picture>
-                    <img src="../iconos/iconovector.svg" alt="Logo de GrooveSpace" class="logo-image" loading="lazy">
+                    <source media="(max-width: 650px)" srcset="../iconos/iconosinletra.svg">
+                    <img src="../iconos/iconovector.svg" alt="Logo de GrooveSpace" class="logo-image">
                 </picture>
             </a>
             <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
             <button id="toggle-dark" class="btn-dark">🌙</button>
         </header>
-            <nav>
-                <ul>
-                    <li><a href="registrarse.html">registrarse</a></li>
-                    <li><a href="iniciosesion.html"id="nav-login">iniciar sesión</a></li>
-                    <li><a href="consultar.html">disponibilidad de salas</a></li>
-                    <!-- esta ultima debe aparecer despues de login/singin-->
-                    <li><a href="reservar.html">reservar sala</a></li>
-                    <li><a href="micuenta.html">mi cuenta</a></li>
-                </ul>
-            </nav>
-        
+
+        <nav>
+            <ul>
+                <li><a href="../pages/registrarse.html">registrarse</a></li>
+                <li><a href="../pages/iniciosesion.html" id="nav-login">iniciar sesión</a></li>
+                <li><a href="../pages/consultar.html">disponibilidad de salas</a></li>
+                <!-- esta ultima debe aparecer despues de login/singin-->
+                <li><a href="../pages/reservar.html">reservar sala</a></li>
+                <li><a href="../pages/micuenta.html">mi cuenta</a></li>
+            </ul>
+        </nav>
+
         <main>
             <section class="form-container"><!-- id mal pueso-->
                 <h2>inicio de sesion:</h2>
@@ -43,16 +46,15 @@
                     
                     <input type="submit" class="btn-chico" value="Iniciar Sesión">
                     <a href="registrarse.html"  class="btn btn-secundario btn-chico">no registrado? registrate!</a>
-                    <a href="index.html" class="btn btn-secundario btn-chico">volver al inicio</a>
+                    <a href="../index.html" class="btn btn-secundario btn-chico">volver al inicio</a>
                 </form>
             </section>
         </main>
-    <footer>
-            <p>el tp, alumnos, profesor, y todo es relacionado</p>
-            <p>la pagina es un trademark de boys from merlo. © 2026</p>
-            <p>ahreloco</p>
+        <footer>
+            <p>GrooveSpace - Tu lugar, tu música</p>
             <a href="sobrenosotros.html">sobre nosotros</a>
         </footer>
+        
 
     </body>
 </html>

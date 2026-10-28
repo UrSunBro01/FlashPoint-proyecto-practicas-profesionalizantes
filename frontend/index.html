@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>tp GrooveSpace</title>
+        <!-- con este "link" llamo el estilo del archivo CSS a la pagina,hay que ponerlas entodas las sub paginas-->
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/fuentes.css">
+        <link rel="stylesheet" href="css/mobile.css" media="(max-width: 767px)">
+        <script src="js/script.js" defer></script>
+    </head>
+    <body>
+        <div id="top"></div><!-- un ancla,para evitar javascript-->
+        <header>
+            <a href="index.html" class="logo-link">
+                <picture>
+                    <source media="(max-width: 650px)" srcset="iconos/iconosinletra.svg">
+                    <img src="iconos/iconovector.svg" alt="Logo de GrooveSpace" class="logo-image">
+                </picture>
+            </a>
+            <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
+            <button id="toggle-dark" class="btn-dark">🌙</button>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="pages/registrarse.html">registrarse</a></li>
+                <li><a href="pages/iniciosesion.html" id="nav-login">iniciar sesión</a></li>
+                <li><a href="pages/consultar.html">disponibilidad de salas</a></li>
+                <!-- esta ultima debe aparecer despues de login/singin-->
+                <li><a href="pages/reservar.html">reservar sala</a></li>
+                <li><a href="pages/micuenta.html">mi cuenta</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- ============ VISTA CELULAR (solo se muestra con mobile.css, < 768px) ============ -->
+            <div class="solo-movil">
+                <div class="m-hero">
+                    <p class="m-saludo" id="m-saludo">Hola 👋</p>
+                    <h2>¿Dónde ensayás hoy?</h2>
+                    <a href="pages/reservar.html" class="m-buscador">🔍 Buscar sala, fecha u horario</a>
+                </div>
+
+                <!-- Accesos rapidos que sacamos de tiktok, ya estaba en la ultima ver. -->
+                <div class="m-accesos">
+                    <a href="pages/reservar.html" class="m-acceso"><span>📅</span>Reservar</a>
+                    <a href="pages/turnos.html" class="m-acceso"><span>🎫</span>Mis reservas</a>
+                    <a href="pages/iniciosesion.html" class="m-acceso" id="acceso-cuenta"><span>👤</span>Mi cuenta</a>
+                </div>
+
+                <!-- No se donde saldra 6usd algo pero ahiv a, pusimos eso. -->
+                <h3 class="m-titulo">Salas de ensayo</h3>
+                <div class="m-lista">
+                    <a href="pages/reservar.html?sala=Sala%201" class="m-sala">
+                        <div class="m-sala-img m-img-1">🎸</div>
+                        <div class="m-sala-info">
+                            <h4>Sala 1</h4>
+                            <p>Ideal para solistas y dúos</p>
+                            <p class="m-precio">$4.500 <small>por hora</small></p>
+                            <p class="m-extra">Micrófono incluido</p>
+                        </div>
+                    </a>
+                    <a href="pages/reservar.html?sala=Sala%202" class="m-sala">
+                        <div class="m-sala-img m-img-2">🥁</div>
+                        <div class="m-sala-info">
+                            <h4>Sala 2</h4>
+                            <p>Banda completa con batería</p>
+                            <p class="m-precio">$7.000 <small>por hora</small></p>
+                            <p class="m-extra">Amplificadores incluidos</p>
+                        </div>
+                    </a>
+                    <a href="pages/reservar.html?sala=Sala%203" class="m-sala">
+                        <div class="m-sala-img m-img-3">🎤</div>
+                        <div class="m-sala-info">
+                            <h4>Sala 3</h4>
+                            <p>Sala grande para grabar</p>
+                            <p class="m-precio">$9.500 <small>por hora</small></p>
+                            <p class="m-extra">Equipo de grabación</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ============ VISTA PC (mobile.css la oculta en celular) ============ -->
+            <section class="solo-pc">
+                <section class="tarjeta">
+                    <h1>Bienvenido al sistema de gestión de salas de GrooveSpace.</h1>
+                    <p>sistema gestion de salas</p>
+                    <p>Optimiza tus reservas de salas de ensayo y evita superposiciones. Accedé a tus turnos, historial y mucho más.</p>
+                </section>
+
+                <section class="tarjeta">
+                    <br><!-- borrar es a futuro-->
+                    <a href="pages/ubicacion.html" class="btn">donde nos ubicamos?</a>
+                    <a href="pages/consultar.html" class="btn">disponibilidad de nuestras salas</a><!-- opciones de relleno de la pag-->
+                </section>
+
+                <section class="tarjeta fila-contenido">
+                    <h3>CONOCE LAS SALAS</h3>
+                    <section class="galeria-salas">
+                        <figure class="fotos">
+                            <img src="imagenes/salastandard.jpg" alt="Foto de la sala standard" title="Sala standard" loading="lazy">
+                            <figcaption>Sala standard</figcaption>
+                        </figure>
+                        <figure class="fotos">
+                            <img src="imagenes/salapremium.jpg" alt="Foto de la sala premium" title="Sala premium" loading="lazy">
+                            <figcaption>Sala premium</figcaption>
+                        </figure>
+                        <figure class="fotos">
+                            <img src="imagenes/salabateriareddit.webp" alt="Foto de la sala de bateria" title="Sala bateria" loading="lazy">
+                            <figcaption>Sala de bateria</figcaption>
+                        </figure>
+                        <figure class="fotos">
+                            <img src="imagenes/extras.webp" alt="Instrumentos extra" title="Extras" loading="lazy">
+                            <figcaption>Incluye otros instrumentos a pedido</figcaption>
+                        </figure>
+                    </section>
+                </section>
+
+                <section>
+                    <br><br>
+                    <section class="tarjeta">
+                        <h3>CONOCÉ GROOVESPACE</h3>
+                        <h4>"TU lugar, TU música"</h4>
+                        <p>
+En GrooveSpace llevamos tus ensayos a otro nivel. Somos un complejo de salas de ensayo ubicado en el polo cultural de la ciudad, creado para que músicos y bandas puedan concentrarse en lo que realmente importa: hacer música.
+
+Olvidate de llamadas, mensajes y esperas para conseguir una sala. Con nuestra plataforma podés consultar la disponibilidad en tiempo real, elegir tu sala, reservar el horario que quieras y obtener tu pase digital, todo desde tu celular y en pocos minutos.
+
+ENCONTRÁ LA SALA IDEAL
+
+Elegí entre nuestras distintas opciones:
+
+Sala Standard
+El espacio perfecto para tus ensayos cotidianos.
+
+Sala Premium
+Más comodidad y equipamiento para llevar tus sesiones al siguiente nivel.
+
+Sala de Batería
+Un espacio preparado especialmente para quienes necesitan hacer vibrar cada golpe.
+
+Además, podés agregar equipamiento e instrumentos extra a tu reserva y conocer el costo total antes de confirmar.
+
+RESERVÁ SIN COMPLICACIONES
+
+Nuestra agenda se actualiza en tiempo real para evitar superposiciones y garantizar que tu horario esté asegurado.
+
+Consultá tus próximas reservas, revisá tu historial de ensayos y cancelá con anticipación cuando sea necesario.
+
+Menos vueltas. Más música.
+
+TODO BAJO CONTROL
+
+Desde la administración, GrooveSpace permite visualizar el estado de todas las salas y gestionar su disponibilidad, mantenimiento y equipamiento.
+
+La información de ocupación se encuentra centralizada para facilitar la organización del complejo y ofrecer una experiencia más fluida tanto para los músicos como para el personal.
+
+DISEÑADO PARA MÚSICOS
+
+GrooveSpace fue pensado para acompañarte donde sea que estés: desde el celular, en el estudio, en el pasillo o incluso antes de subir al escenario.
+
+Su interfaz oscura y sus controles de alto contraste están diseñados para que puedas reservar y consultar tus turnos cómodamente incluso en ambientes con poca iluminación.
+
+Y porque sabemos que cada proyecto musical es único, tu privacidad también importa. La información de tu banda permanece protegida y los monitores públicos muestran únicamente el número y estado de cada sala.
+
+DEJÁ DE BUSCAR UN LUGAR PARA ENSAYAR.
+RESERVÁ. CONECTÁ. TOCÁ.
+
+GrooveSpace — Donde tu música encuentra su espacio.
+                        </p>
+                    </section>
+                </section>
+            </section>
+        </main>
+
+        <footer>
+            <p>GrooveSpace - Tu lugar, tu música</p>
+            <a href="pages/sobrenosotros.html">sobre nosotros</a>
+        </footer>
+
+        <!-- Bottom Floating Nav cel (styles.css la oculta en pc, mobile.css la muestra en celular) -->
+    <nav class="bottom-nav">
+            <a href="index.html" class="nav-item" id="nav-home">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </a>
+            <a href="pages/mis_reservas.html" class="nav-item" id="nav-reservas">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </a>
+            <a href="pages/reservar.html" class="nav-item nav-item-center" id="nav-reservar">
+                <div class="plus-btn">+</div>
+            </a>
+            <a href="pages/salas.html" class="nav-item" id="nav-salas">
+                <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </a>
+            <a href="pages/micuenta.html" class="nav-item active" id="nav-login-movil">
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </a>
+        </nav>
+        
+    </body>
+</html>
