@@ -1,0 +1,37 @@
+GROOVESPACE - Notas del parche v0.9
+================================
+
+[ NUEVAS FUNCIONALIDADES ]
+- Se avanzo con la integracion entre el frontend y el backend.
+- Se mejoro la autenticacion de usuarios y administradores.
+- Se reviso la gestion de sesiones mediante JWT.
+- Se ajustaron las redirecciones segun el rol del usuario.
+- Se mejoro el cierre de sesion para clientes y administradores.
+
+[ PANEL ADMINISTRATIVO ]
+- Se organizo el panel en cuatro secciones: Dashboard, Reservas, Salas y Configuracion.
+- Se incorporo el logo oficial de GrooveSpace.
+- Se mejoro el diseño visual del administrador.
+- Se ajustaron los estilos generales para conseguir una interfaz mas profesional.
+
+[ DASHBOARD Y RESERVAS ]
+- Se trabajo en la agenda visual de reservas tipo Gantt.
+- Se mejoro la distribucion de horarios y salas.
+- Se optimizaron los estilos de los bloques de reservas.
+- Se mejoro la presentacion de los filtros de fecha y sala.
+
+[ BACKEND Y API ]
+- Se revisaron las rutas de usuarios, reservas y salas.
+- Se verifico el funcionamiento de la autenticacion administrativa.
+- Se reviso la comunicacion entre el frontend y la API.
+- Se conservaron las funcionalidades existentes de gestion de reservas.
+
+[ MEJORAS Y AJUSTES ]
+- Se reorganizaron elementos de la interfaz.
+- Se corrigieron detalles visuales y de navegacion.
+- Se preparo el proyecto para continuar con el despliegue en Render.
+
+[ PENDIENTE ]
+- Finalizar las pruebas de integracion entre frontend y backend.
+- Verificar el funcionamiento completo del panel administrativo.
+- Publicar y verificar los ultimos cambios en Render.

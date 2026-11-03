@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>tp GrooveSpace</title>
+        <!-- con este "link" llamo el estilo del archivo CSS a la pagina,hay que ponerlas entodas las sub paginas-->
+        <link rel="stylesheet" href="../css/rodri.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="css/mobile.css" media="(max-width: 767px)">
+        <link rel="stylesheet" href="../css/fuentes.css">
+        <script src="../js/script.js" defer></script>
+    </head>
+    <body>
+    <div id="top"></div><!-- un ancla,para evitar javascript-->
+        <header>
+            <a href="../index.html" class="logo-link">
+                <picture>
+                    <img src="../iconos/iconovector.svg" alt="Logo de GrooveSpace" class="logo-image" loading="lazy">
+                </picture>
+            </a>
+            <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
+            <button id="toggle-dark" class="btn-dark">🌙</button>
+        </header>
+            <nav>
+                <ul>
+                    <li><a href="registrarse.html">registrarse</a></li>
+                    <li><a href="iniciosesion.html"id="nav-login">iniciar sesión</a></li>
+                    <li><a href="consultar.html">disponibilidad de salas</a></li>
+                    <!-- esta ultima debe aparecer despues de login/singin-->
+                    <li><a href="reservar.html">reservar sala</a></li>
+                    <li><a href="micuenta.html">mi cuenta</a></li>
+                </ul>
+            </nav>
+        
+
+<!-- port from axel-->
+        <main>
+            <div class="tarjeta tarjeta--completa">
+
+                <section class="tarjeta tarjeta--completa tarjeta--izquierda">
+                    <span class="seccion-etiqueta">DISPONIBILIDAD</span>
+                    <h1>Consultar disponibilidad</h1>
+                    <p>Consultá el estado y la disponibilidad de las salas de ensayo para organizar tu próximo turno.</p>
+                </section>
+
+
+                <form class="panel-secundario" action="consultar.html" method="get">
+                    <div class="filtro">
+                        <label for="fecha">Fecha de consulta</label>
+                        <input type="date" id="fecha" name="fecha">
+                    </div>
+
+                    <div class="filtro">
+                        <label for="sala">Sala</label>
+                        <select id="sala" name="sala">
+                            <option value="todas">Todas las salas</option>
+                            <option value="standard">Sala Standard</option>
+                            <option value="premium">Sala Premium</option>
+                            <option value="bateria">Sala de Batería</option>
+                        </select>
+                    </div>
+
+                    <div class="filtro-accion">
+                        <button type="submit" class="btn btn-principal">Consultar</button>
+                    </div>
+                </form>
+
+                <section class="grid-info">
+                    <div class="panel-secundario panel-secundario--horizontal">
+                        <div class="resumen-numero">3</div>
+                        <div class="resumen-info">
+                            <span class="resumen-texto">Salas disponibles</span>
+                            <span class="resumen-descripcion">Disponibles para reservar</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-secundario panel-secundario--horizontal">
+                        <div class="resumen-numero">3</div>
+                        <div class="resumen-info">
+                            <span class="resumen-texto">Salas ocupadas</span>
+                            <span class="resumen-descripcion">Con reservas activas</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-secundario panel-secundario--horizontal">
+                        <div class="resumen-numero">0</div>
+                        <div class="resumen-info">
+                            <span class="resumen-texto">En mantenimiento</span>
+                            <span class="resumen-descripcion">Temporalmente bloqueadas</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tarjeta tarjeta--completa tarjeta--izquierda panel-secundario">
+                    <div class="disponibilidad-header">
+                        <div>
+                            <span class="seccion-etiqueta">HORARIOS</span>
+                            <h2>Disponibilidad de salas</h2>
+                            <p>Consultá los horarios disponibles para realizar una nueva reserva.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="tabla-contenedor">
+                        <table class="tabla-disponibilidad" id="lista-reservas">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sala</th>
+                                    <th scope="col">16:00</th>
+                                    <th scope="col">17:00</th>
+                                    <th scope="col">18:00</th>
+                                    <th scope="col">19:00</th>
+                                    <th scope="col">20:00</th>
+                                    <th scope="col">21:00</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                <section class="panel-destacado">
+                    <span class="seccion-etiqueta">INFORMACIÓN</span>
+                    <h2>Sobre la disponibilidad</h2>
+                    <p>La disponibilidad mostrada corresponde al estado actual registrado por GrooveSpace. Los horarios ocupados no pueden seleccionarse para una nueva reserva.</p>
+                    <p>Si una sala se encuentra en mantenimiento, su disponibilidad permanecerá bloqueada hasta que el personal del estudio habilite nuevamente el espacio.</p>
+                </section>
+
+                <div class="tarjeta-acciones">
+                    <a href="reservar.html" class="btn btn-principal btn-chico">Reservar una sala</a>
+                    <a href="../index.html" class="btn btn-secundario btn-chico">Volver al inicio</a>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>GrooveSpace - Tu lugar, tu música</p>
+            <a href="sobrenosotros.html">sobre nosotros</a>
+        </footer>
+        
+        <a href="#top" class="btntop">
+            <img src="../iconos/btntop.svg" alt="Volver arriba" title="Volver arriba">
+        </a><!-- boton de volver arriba,como las pag mas profesionales,re copado-->
+                <!-- Bottom Floating Nav cel (styles.css la oculta en pc, mobile.css la muestra en celular) -->
+    <nav class="bottom-nav">
+            <a href="index.html" class="nav-item" id="nav-home">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </a>
+            <a href="pages/mis_reservas.html" class="nav-item" id="nav-reservas">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </a>
+            <a href="pages/reservar.html" class="nav-item nav-item-center" id="nav-reservar">
+                <div class="plus-btn">+</div>
+            </a>
+            <a href="pages/salas.html" class="nav-item" id="nav-salas">
+                <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </a>
+            <a href="pages/micuenta.html" class="nav-item active" id="nav-login-movil">
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </a>
+        </nav>
+                <!-- Bottom Floating Nav cel (styles.css la oculta en pc, mobile.css la muestra en celular) -->
+    <nav class="bottom-nav">
+            <a href="index.html" class="nav-item" id="nav-home">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </a>
+            <a href="pages/mis_reservas.html" class="nav-item" id="nav-reservas">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </a>
+            <a href="pages/reservar.html" class="nav-item nav-item-center" id="nav-reservar">
+                <div class="plus-btn">+</div>
+            </a>
+            <a href="pages/salas.html" class="nav-item" id="nav-salas">
+                <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </a>
+            <a href="pages/micuenta.html" class="nav-item active" id="nav-login-movil">
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </a>
+        </nav>
+    </body>
+</html>

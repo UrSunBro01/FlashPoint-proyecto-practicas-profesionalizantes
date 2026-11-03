@@ -1,0 +1,95 @@
+{
+    "usuarios": [
+        {
+            "id":1,
+            "usuario": "dueño",
+            "contraseña": "12345",
+            "nombre": "purgas",
+            "rol": "dueño",
+            "banda":"N/A"
+        },
+        {
+            "id":2,
+            "usuario": "encargado",
+            "contraseña": "12345",
+            "nombre": "Axel Romero",
+            "rol": "encargado",
+            "banda":"N/A"
+        },
+        {
+            "id":3,
+            "usuario": "musico",
+            "contraseña": "12345",
+            "nombre": "Fernandez",
+            "rol": "musico",
+            "banda":"los pipos"
+        }
+    ],
+    "turnos":[
+        {
+            "turnoID":1,
+            "salaID":"standard-1",
+            "usuarioID":"u1",
+            "fecha":"11/9/2001",
+            "horaI":"9:14",
+            "horaF":"11:30",
+            "aDDs":true
+        },
+        {
+            "turnoID":2,
+            "salaID":"standard-2",
+            "usuarioID":"u1",
+            "fecha":"17/3/1992",
+            "horaI":"10:00",
+            "horaF":"15:30",
+            "aDDs":false
+        },
+        {
+            "turnoID":3,
+            "salaID":"standard-3",
+            "usuarioID":"u1",
+            "fecha":"18/7/1994",
+            "horaI":"9:14",
+            "horaF":"11:30",
+            "aDDs":true
+        }
+    ],
+    "salas":[
+        {
+            "salaID":"standard-1",
+            "tipo":"standard",
+            "nombre":"sala standard 1",
+            "estado":"uso"
+        },
+        {
+            "salaID": "standard-2",
+            "tipo": "standard",
+            "nombre": "Sala Standard 2",
+            "estado": "uso"
+        },
+        {
+            "salaID": "standard-3",
+            "tipo": "standard",
+            "nombre": "Sala Standard 3",
+            "estado": "uso"
+        },
+        {
+            "salaID": "premium-1",
+            "tipo": "premium",
+            "nombre": "Sala Premium 1",
+            "estado": "libre"
+        },
+        {
+            "salaID": "premium-2",
+            "tipo": "premium",
+            "nombre": "Sala Premium 2",
+            "estado": "libre"
+        },
+        {
+            "salaID": "bateria-1",
+            "tipo": "bateria",
+            "nombre": "Sala de Batería 1",
+            "estado": "mantenimiento"
+        }
+    ]
+}

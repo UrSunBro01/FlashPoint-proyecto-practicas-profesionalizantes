@@ -1,0 +1,740 @@
+/* Esto es un comentario en css y abajo dejare en comentarios "buenas practicas"de css que lei */
+/* RESET / NORMALIZACIÓN VARIABLES CSS (custom properties*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {/*ultimo cambio de colores:cyberpunk glow */
+    --color-fondo-claro: linear-gradient(135deg, #f8f6fb, #eae6f7);
+    --color-fondo-oscuro:linear-gradient(135deg, #1e1e2f, #2c2c3a);
+    --color-texto-claro: #2d2d2d;
+    --color-texto-oscuro: #f0f0f0;
+    --color-primario: #3d127b;
+    --color-secundario:#009bad ;
+    --color-acento: #b8025d;
+    --hover-btn:#9b59b6;
+    --sombra-neon: 0 0 15px color-mix(in srgb, var(--color-secundario) 70%, transparent);
+    /*paneles by axel*/
+    --panel-fondo-claro: #ffffffcc;       /* fondo "vidrio" de una tarjeta */
+    --panel-fondo-oscuro: rgba(24, 25, 128, 0.35);  /* fondo de un panel secundario/inset */
+    --panel-borde: 1px solid rgba(0, 155, 173, 0.25);
+    --panel-borde-sutil: 1px solid rgba(0, 155, 173, 0.18);
+    --panel-sombra: 0 6px 22px rgba(0, 0, 0, 0.3);
+    /*CONFIGURACIONES DEL GAP,perfecto otro sistema standarizador(? va en multiplos de 5 como todo sensato haria(?*/
+    --espacio-xs: 0.25rem;
+    --espacio-sm: 0.5rem;
+    --espacio-md: 1rem;
+    --espacio-lg: 1.5rem;
+    --espacio-xl: 2.5rem;
+}
+/* modo claro y default */
+/* ESTILOS GLOBALES */
+body {
+    font-family: "Orbitron", 'Segoe UI', Arial, sans-serif;
+    background: var(--color-fondo-claro);
+    color: var(--color-texto-claro);
+    margin: 0;
+    padding: 0;
+}
+
+
+/* LAYOUT PRINCIPAL */
+header {
+    position: relative;
+    background-color:var(--color-primario);
+    color: var(--color-texto-oscuro);
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: var(--color-fondo-claro);
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: var(--color-primario);
+    color: var(--color-texto-oscuro);
+}
+
+
+main section{
+    display: flex;
+    flex-direction: column;  /* para que los elementos se apilen verticalmente */
+    align-items: center;     /* centrado horizontal */
+    width: 100%;
+    margin: 0 auto;          /* centrado horizontal */
+    padding: 20px;
+}
+
+footer{
+    margin-top: 30px;
+    background-color: var(--color-fondo-claro);
+    color:var(--color-texto-claro);
+    text-align: center;
+    padding: 15px;
+    width: 98%;
+    font-size: 0.9em;
+    gap: var(--espacio-lg);        /* te quiero gap*/
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* COMPONENTES (botones, formularios, tarjetas, tablas)*/
+ul {/* ya se que englobar todo el ul es malo pero weno,a rework*/
+    display: flex;
+    gap: var(--espacio-md);
+    list-style-type: none;/* con esto desaparece el tipico puntito de la lista*/
+    white-space: nowrap;
+    flex-wrap: wrap;
+}
+
+
+aside {
+    background-color: var(--color-fondo-claro);
+    padding: 20px;
+    border-radius: 10px;
+    /* XD */
+    margin-bottom: 20px;
+}
+strong {
+    font-weight: bold;
+    color: red;
+}
+label {/* regla padre*/
+    display: block;
+    margin-bottom: 7px;
+    
+    font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+}
+/* Campos de texto todos medio a reworkear*/
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="time"],
+input[type="date"],
+select{
+    width: 95%;
+    height: 44px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    margin: 0px 0px 15px;
+    border: var(--panel-borde-sutil);
+    border-radius: 7px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    outline:none;/* apaga el borde por defecto del navegador continua abajo*/
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* al apagar el outline hay que especificarle al navegador como la queres chinwenwencha*/
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="tel"]:focus-visible,
+input[type="password"]:focus-visible,
+input[type="time"]:focus-visible,
+input[type="date"]:focus-visible,
+select:focus-visible {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 2px rgba(0, 155, 173, 0.12);
+}
+
+/* Radios y checkbox */
+input[type="checkbox"] {
+    width: auto;
+    transform: scale(1.2);
+}
+
+
+/* UTILIDADES (clases reutilizables como .text-center, .hidden)*/
+.login-card {
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-claro);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    margin: 30px auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.fotos {
+    max-width:100%;
+    max-width: 600px;
+    margin: 0 auto;
+    
+}
+
+.fotos img {
+    display: block;
+    width: 90%;
+    height: auto;
+    border-radius: 15px;
+    border: var(--panel-borde-sutil);
+}
+
+
+.fila-contenido {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espacio-lg);
+    margin: 30px 0;
+}
+
+
+.texto-lista {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-sm);
+    flex: 1 1 280px;
+    list-style: none;
+    white-space: normal;
+}
+/* logo que a su vez es boton con sabor a tamarindo y se identifica como helicoptero apache */
+.logo {
+    width: 180px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.logo-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-primario);
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin:5px;
+}
+.logo-image {
+    height: 150px;
+    object-fit: contain;
+}
+.logo-image:hover {/* los hover son cuando pasa el mouse por encima del objeto*/
+    filter: drop-shadow(var(--color-secundario) 0px 0px 15px);
+    transform: scale(1.05);
+}
+
+/* formulario*/
+.form-container{
+    font-family: "Orbitron", "Segoe UI", 'Arial';
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto);
+    padding: 20px;
+    margin-top: 20px;
+    width: 90%;
+    max-width:550px;
+    border-radius: 10px;
+    box-shadow:var(--sombra-neon);
+}
+.form-container form .btn,
+.form-container form input[type="submit"] {
+    display: flex;
+    width: 100%;
+    margin: var(--espacio-sm) 0;
+}
+
+
+.options-group{/* para agrupar los checkbox y radios*/
+    display:flex;
+    align-items: flex-start;
+    gap: var(--espacio-sm);
+    margin-bottom: var(--espacio-md);
+    padding: 14px 16px;
+    background: var(--color-fondo-sec);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    font-size: 17px;
+}
+.options-group input[type="checkbox"] {
+    margin-top: 2px;
+    accent-color: var(--color-secundario);
+    flex-shrink: 0;
+}
+.options-group label {
+    margin: 0;
+    color: var(--color-texto-tenue);
+    font-weight: normal;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+.options-group strong {
+    color: var(--color-acento);
+    font-weight: bold;
+}
+.galeria-salas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--espacio-lg);
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.galeria-salas .fotos {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.galeria-salas .fotos img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-salas .fotos img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--sombra-neon);
+}
+
+.galeria-salas figcaption {
+    margin-top: var(--espacio-sm);
+    font-size: 0.95rem;
+}
+/*botones (como el abel)*/
+.btn,
+input[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    color: var(--color-texto-oscuro);
+    background-color: var(--color-primario);
+    text-decoration: none;
+    border: none;
+    font: inherit;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    padding: 12px 25px;
+    margin: var(--espacio-md);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover,
+input[type="submit"]:hover {
+    background-color: var(--hover-btn);
+    transform: translateY(-1px);
+    box-shadow: var(--sombra-neon);
+}
+
+.btn-principal {
+    background-color: var(--color-primario);
+}
+
+.btn-secundario {
+    color: var(--color-texto-oscuro);
+    background-color: var(--color-primario);
+    color: var(--color-texto-oscuro);
+}
+
+.btn-secundario:hover {
+    background-color: var(--color-primario);
+    color: #fff;
+}
+
+.btn-chico {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
+.btntop{/*me re copo la idea de este boton.siempre lo veo en pag profesionales,sin javascript hice este basico*/
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 3rem;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: var(--sombra-neon);
+    transition: 0.3s;
+    z-index: 100;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.btntop:hover{
+    background-color: var(--hover-btn);
+    transform: scale(1.05);
+}
+/* Boton modo oscuro arriba a la derecha by leandro*/
+.btn-dark {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.btn-dark:hover {
+    color: #9b59b6;
+}
+/*tarjeta*/
+/*alguien hagase cristiano que aca se pudre*/
+.tarjeta {
+    max-width: 80%;
+    
+    margin: 20px auto;
+    padding: 10px;
+    background: transparent;
+    border: var(--panel-borde);
+    border-radius: 12px;
+    box-shadow: var(--panel-sombra);
+    color: var(--color-texto);
+    text-align: center;
+}
+
+/*paneles port by rodri*/
+.panel-secundario {
+    max-width: 98%;
+    padding: 18px;
+    background: var(--panel-fondo-sec);
+    border: var(--panel-borde-sutil);
+    border-radius: 10px;
+    margin-top:10px;
+}
+/*grillas*/
+.grid-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--espacio-md);
+    width: 100%;
+    margin-bottom: 20px;
+    overflow-x: auto
+}
+/* lista en 2 columnas, reemplaza el grid a mano que tenia .integrantes ul */
+.grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espacio-sm) var(--espacio-md);
+    list-style: none;
+    overflow-x: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    white-space: normal;
+}
+
+.grid-2col li {
+    padding: 12px 15px;
+    background: rgba(10, 10, 26, 0.55);
+    border-left: 3px solid var(--color-secundario);
+    border-radius: 5px;
+    color: var(--color-texto-tenue);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 13px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+/*.integrantes en sobre nosotros.decidi pasarlo todo a parte*/
+.integrantes {
+    align-items: stretch;
+}
+
+.integrante {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-md);
+    padding: 14px 16px;
+    background: rgba(10, 10, 26, 0.55);
+    border: var(--panel-borde-sutil);
+    border-left: 3px solid var(--color-secundario);
+    border-radius: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+/* hueco de foto: si la imagen no existe, queda el circulo con las iniciales */
+.integrante-foto {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    border: 2px solid var(--color-secundario);
+    border-radius: 50%;
+}
+
+.integrante-foto::before {
+    content: "?";
+    position: absolute;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.integrante-foto img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: none;
+}
+
+.integrante-datos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-xs);
+    min-width: 0;
+    text-align: left;
+}
+
+.integrante-nombre {
+    color: #f0f0f0;
+    font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    overflow-wrap: anywhere;
+}
+
+.integrante-rol {
+    color: var(--color-secundario);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+.secreto {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: var(--espacio-sm);
+    background: currentColor;
+    border-radius: 50%;
+    opacity: 0.10;
+    transition: opacity 0.3s ease;
+}
+
+.secreto:hover,
+.secreto:focus-visible {
+    opacity: 0.8;
+}
+
+/*sistema de tablas,un infierno este port*/
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 8px;
+    margin: 10px 0px 10px 0px;
+}
+
+.tabla-disponibilidad {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 20px;
+}
+
+.tabla-disponibilidad th,
+.tabla-disponibilidad td {
+    padding: 12px 8px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.tabla-disponibilidad thead th {
+    height: 45px;
+    background: rgba(24, 25, 128, 0.7);
+    color: #d9d9e5;
+    font-family: "Orbitron", "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+}
+/*banderas*/
+.bandera {
+
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 5px 8px;
+    color:var(--color-texto);
+    background-color: var(--color-secundario);
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    font:inherit;
+    appearance: none;
+    border: none;
+    margin: 1.5%;
+}
+/*modo oscuro*/
+body.dark-mode {
+    background: linear-gradient(135deg, #1e1e2f, #2c2c3a);
+    color: #f0f0f0;
+}
+
+body.dark-mode header {
+    background-color: rgba(30, 30, 47, 0.9);
+    color: #fff;
+}
+
+body.dark-mode nav ul {
+    background-color: rgba(50,50,70,0.7);
+}
+
+body.dark-mode nav ul li a {
+    color: #f0f0f0;
+}
+
+body.dark-mode nav ul li a:hover {
+    background-color: #6a0dad;
+    color: #fff;
+}
+
+body.dark-mode main section {
+    background-color: rgba(40,40,60,0.9);
+    color: #fff;
+}
+
+body.dark-mode footer {
+    background-color: rgba(30,30,47,0.7);
+    color: #ccc;
+}
+
+body.dark-mode .login-card {
+    background-color: rgba(40,40,60,0.9);
+    color: #fff;
+}
+
+body.dark-mode .login-card input,
+body.dark-mode .login-card select {
+    background-color: #2c2c3a;
+    border: 1px solid #555;
+    color: #f0f0f0;
+}
+
+body.dark-mode .login-card input:focus,
+body.dark-mode .login-card select:focus {
+    border-color: #9b59b6;
+}
+
+body.dark-mode .btn-morado {
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+body.dark-mode .btn-morado:hover {
+    background-color: #6a0dad;
+}
+
+body.dark-mode .btn-dark {
+    color: #f0f0f0;
+}
+
+/* etiquetas legibles en modo oscuro */
+body.dark-mode .form-container label {
+    color: var(--color-texto-oscuro);
+}
+.solo-movil,
+.bottom-nav {
+    display: none;
+}
+/* BARRA INFERIOR MOVIL: oculta en pc, mobile.css la muestra */
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: min(420px, 92%);
+    height: 64px;
+    align-items: center;
+    justify-content: space-around;
+    background: rgba(24, 25, 128, 0.55);
+    border: var(--panel-borde);
+    border-radius: 22px;
+    box-shadow: var(--panel-sombra);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: #a9a6bd;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-item svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.nav-item.active {
+    color: var(--color-secundario);
+}
+
+.plus-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-secundario);
+    color: #fff;
+    font-size: 32px;
+    line-height: 1;
+    box-shadow: var(--sombra-neon);
+}
+
+/* mobile.css invierte estos dos en celular */
+.solo-movil { display: none; }
+.solo-pc { display: block; }

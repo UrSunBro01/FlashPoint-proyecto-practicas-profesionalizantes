@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis Reservas | GrooveSpace</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fuentes.css">
+    <link rel="stylesheet" href="../css/mobile.css" media="(max-width: 767px)">
+
+    <script src="../js/script.js" defer></script>
+</head>
+
+<body>
+
+    <div id="top"></div>
+
+    <header>
+        <a href="../index.html" class="logo-link">
+            <picture>
+                <source media="(max-width: 650px)" srcset="../iconos/iconosinletra.svg">
+                <img
+                    src="../iconos/iconovector.svg"
+                    alt="Logo de GrooveSpace"
+                    class="logo-image"
+                >
+            </picture>
+        </a>
+
+        <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
+
+        <button id="toggle-dark" class="btn-dark" type="button">
+            🌙
+        </button>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../index.html">Inicio</a>
+            </li>
+
+            <li>
+                <a href="registrarse.html">Registrarse</a>
+            </li>
+
+            <li>
+                <a href="iniciosesion.html" id="nav-login">Iniciar sesión</a>
+            </li>
+
+            <li>
+                <a href="salas.html">Salas</a>
+            </li>
+
+            <li>
+                <a href="reservar.html">Reservar sala</a>
+            </li>
+
+            <li>
+                <a href="mis_reservas.html" class="active">Mis reservas</a>
+            </li>
+
+            <li>
+                <a href="micuenta.html">Mi cuenta</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="reservas-container">
+
+        <section class="login-card">
+
+            <h2>Mis Reservas</h2>
+
+            <p id="bienvenida"></p>
+
+            <div class="tabla-reservas-container">
+
+                <table class="reservas-table">
+
+                    <thead>
+                        <tr>
+                            <th>Sala</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listaDeTurnos">
+                        <tr>
+                            <td colspan="5">
+                                Cargando reservas...
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p class="m-registro">
+                ¿Querés reservar otra sala?
+                <a href="reservar.html">Realizar una reserva</a>
+            </p>
+
+            <p class="m-registro">
+                <a href="micuenta.html#historial">
+                    Consultar historial de reservas
+                </a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>GrooveSpace - Tu lugar, tu música</p>
+    </footer>
+
+    <!-- Navegacion inferior para dispositivos moviles -->
+
+    <nav class="bottom-nav">
+
+        <a href="../index.html" class="nav-item" id="nav-home">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+        </a>
+
+        <a href="mis_reservas.html" class="nav-item active" id="nav-reservas">
+            <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+        </a>
+
+        <a href="reservar.html" class="nav-item nav-item-center" id="nav-reservar">
+            <div class="plus-btn">+</div>
+        </a>
+
+        <a href="salas.html" class="nav-item" id="nav-salas">
+            <svg viewBox="0 0 24 24">
+                <path d="M9 18V5l12-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="16" r="3"/>
+            </svg>
+        </a>
+
+        <a href="micuenta.html" class="nav-item" id="nav-cuenta">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+            </svg>
+        </a>
+
+    </nav>
+
+</body>
+</html>

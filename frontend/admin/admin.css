@@ -1,0 +1,2069 @@
+/* ============================================================
+VARIABLES GENERALES
+============================================================ */
+
+:root {
+    --fondo: #0a0a1a;
+    --panel: #111126;
+    --panel-secundario: #181830;
+    --panel-hover: #20203d;
+
+    --violeta: #181980;
+    --violeta-claro: #765cff;
+    --violeta-suave: rgba(118, 92, 255, 0.15);
+
+    --azul: #3d127b;
+    --cyan: #009bad;
+    --cyan-claro: #16c7dc;
+
+    --verde: #16b981;
+    --rojo: #e05270;
+    --amarillo: #e8b44c;
+
+    --texto: #f0f0fa;
+    --texto-secundario: #9696b3;
+    --texto-suave: #686884;
+
+    --borde: rgba(255, 255, 255, 0.08);
+
+    --radio: 14px;
+    --radio-pequeno: 9px;
+
+    --sombra: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ============================================================
+RESETEO Y CONFIGURACION GENERAL
+============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+input,
+select,
+textarea {
+    color: var(--texto);
+}
+
+::selection {
+    background: var(--violeta-claro);
+    color: white;
+}
+
+
+/* ============================================================
+ESTRUCTURA PRINCIPAL
+============================================================ */
+
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.contenido-principal {
+    flex: 1;
+    min-width: 0;
+    padding: 30px;
+    margin-left: 260px;
+}
+
+
+/* ============================================================
+MENU LATERAL
+============================================================ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 18px;
+
+    background: #0e0e23;
+    border-right: 1px solid var(--borde);
+
+    z-index: 100;
+}
+
+/* Logo y nombre */
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 5px 8px 30px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.logo-imagen {
+    width: 46px;
+    height: 46px;
+
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.logo-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.logo-texto h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo-texto span {
+    color: var(--cyan-claro);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+/* Navegacion */
+
+.menu-principal {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    margin-top: 32px;
+}
+
+.menu-titulo {
+    margin: 0 10px 13px;
+
+    color: var(--texto-suave);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    width: 100%;
+    padding: 13px 14px;
+
+    border: 1px solid transparent;
+    border-radius: var(--radio-pequeno);
+
+    background: transparent;
+    color: var(--texto-secundario);
+
+    font-size: 13px;
+    font-weight: 500;
+    text-align: left;
+
+    transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+    background: var(--panel-hover);
+    color: white;
+}
+
+.menu-item.activo {
+    background: linear-gradient(
+        110deg,
+        rgba(118, 92, 255, 0.2),
+        rgba(0, 155, 173, 0.08)
+    );
+
+    border-color: rgba(118, 92, 255, 0.25);
+    color: white;
+}
+
+.menu-icono {
+    width: 22px;
+
+    color: var(--texto-secundario);
+    font-size: 19px;
+    text-align: center;
+}
+
+.menu-item.activo .menu-icono {
+    color: var(--cyan-claro);
+}
+
+/* Parte inferior del menu */
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--borde);
+}
+
+.sistema-estado {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 12px;
+    margin-bottom: 20px;
+
+    color: var(--texto-secundario);
+    font-size: 11px;
+}
+
+.estado-indicador {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background: var(--verde);
+
+    box-shadow: 0 0 10px rgba(22, 185, 129, 0.5);
+}
+
+.usuario-admin {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 8px;
+}
+
+.usuario-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        var(--violeta-claro),
+        var(--cyan)
+    );
+
+    color: white;
+    font-weight: 700;
+}
+
+.usuario-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.usuario-info strong {
+    font-size: 12px;
+}
+
+.usuario-info span {
+    color: var(--texto-secundario);
+    font-size: 10px;
+}
+
+
+/* ============================================================
+ENCABEZADO
+============================================================ */
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 32px;
+}
+
+.encabezado-titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.encabezado-etiqueta,
+.seccion-etiqueta {
+    color: var(--cyan-claro);
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.encabezado-titulo h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.encabezado-titulo p {
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.encabezado-acciones {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.fecha-actual {
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.boton-actualizar {
+    padding: 11px 17px;
+
+    border: 1px solid rgba(0, 155, 173, 0.35);
+    border-radius: var(--radio-pequeno);
+
+    background: rgba(0, 155, 173, 0.1);
+    color: var(--cyan-claro);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+.boton-actualizar:hover {
+    background: var(--cyan);
+    color: white;
+}
+
+
+/* ============================================================
+SECCIONES ADMINISTRATIVAS
+============================================================ */
+
+.seccion-admin {
+    display: none;
+    animation: aparecer 0.25s ease;
+}
+
+.seccion-admin.activa {
+    display: block;
+}
+
+.seccion-admin[hidden] {
+    display: none !important;
+}
+
+.seccion-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+.seccion-encabezado > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.seccion-encabezado h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.seccion-encabezado p {
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================================
+TARJETAS DE METRICAS
+============================================================ */
+
+.metricas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 17px;
+
+    margin-bottom: 22px;
+}
+
+.metrica-card {
+    position: relative;
+
+    min-width: 0;
+    padding: 20px;
+
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra);
+
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.metrica-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(118, 92, 255, 0.35);
+}
+
+.metrica-superior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-bottom: 17px;
+}
+
+.metrica-titulo {
+    color: var(--texto-secundario);
+    font-size: 11px;
+}
+
+.metrica-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 9px;
+
+    background: var(--violeta-suave);
+    color: var(--violeta-claro);
+
+    font-size: 18px;
+}
+
+.metrica-valor {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.metrica-descripcion {
+    color: var(--texto-suave);
+    font-size: 10px;
+}
+
+
+/* ============================================================
+PANELES GENERALES
+============================================================ */
+
+.panel {
+    min-width: 0;
+    padding: 22px;
+
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra);
+}
+
+.panel-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.panel-encabezado h3 {
+    margin-bottom: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.panel-encabezado p {
+    color: var(--texto-secundario);
+    font-size: 11px;
+}
+
+
+/* ============================================================
+DASHBOARD - GRAFICO Y ACTIVIDAD
+============================================================ */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 18px;
+
+    margin-bottom: 22px;
+}
+
+.grafico-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+
+    min-height: 190px;
+}
+
+.grafico-circular {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 155px;
+    height: 155px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: conic-gradient(
+        var(--cyan) 0%,
+        var(--violeta-claro) 0%,
+        #292943 0%
+    );
+
+    position: relative;
+}
+
+.grafico-circular::before {
+    content: "";
+
+    position: absolute;
+    inset: 12px;
+
+    border-radius: 50%;
+    background: var(--panel);
+}
+
+.grafico-centro {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.grafico-centro strong {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+}
+
+.grafico-centro span {
+    color: var(--texto-secundario);
+    font-size: 10px;
+}
+
+.grafico-leyenda {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--texto-secundario);
+    font-size: 11px;
+}
+
+.leyenda-item strong {
+    margin-left: auto;
+    color: var(--texto);
+    font-size: 11px;
+}
+
+.leyenda-color {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+
+    border-radius: 3px;
+}
+
+.leyenda-color.ocupado {
+    background: var(--cyan);
+}
+
+.leyenda-color.disponible {
+    background: #383854;
+}
+
+/* Actividad reciente */
+
+.actividad-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.actividad-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    padding: 13px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.actividad-item:last-child {
+    border-bottom: none;
+}
+
+.actividad-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background: var(--violeta-suave);
+    color: var(--violeta-claro);
+}
+
+.actividad-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.actividad-contenido strong {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.actividad-contenido span {
+    color: var(--texto-secundario);
+    font-size: 10px;
+}
+
+/* ============================================================
+DASHBOARD - AGENDA GANTT
+============================================================ */
+
+.panel-agenda {
+    margin-bottom: 22px;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at top right,
+            rgba(118, 92, 255, 0.055),
+            transparent 55%
+        ),
+        var(--panel);
+}
+
+/* Filtros */
+
+.agenda-filtros {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.agenda-filtros input,
+.agenda-filtros select {
+    width: auto;
+    min-width: 150px;
+    max-width: 175px;
+    padding: 10px 12px;
+
+    background: #15152d;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 9px;
+
+    color: var(--texto);
+    font-size: 11px;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.agenda-filtros input:focus,
+.agenda-filtros select:focus {
+    border-color: var(--violeta-claro);
+    box-shadow: 0 0 0 3px rgba(118, 92, 255, 0.1);
+    outline: none;
+}
+
+/* Contenedor con desplazamiento */
+
+.agenda-contenedor {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding-bottom: 8px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #44446d #111126;
+}
+
+/* Estructura exterior de la agenda */
+
+.agenda-contenedor > .agenda-horarios {
+    width: 100%;
+    min-width: 1050px;
+}
+
+/* Cabecera de horarios */
+
+.agenda-cabecera {
+    display: grid;
+    grid-template-columns: 165px repeat(10, minmax(0, 1fr));
+    align-items: center;
+
+    min-height: 52px;
+    padding: 0;
+
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--borde);
+    border-bottom: 1px solid rgba(118, 92, 255, 0.25);
+    border-radius: 10px 10px 0 0;
+
+    color: var(--texto-secundario);
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.agenda-cabecera > span {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.045);
+
+    transition: color 0.2s ease;
+}
+
+.agenda-cabecera > span:hover {
+    color: var(--cyan-claro);
+}
+
+.agenda-sala-titulo {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    padding-left: 18px;
+
+    color: var(--cyan-claro);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-align: left;
+}
+
+/* Filas */
+
+.agenda-filas {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid var(--borde);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+
+    overflow: hidden;
+}
+
+.agenda-fila {
+    display: grid;
+    grid-template-columns: 165px minmax(0, 1fr);
+
+    min-height: 82px;
+
+    background: rgba(255, 255, 255, 0.008);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+    transition: background 0.2s ease;
+}
+
+.agenda-fila:last-child {
+    border-bottom: none;
+}
+
+.agenda-fila:hover {
+    background: rgba(118, 92, 255, 0.035);
+}
+
+/* Identificacion de cada sala */
+
+.agenda-nombre-sala {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+    padding: 12px 16px;
+
+    background: rgba(255, 255, 255, 0.018);
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+
+    color: var(--texto);
+    font-size: 11px;
+    font-weight: 700;
+
+    transition: color 0.2s ease;
+}
+
+.agenda-fila:hover .agenda-nombre-sala {
+    color: var(--cyan-claro);
+}
+
+/* Linea de tiempo interior.
+   Este selector evita confundirla con el contenedor exterior. */
+
+.agenda-fila > .agenda-horarios {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+
+    width: 100%;
+    min-width: 0;
+    min-height: 82px;
+
+    background-color: rgba(10, 10, 26, 0.35);
+
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent calc(10% - 1px),
+        rgba(255, 255, 255, 0.075) calc(10% - 1px),
+        rgba(255, 255, 255, 0.075) 10%
+    );
+}
+
+/* Celdas horarias */
+
+.agenda-celda {
+    min-width: 0;
+    min-height: 82px;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.025);
+
+    transition: background 0.2s ease;
+}
+
+.agenda-celda:hover {
+    background: rgba(0, 155, 173, 0.055);
+}
+
+/* Reservas generadas por JavaScript */
+
+.agenda-reserva {
+    position: absolute;
+
+    top: 13px;
+    bottom: 13px;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    min-width: 0;
+    overflow: hidden;
+
+    padding: 7px 10px;
+
+    background: linear-gradient(
+        115deg,
+        rgba(0, 155, 173, 0.24),
+        rgba(0, 155, 173, 0.12)
+    );
+
+    border: 1px solid rgba(22, 199, 220, 0.3);
+    border-left: 3px solid var(--cyan-claro);
+    border-radius: 8px;
+
+    color: white;
+    cursor: default;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.agenda-reserva:hover {
+    z-index: 5;
+
+    background: linear-gradient(
+        115deg,
+        rgba(0, 155, 173, 0.42),
+        rgba(0, 155, 173, 0.22)
+    );
+
+    border-color: var(--cyan-claro);
+
+    box-shadow:
+        0 5px 18px rgba(0, 155, 173, 0.2),
+        0 0 0 1px rgba(22, 199, 220, 0.12);
+
+    transform: translateY(-2px);
+}
+
+.agenda-reserva strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.agenda-reserva span {
+    display: block;
+
+    overflow: hidden;
+
+    color: rgba(220, 250, 255, 0.8);
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 1.2;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Mensaje cuando no hay salas */
+
+.agenda-vacia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100px;
+    padding: 25px;
+
+    color: var(--texto-secundario);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Leyenda */
+
+.agenda-leyenda {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+
+    padding: 17px 3px 2px;
+    margin-top: 5px;
+}
+
+.agenda-leyenda .leyenda-item {
+    gap: 9px;
+    font-size: 10px;
+}
+
+.agenda-leyenda .leyenda-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+}
+
+.agenda-leyenda .leyenda-color.ocupado {
+    background: var(--cyan-claro);
+    box-shadow: 0 0 8px rgba(22, 199, 220, 0.3);
+}
+
+/* Responsive de la agenda */
+
+@media (max-width: 700px) {
+
+    .agenda-filtros {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .agenda-filtros input,
+    .agenda-filtros select {
+        width: 100%;
+        max-width: none;
+    }
+
+    .agenda-contenedor > .agenda-horarios {
+        min-width: 1000px;
+    }
+
+    .agenda-fila {
+        min-height: 76px;
+    }
+
+    .agenda-fila > .agenda-horarios {
+        min-height: 76px;
+    }
+
+    .agenda-celda {
+        min-height: 76px;
+    }
+
+    .agenda-reserva {
+        top: 11px;
+        bottom: 11px;
+        padding: 6px 8px;
+    }
+
+    .agenda-reserva strong {
+        font-size: 9px;
+    }
+
+    .agenda-reserva span {
+        font-size: 8px;
+    }
+
+}
+
+
+/* ============================================================
+TABLAS GENERALES
+============================================================ */
+
+.panel-tabla {
+    margin-bottom: 22px;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    white-space: nowrap;
+}
+
+thead {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+th {
+    padding: 14px 12px;
+
+    color: var(--texto-secundario);
+
+    font-size: 10px;
+    font-weight: 600;
+    text-align: left;
+
+    border-bottom: 1px solid var(--borde);
+}
+
+td {
+    padding: 15px 12px;
+
+    color: var(--texto);
+    font-size: 11px;
+
+    border-bottom: 1px solid var(--borde);
+}
+
+tbody tr {
+    transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.025);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.mensaje-vacio {
+    padding: 25px;
+
+    color: var(--texto-secundario);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Estados de reservas */
+
+.estado-activa,
+.estado-pendiente,
+.estado-cancelada {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.estado-activa {
+    background: rgba(22, 185, 129, 0.12);
+    color: var(--verde);
+}
+
+.estado-pendiente {
+    background: rgba(232, 180, 76, 0.12);
+    color: var(--amarillo);
+}
+
+.estado-cancelada {
+    background: rgba(224, 82, 112, 0.12);
+    color: var(--rojo);
+}
+
+
+/* ============================================================
+FORMULARIOS Y FILTROS
+============================================================ */
+
+input,
+select,
+textarea {
+    width: 100%;
+    min-width: 0;
+
+    padding: 11px 12px;
+
+    border: 1px solid var(--borde);
+    border-radius: var(--radio-pequeno);
+
+    outline: none;
+
+    background: var(--panel-secundario);
+    color: var(--texto);
+
+    font-size: 11px;
+
+    transition: border-color 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--violeta-claro);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--texto-suave);
+}
+
+input[type="date"],
+input[type="time"] {
+    color-scheme: dark;
+}
+
+select {
+    cursor: pointer;
+}
+
+select option {
+    background: var(--panel);
+    color: var(--texto);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Filtros del listado de reservas */
+
+.reservas-filtros {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+
+/* ============================================================
+SECCION RESERVAS
+============================================================ */
+
+#seccion-reservas .metricas-grid {
+    margin-bottom: 22px;
+}
+
+#tablaGestionReservas {
+    min-width: 850px;
+}
+
+#tablaGestionReservas th:last-child,
+#tablaGestionReservas td:last-child {
+    text-align: center;
+}
+
+
+/* ============================================================
+SECCION SALAS
+============================================================ */
+
+.salas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+
+    margin-bottom: 22px;
+}
+
+.sala-card {
+    overflow: hidden;
+    padding: 0;
+}
+
+.sala-card-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 17px 18px;
+
+    border-bottom: 1px solid var(--borde);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.sala-categoria {
+    color: var(--cyan-claro);
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.sala-card-contenido {
+    padding: 20px;
+}
+
+.sala-card-contenido h3 {
+    margin-bottom: 10px;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+}
+
+.sala-descripcion {
+    min-height: 42px;
+    margin-bottom: 20px;
+
+    color: var(--texto-secundario);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.sala-detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sala-detalles div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sala-detalles span {
+    color: var(--texto-suave);
+    font-size: 10px;
+}
+
+.sala-detalles strong {
+    color: var(--texto);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+#seccion-salas .panel:last-child {
+    margin-bottom: 22px;
+}
+
+
+/* ============================================================
+SECCION CONFIGURACION
+============================================================ */
+
+.configuracion-panel {
+    margin-bottom: 20px;
+}
+
+.configuracion-contenido {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.campo-configuracion {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.campo-configuracion label {
+    color: var(--texto-secundario);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.campo-configuracion textarea {
+    min-height: 85px;
+    line-height: 1.5;
+}
+
+.configuracion-acciones {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-bottom: 25px;
+}
+
+
+/* ============================================================
+PIE DE PAGINA
+============================================================ */
+
+.admin-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 22px 0;
+    margin-top: 25px;
+
+    border-top: 1px solid var(--borde);
+
+    color: var(--texto-suave);
+    font-size: 10px;
+}
+
+.admin-footer span:first-child {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
+/* ============================================================
+SCROLLBAR PERSONALIZADA
+============================================================ */
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--fondo);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #38385c;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--violeta-claro);
+}
+
+
+/* ============================================================
+RESPONSIVE - PANTALLAS MEDIANAS
+============================================================ */
+
+@media (max-width: 1200px) {
+
+    .metricas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .salas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .reservas-filtros {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ============================================================
+RESPONSIVE - TABLETS
+============================================================ */
+
+@media (max-width: 950px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .contenido-principal {
+        margin-left: 220px;
+        padding: 24px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .configuracion-contenido {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ============================================================
+RESPONSIVE - MOVILES
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+
+        padding: 15px;
+    }
+
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .sidebar-header {
+        padding-bottom: 15px;
+    }
+
+    .menu-principal {
+        margin-top: 15px;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .menu-titulo {
+        grid-column: 1 / -1;
+    }
+
+    .menu-item {
+        padding: 10px;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .contenido-principal {
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+
+    .encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .encabezado-acciones {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .encabezado-titulo h1 {
+        font-size: 19px;
+    }
+
+    .metricas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .metrica-card {
+        padding: 15px;
+    }
+
+    .metrica-valor {
+        font-size: 22px;
+    }
+
+    .panel {
+        padding: 17px;
+    }
+
+    .panel-encabezado {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .agenda-filtros {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .agenda-filtros input,
+    .agenda-filtros select {
+        max-width: none;
+    }
+
+    .grafico-contenedor {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .grafico-leyenda {
+        width: 100%;
+    }
+
+    .reservas-filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .salas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+/* ============================================================
+RESPONSIVE - MOVILES PEQUENOS
+============================================================ */
+
+@media (max-width: 400px) {
+
+    .contenido-principal {
+        padding: 15px 10px;
+    }
+
+    .metricas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-item {
+        font-size: 11px;
+    }
+
+    .menu-icono {
+        font-size: 16px;
+    }
+
+    .encabezado-titulo h1 {
+        font-size: 17px;
+    }
+
+    .metrica-valor {
+        font-size: 25px;
+    }
+
+}
+
+
+/* ============================================================
+LOADER GROOVESPACE
+============================================================ */
+
+/* Pantalla de carga */
+
+#adminLoader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    overflow: hidden;
+    background: #080817;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#adminLoader.loader-oculto {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Contenedor */
+
+#adminLoader .container {
+    display: flex;
+    height: 370px;
+    width: 370px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+
+/* Luna */
+
+#adminLoader .moon {
+    background-color: #39beff;
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+/* Crateres */
+
+#adminLoader .crater {
+    background-color: #31b4ff;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+
+#adminLoader .crater:before {
+    content: "";
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    box-shadow: -5px 0 0 2px #1ca4f9;
+    top: 2px;
+    left: 7px;
+}
+
+#adminLoader .crater1 {
+    top: 27px;
+    left: 90px;
+    transform: scale(0.9);
+}
+
+#adminLoader .crater2 {
+    bottom: 15px;
+    left: 61px;
+    transform: scale(0.6);
+}
+
+#adminLoader .crater3 {
+    left: 15px;
+    transform: scale(0.75);
+}
+
+#adminLoader .crater4 {
+    left: 107px;
+    top: 32px;
+    transform: scale(1.18);
+}
+
+#adminLoader .crater5 {
+    left: 33px;
+    bottom: 4px;
+    transform: scale(0.65);
+}
+
+/* Sombra */
+
+#adminLoader .shadow {
+    height: 190px;
+    width: 190px;
+    box-shadow: 21px 0 0 5px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    position: relative;
+    bottom: 157.5px;
+    right: 46px;
+}
+
+/* Ojos */
+
+#adminLoader .eye {
+    background-color: #161616;
+    height: 12px;
+    width: 12px;
+    position: relative;
+    border-radius: 50%;
+}
+
+#adminLoader .eye-l {
+    bottom: 255px;
+    left: 59px;
+}
+
+#adminLoader .eye-r {
+    bottom: 267px;
+    left: 101px;
+}
+
+/* Boca */
+
+#adminLoader .mouth {
+    height: 5px;
+    width: 10px;
+    border: 3px solid #161616;
+    position: relative;
+    bottom: 262px;
+    left: 79px;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Mejillas */
+
+#adminLoader .blush {
+    background-color: #1ca4f9;
+    height: 7.5px;
+    width: 7.5px;
+    position: relative;
+    border-radius: 50%;
+}
+
+#adminLoader .blush1 {
+    bottom: 273px;
+    left: 50px;
+}
+
+#adminLoader .blush2 {
+    bottom: 281px;
+    left: 115px;
+}
+
+/* Orbita */
+
+#adminLoader .orbit {
+    height: 280px;
+    width: 280px;
+    border-radius: 50%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    animation: spin 10s infinite linear;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Cohete */
+
+#adminLoader .rocket {
+    background-color: #fafcf7;
+    height: 50px;
+    width: 25px;
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    left: -11px;
+    top: 112px;
+    overflow: visible;
+}
+
+#adminLoader .rocket:before {
+    content: "";
+    position: absolute;
+    background-color: #39beff;
+    height: 20px;
+    width: 55px;
+    border-radius: 50% 50% 0 0;
+    z-index: -1;
+    right: -15px;
+    bottom: 0;
+}
+
+#adminLoader .rocket:after {
+    content: "";
+    position: absolute;
+    background-color: #39beff;
+    height: 4px;
+    width: 15px;
+    border-radius: 0 0 2px 2px;
+    bottom: -4px;
+    left: 4.3px;
+}
+
+/* Fuego */
+
+#adminLoader .rocket .fire {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 30px;
+    background: radial-gradient(
+        ellipse at center,
+        #ffec85 0%,
+        #ffae34 40%,
+        #ec760c 70%,
+        #cd4606 90%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    border-radius: 50%;
+    animation: flame 0.3s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes flame {
+    0% {
+        transform: translateX(-50%) scaleY(1);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateX(-50%) scaleY(1.4);
+        opacity: 0.5;
+    }
+}
+
+/* Humo */
+
+#adminLoader .rocket .gas {
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background: rgba(200, 200, 200, 0.6);
+    border-radius: 50%;
+    animation: gas 1.5s infinite ease-out;
+}
+
+#adminLoader .rocket .gas:nth-child(3) {
+    animation-delay: 0.3s;
+    left: 40%;
+}
+
+#adminLoader .rocket .gas:nth-child(4) {
+    animation-delay: 0.6s;
+    left: 60%;
+}
+
+@keyframes gas {
+    0% {
+        transform: translateX(-50%) scale(0.5);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(40px) scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* Ventana del cohete */
+
+#adminLoader .window {
+    background-color: #151845;
+    height: 10px;
+    width: 10px;
+    border: 2px solid #b8d2ec;
+    border-radius: 50%;
+    position: relative;
+    top: 17px;
+    left: 5px;
+}
+
+/* Texto curvo */
+
+#adminLoader .curve {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: rotate 10s linear infinite;
+    fill: transparent;
+}
+
+#adminLoader .curve text {
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    font: 1.5em "Fira Sans", sans-serif;
+    fill: #95d5ff;
+    filter: drop-shadow(0 2px 8px rgb(21, 117, 207));
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Marca GrooveSpace */
+
+#adminLoader .brand-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: marca-aparecer 1s ease both;
+}
+
+#adminLoader .brand-title {
+    font-family: "Orbitron", sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: white;
+}
+
+#adminLoader .brand-title span {
+    color: var(--cyan-claro);
+}
+
+#adminLoader .brand-subtitle {
+    margin-top: 8px;
+    color: var(--texto-secundario);
+    font-family: "Orbitron", sans-serif;
+    font-size: 9px;
+    letter-spacing: 5px;
+}
+
+@keyframes marca-aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Boton de cerrar sesion */
+
+.boton-cerrar-sesion {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+
+    width: 100%;
+    padding: 13px 16px;
+    margin-top: 15px;
+
+    background: rgba(184, 2, 93, 0.08);
+    border: 1px solid rgba(184, 2, 93, 0.18);
+    border-radius: 10px;
+
+    color: #d66a9c;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.boton-cerrar-sesion:hover {
+    background: rgba(184, 2, 93, 0.18);
+    border-color: rgba(184, 2, 93, 0.5);
+    color: #ff6fae;
+
+    transform: translateY(-2px);
+}
+
+.cerrar-sesion-icono {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.boton-cerrar-sesion:active {
+    transform: scale(0.98);
+}

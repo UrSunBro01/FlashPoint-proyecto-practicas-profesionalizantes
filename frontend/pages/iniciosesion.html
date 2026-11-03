@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GrooveSpace</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/fuentes.css">
+    <link rel="stylesheet" href="../css/mobile.css" media="(max-width: 767px)">
+
+    <script src="../js/script.js" defer></script>
+</head>
+
+<body>
+    <div id="top"></div>
+
+    <header>
+        <a href="../index.html" class="logo-link">
+            <picture>
+                <source media="(max-width: 650px)" srcset="../iconos/iconosinletra.svg">
+                <img src="../iconos/iconovector.svg" alt="Logo de GrooveSpace" class="logo-image">
+            </picture>
+        </a>
+
+        <p class="subtitulo">Trabajo práctico · Leopoldo Marechal</p>
+        <button id="toggle-dark" class="btn-dark">🌙</button>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../pages/registrarse.html" id="nav-register">
+                    registrarse
+                </a>
+            </li>
+
+            <li>
+                <a href="../pages/iniciosesion.html" id="nav-login">
+                    iniciar sesión
+                </a>
+            </li>
+
+            <li>
+                <a href="../pages/consultar.html">
+                    disponibilidad de salas
+                </a>
+            </li>
+
+            <li>
+                <a href="../pages/reservar.html">
+                    reservar sala
+                </a>
+            </li>
+
+            <li>
+                <a href="../pages/micuenta.html" id="nav-account">
+                    mi cuenta
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="nav-logout" hidden>
+                    cerrar sesión
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="form-container">
+            <h2>Inicio de sesión</h2>
+
+            <form id="form-login">
+                <label for="username">Nombre de usuario:</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Nombre de usuario"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="password">Contraseña:</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Contraseña"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <input
+                    type="submit"
+                    class="btn-chico"
+                    value="Iniciar sesión"
+                >
+
+                <a href="registrarse.html" class="btn btn-secundario btn-chico">
+                    ¿No estás registrado? ¡Registrate!
+                </a>
+
+                <a href="../index.html" class="btn btn-secundario btn-chico">
+                    Volver al inicio
+                </a>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>GrooveSpace - Tu lugar, tu música</p>
+        <a href="sobrenosotros.html">Sobre nosotros</a>
+    </footer>
+</body>
+</html>

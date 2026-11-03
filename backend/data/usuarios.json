@@ -1,0 +1,39 @@
+[
+  {
+    "id": "1792778843298",
+    "nombre": "Axel Rodrigo",
+    "apellido": "Romero",
+    "fecha": "2003-07-01",
+    "usuario": "aaxel",
+    "email": "axelchaos23@gmail.com",
+    "passwordHash": "$2b$10$nfpPM/DSkbrPD4bkOxnWfusFe8hwEM95UZ4twUOV00K4pXd0ERUX2",
+    "rol": "cliente"
+  },
+  {
+    "id": "55c58f3c-e002-4e26-bb7a-39a224c46c8b",
+    "nombre": "Usuario",
+    "apellido": "Prueba",
+    "usuario": "cliente_prueba",
+    "email": "prueba_groovespace@email.com",
+    "passwordHash": "$2b$10$e8JOMy4.LhV6p4a3S6nXvewkqUWMgfMgAABH.OUyGrOh3PqBe/pRi",
+    "rol": "cliente"
+  },
+  {
+    "id": "ba3902c6-b91a-4038-9986-5c25414d58d7",
+    "nombre": "Administrador",
+    "apellido": "Principal",
+    "usuario": "admin",
+    "email": "admin@groovespace.local",
+    "passwordHash": "$2b$10$ZfbDqbF26pCCg7DUKBRpcu5j8zjaVgj8IfZCV2sk2oVR86YQTNetC",
+    "rol": "admin"
+  },
+  {
+    "id": "2cb45047-e5a4-4b7d-a25f-eaf026be0b19",
+    "nombre": "Pepe",
+    "apellido": "Chaco",
+    "usuario": "pepepaladin",
+    "email": "pepepaladin67@gmail.com",
+    "passwordHash": "$2b$10$/vr7zUr6BkGXJdyENRcBnuoS8ckn2KKy7ykqhp/jFW/pjZL1.lPQq",
+    "rol": "cliente"
+  }
+]

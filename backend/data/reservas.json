@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1792779642702",
+    "usuarioId": "1792778843298",
+    "sala": "premium",
+    "fecha": "2026-10-24",
+    "horario": "19:25",
+    "duracion": 60,
+    "estado": "activa"
+  },
+  {
+    "id": "1792780067555",
+    "usuarioId": "1792778843298",
+    "sala": "premium",
+    "fecha": "2027-05-24",
+    "horario": "15:31",
+    "duracion": 60,
+    "estado": "activa"
+  },
+  {
+    "id": "1792780759266",
+    "usuarioId": "1792778843298",
+    "sala": "bateria",
+    "fecha": "2026-10-25",
+    "horario": "15:43",
+    "duracion": 60,
+    "estado": "activa"
+  },
+  {
+    "id": "a69d7823-b583-4cb4-a78a-271a4ef201c9",
+    "usuarioId": "55c58f3c-e002-4e26-bb7a-39a224c46c8b",
+    "sala": "standard",
+    "fecha": "2026-11-10",
+    "horario": "12:00",
+    "duracion": 60,
+    "estado": "cancelada"
+  },
+  {
+    "id": "265d70af-88a7-4da7-a361-08e8fe945db6",
+    "usuarioId": "55c58f3c-e002-4e26-bb7a-39a224c46c8b",
+    "sala": "standard",
+    "fecha": "2026-11-11",
+    "horario": "13:00",
+    "duracion": 60,
+    "estado": "cancelada"
+  },
+  {
+    "id": "0dd823e9-6e8e-4077-9aea-3744ffd64128",
+    "usuarioId": "55c58f3c-e002-4e26-bb7a-39a224c46c8b",
+    "sala": "standard",
+    "fecha": "2026-11-12",
+    "horario": "12:00",
+    "duracion": 60,
+    "estado": "activa"
+  },
+  {
+    "id": "0f5aaf6d-ac87-4cda-8426-408c4031bdfe",
+    "usuarioId": "2cb45047-e5a4-4b7d-a25f-eaf026be0b19",
+    "sala": "premium",
+    "fecha": "2026-11-03",
+    "horario": "18:30",
+    "duracion": 60,
+    "estado": "activa"
+  }
+]

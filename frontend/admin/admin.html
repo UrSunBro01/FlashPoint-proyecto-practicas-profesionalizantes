@@ -1,0 +1,951 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a1a">
+
+    <title>GrooveSpace | Administracion</title>
+
+    <!-- Fuentes del panel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- Pantalla de carga -->
+    <div id="adminLoader">
+
+        <div class="container">
+            <div class="moon">
+                <div class="crater crater1"></div>
+                <div class="crater crater2"></div>
+                <div class="crater crater3"></div>
+                <div class="crater crater4"></div>
+                <div class="crater crater5"></div>
+                <div class="shadow"></div>
+                <div class="eye eye-l"></div>
+                <div class="eye eye-r"></div>
+                <div class="mouth"></div>
+                <div class="blush blush1"></div>
+                <div class="blush blush2"></div>
+            </div>
+
+            <div class="orbit">
+                <div class="rocket">
+                    <div class="window"></div>
+                    <div class="fire"></div>
+                    <div class="gas"></div>
+                    <div class="gas"></div>
+                    <div class="gas"></div>
+                    <div class="gas"></div>
+                    <div class="gas"></div>
+                    <div class="gas"></div>
+                    <div class="gas"></div>
+                </div>
+            </div>
+
+            <div class="curve">
+                <svg viewBox="0 0 500 500">
+                    <path
+                        id="loading"
+                        d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
+                    ></path>
+
+                    <text width="500">
+                        <textPath xlink:href="#loading">...loading...</textPath>
+                    </text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Texto debajo de la animacion -->
+        <div class="brand-container">
+            <p class="brand-title">GROOVESPACE ADMIN</p>
+        </div>
+
+    </div>
+
+    <!-- Estructura principal del administrador -->
+    <div class="admin-container">
+
+        <!-- Menu lateral -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+
+                <img
+                    src="../iconos/logo.png"
+                    alt="Logo de GrooveSpace"
+                    class="logo-imagen"
+                >
+
+                <div class="logo-texto">
+                    <h2>GROOVE</h2>
+                    <span>SPACE</span>
+                </div>
+
+            </div>
+
+            <!-- Navegacion entre secciones -->
+            <nav class="menu-principal">
+
+                <span class="menu-titulo">MENU PRINCIPAL</span>
+
+                <button type="button" class="menu-item activo" data-seccion="inicio">
+                    <span class="menu-icono">▦</span>
+                    <span>Dashboard</span>
+                </button>
+
+                <button type="button" class="menu-item" data-seccion="reservas">
+                    <span class="menu-icono">▤</span>
+                    <span>Reservas</span>
+                </button>
+
+                <button type="button" class="menu-item" data-seccion="salas">
+                    <span class="menu-icono">▣</span>
+                    <span>Salas</span>
+                </button>
+
+                <button type="button" class="menu-item" data-seccion="configuracion">
+                    <span class="menu-icono">⚙</span>
+                    <span>Configuracion</span>
+                </button>
+
+            </nav>
+
+            <!-- Informacion inferior del menu -->
+            <div class="sidebar-footer">
+
+                <div class="sistema-estado">
+                    <span class="estado-indicador"></span>
+                    <span>Sistema operativo</span>
+                </div>
+
+                <div class="usuario-admin">
+
+                    <div class="usuario-avatar">A</div>
+
+                    <div class="usuario-info">
+                        <strong>Administrador</strong>
+                        <span>Panel de control</span>
+                    </div>
+                </div>
+                <button type="button" class="boton-cerrar-sesion" id="botonCerrarSesion">
+                    
+                    <span class="cerrar-sesion-icono">↪</span>
+                    
+                    <span>Cerrar sesion</span>
+                
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="contenido-principal">
+
+            <!-- Encabezado general -->
+            <header class="encabezado">
+
+                <div class="encabezado-titulo">
+
+                    <span class="encabezado-etiqueta">
+                        GROOVESPACE / ADMIN
+                    </span>
+
+                    <h1>Panel administrativo</h1>
+
+                    <p>Gestion y supervision del sistema.</p>
+
+                </div>
+
+                <div class="encabezado-acciones">
+
+                    <span class="fecha-actual" id="fechaActual"></span>
+
+                    <button type="button" class="boton-actualizar" id="botonActualizar">
+                        ↻ Actualizar
+                    </button>
+
+                </div>
+
+            </header>
+
+            <!-- Dashboard -->
+            <section
+                class="seccion-admin activa"
+                id="seccion-inicio"
+                data-contenido="inicio"
+            >
+
+                <div class="seccion-encabezado">
+
+                    <div>
+                        <span class="seccion-etiqueta">RESUMEN GENERAL</span>
+                        <h2>Dashboard</h2>
+                        <p>Estado general de GrooveSpace.</p>
+                    </div>
+
+                </div>
+
+                <!-- Indicadores principales -->
+                <div class="metricas-grid">
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Total de reservas</span>
+                            <span class="metrica-icono">▤</span>
+                        </div>
+
+                        <strong class="metrica-valor" id="totalReservas">0</strong>
+                        <span class="metrica-descripcion">Reservas registradas</span>
+                    </article>
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Reservas activas</span>
+                            <span class="metrica-icono">✓</span>
+                        </div>
+
+                        <strong class="metrica-valor" id="reservasActivas">0</strong>
+                        <span class="metrica-descripcion">Reservas confirmadas</span>
+                    </article>
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Salas disponibles</span>
+                            <span class="metrica-icono">▣</span>
+                        </div>
+
+                        <strong class="metrica-valor" id="salasDisponibles">0</strong>
+                        <span class="metrica-descripcion">Disponibilidad de salas</span>
+                    </article>
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Ocupacion promedio</span>
+                            <span class="metrica-icono">◷</span>
+                        </div>
+
+                        <strong class="metrica-valor" id="ocupacionPromedio">0%</strong>
+                        <span class="metrica-descripcion">Ocupacion de la jornada</span>
+                    </article>
+
+                </div>
+
+                <!-- Graficos y actividad -->
+                <div class="dashboard-grid">
+
+                    <article class="panel">
+
+                        <div class="panel-encabezado">
+                            <div>
+                                <h3>Ocupacion de salas</h3>
+                                <p>Distribucion de disponibilidad.</p>
+                            </div>
+                        </div>
+
+                        <div class="grafico-contenedor">
+
+                            <div class="grafico-circular" id="graficoOcupacion">
+
+                                <div class="grafico-centro">
+                                    <strong id="porcentajeGrafico">0%</strong>
+                                    <span>Ocupacion</span>
+                                </div>
+
+                            </div>
+
+                            <div class="grafico-leyenda">
+
+                                <div class="leyenda-item">
+                                    <span class="leyenda-color ocupado"></span>
+                                    <span>Ocupado</span>
+                                    <strong id="porcentajeOcupado">0%</strong>
+                                </div>
+
+                                <div class="leyenda-item">
+                                    <span class="leyenda-color disponible"></span>
+                                    <span>Disponible</span>
+                                    <strong id="porcentajeDisponible">100%</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <article class="panel">
+
+                        <div class="panel-encabezado">
+                            <div>
+                                <h3>Actividad reciente</h3>
+                                <p>Ultimos movimientos del sistema.</p>
+                            </div>
+                        </div>
+
+                        <div class="actividad-lista" id="actividadLista"></div>
+
+                    </article>
+
+                </div>
+
+                <!-- Agenda de reservas -->
+                <article class="panel panel-agenda">
+
+                    <div class="panel-encabezado">
+
+                        <div>
+                            <h3>Agenda de reservas</h3>
+                            <p>Distribucion horaria de las salas.</p>
+                        </div>
+
+                        <div class="agenda-filtros">
+
+                            <input
+                                type="date"
+                                id="filtroFecha"
+                                aria-label="Filtrar agenda por fecha"
+                            >
+
+                            <select id="filtroSala" aria-label="Filtrar agenda por sala">
+                                <option value="todas">Todas las salas</option>
+                                <option value="standard">Sala Standard</option>
+                                <option value="premium">Sala Premium</option>
+                                <option value="bateria">Sala Bateria</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agenda-contenedor">
+
+                        <div class="agenda-horarios">
+
+                            <div class="agenda-cabecera">
+
+                                <div class="agenda-sala-titulo">SALAS</div>
+
+                                <span>10:00</span>
+                                <span>11:00</span>
+                                <span>12:00</span>
+                                <span>13:00</span>
+                                <span>14:00</span>
+                                <span>15:00</span>
+                                <span>16:00</span>
+                                <span>17:00</span>
+                                <span>18:00</span>
+                                <span>19:00</span>
+
+                            </div>
+
+                            <div class="agenda-filas" id="agendaFilas"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agenda-leyenda">
+
+                        <div class="leyenda-item">
+                            <span class="leyenda-color ocupado"></span>
+                            <span>Reserva activa</span>
+                        </div>
+
+                        <div class="leyenda-item">
+                            <span class="leyenda-color" style="background: var(--violeta-claro);"></span>
+                            <span>Reserva pendiente</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- Ultimas reservas -->
+                <article class="panel panel-tabla">
+
+                    <div class="panel-encabezado">
+
+                        <div>
+                            <h3>Ultimas reservas</h3>
+                            <p>Registro general de reservas.</p>
+                        </div>
+
+                        <select
+                            id="filtroEstado"
+                            aria-label="Filtrar reservas por estado"
+                            style="max-width: 170px;"
+                        >
+                            <option value="todas">Todos los estados</option>
+                            <option value="activa">Activas</option>
+                            <option value="pendiente">Pendientes</option>
+                            <option value="cancelada">Canceladas</option>
+                        </select>
+
+                    </div>
+
+                    <div class="tabla-contenedor">
+
+                        <table id="tablaReservas">
+
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Sala</th>
+                                    <th>Fecha</th>
+                                    <th>Horario</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tablaReservasCuerpo"></tbody>
+
+                        </table>
+
+                        <div class="mensaje-vacio" id="sinResultados" hidden>
+                            No se encontraron reservas.
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- Gestion de reservas -->
+            <section
+                class="seccion-admin"
+                id="seccion-reservas"
+                data-contenido="reservas"
+                hidden
+            >
+
+                <div class="seccion-encabezado">
+                    <div>
+                        <span class="seccion-etiqueta">GESTION DE RESERVAS</span>
+                        <h2>Reservas</h2>
+                        <p>Consulta, administra y controla las reservas.</p>
+                    </div>
+                </div>
+
+                <!-- Estadisticas de reservas -->
+                <div class="metricas-grid">
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Total de reservas</span>
+                            <span class="metrica-icono">▤</span>
+                        </div>
+                        <strong class="metrica-valor" id="reservasTotalGestion">0</strong>
+                        <span class="metrica-descripcion">Registros totales</span>
+                    </article>
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Activas</span>
+                            <span class="metrica-icono">✓</span>
+                        </div>
+                        <strong class="metrica-valor" id="reservasActivasGestion">0</strong>
+                        <span class="metrica-descripcion">Reservas confirmadas</span>
+                    </article>
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Pendientes</span>
+                            <span class="metrica-icono">◷</span>
+                        </div>
+                        <strong class="metrica-valor" id="reservasPendientesGestion">0</strong>
+                        <span class="metrica-descripcion">Pendientes de confirmacion</span>
+                    </article>
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Canceladas</span>
+                            <span class="metrica-icono">×</span>
+                        </div>
+                        <strong class="metrica-valor" id="reservasCanceladasGestion">0</strong>
+                        <span class="metrica-descripcion">Reservas canceladas</span>
+                    </article>
+
+                </div>
+
+                <!-- Filtros de busqueda -->
+                <article class="panel">
+
+                    <div class="panel-encabezado">
+                        <div>
+                            <h3>Buscar reservas</h3>
+                            <p>Utiliza los filtros para encontrar un registro.</p>
+                        </div>
+                    </div>
+
+                    <div class="reservas-filtros">
+
+                        <input
+                            type="search"
+                            id="buscarReserva"
+                            placeholder="Buscar por ID o cliente..."
+                            aria-label="Buscar reserva"
+                        >
+
+                        <input
+                            type="date"
+                            id="reservasFiltroFecha"
+                            aria-label="Filtrar por fecha"
+                        >
+
+                        <select id="reservasFiltroSala" aria-label="Filtrar por sala">
+                            <option value="todas">Todas las salas</option>
+                            <option value="standard">Sala Standard</option>
+                            <option value="premium">Sala Premium</option>
+                            <option value="bateria">Sala Bateria</option>
+                        </select>
+
+                        <select id="reservasFiltroEstado" aria-label="Filtrar por estado">
+                            <option value="todas">Todos los estados</option>
+                            <option value="activa">Activas</option>
+                            <option value="pendiente">Pendientes</option>
+                            <option value="cancelada">Canceladas</option>
+                        </select>
+
+                    </div>
+
+                </article>
+
+                <!-- Listado de reservas -->
+                <article class="panel panel-tabla">
+
+                    <div class="panel-encabezado">
+                        <div>
+                            <h3>Listado de reservas</h3>
+                            <p>Administracion de los registros existentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="tabla-contenedor">
+
+                        <table id="tablaGestionReservas">
+
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Sala</th>
+                                    <th>Fecha</th>
+                                    <th>Horario</th>
+                                    <th>Duracion</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="listaGestionReservas"></tbody>
+
+                        </table>
+
+                        <div class="mensaje-vacio" id="reservasSinResultados" hidden>
+                            No se encontraron reservas con esos filtros.
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- Administracion de salas -->
+            <section
+                class="seccion-admin"
+                id="seccion-salas"
+                data-contenido="salas"
+                hidden
+            >
+
+                <div class="seccion-encabezado">
+                    <div>
+                        <span class="seccion-etiqueta">ADMINISTRACION DE ESPACIOS</span>
+                        <h2>Salas</h2>
+                        <p>Informacion y disponibilidad de los espacios.</p>
+                    </div>
+                </div>
+
+                <!-- Indicadores de salas -->
+                <div class="metricas-grid">
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Total de salas</span>
+                            <span class="metrica-icono">▣</span>
+                        </div>
+                        <strong class="metrica-valor" id="salasTotal">0</strong>
+                        <span class="metrica-descripcion">Espacios registrados</span>
+                    </article>
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Disponibles</span>
+                            <span class="metrica-icono">✓</span>
+                        </div>
+                        <strong class="metrica-valor" id="salasDisponiblesGestion">0</strong>
+                        <span class="metrica-descripcion">Salas sin reservas</span>
+                    </article>
+
+                    <article class="metrica-card">
+                        <div class="metrica-superior">
+                            <span class="metrica-titulo">Ocupadas</span>
+                            <span class="metrica-icono">◷</span>
+                        </div>
+                        <strong class="metrica-valor" id="salasOcupadas">0</strong>
+                        <span class="metrica-descripcion">Salas con reservas</span>
+                    </article>
+
+                </div>
+
+                <!-- Tarjetas informativas de las salas -->
+                <div class="salas-grid">
+
+                    <!-- Sala Standard -->
+                    <article class="panel sala-card">
+
+                        <div class="sala-card-encabezado">
+                            <span class="sala-categoria">STANDARD</span>
+                            <span class="estado-activa">Disponible</span>
+                        </div>
+
+                        <div class="sala-card-contenido">
+                            <h3>Sala 1</h3>
+
+                            <p class="sala-descripcion">
+                                Espacio de ensayo equipado para practicas musicales.
+                            </p>
+
+                            <div class="sala-detalles">
+
+                                <div>
+                                    <span>Categoria</span>
+                                    <strong>Standard</strong>
+                                </div>
+
+                                <div>
+                                    <span>Equipamiento</span>
+                                    <strong>Instrumentos de ensayo</strong>
+                                </div>
+
+                                <div>
+                                    <span>Precio por hora</span>
+                                    <strong>$4.500</strong>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+                    <!-- Sala Premium -->
+                    <article class="panel sala-card">
+
+                        <div class="sala-card-encabezado">
+                            <span class="sala-categoria">PREMIUM</span>
+                            <span class="estado-activa">Disponible</span>
+                        </div>
+
+                        <div class="sala-card-contenido">
+                            <h3>Sala 2</h3>
+
+                            <p class="sala-descripcion">
+                                Espacio equipado para ensayos con mayor variedad de instrumentos.
+                            </p>
+
+                            <div class="sala-detalles">
+
+                                <div>
+                                    <span>Categoria</span>
+                                    <strong>Premium</strong>
+                                </div>
+
+                                <div>
+                                    <span>Equipamiento</span>
+                                    <strong>Bateria e instrumentos</strong>
+                                </div>
+
+                                <div>
+                                    <span>Precio por hora</span>
+                                    <strong>$7.000</strong>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+                    <!-- Sala de bateria -->
+                    <article class="panel sala-card">
+
+                        <div class="sala-card-encabezado">
+                            <span class="sala-categoria">BATERIA</span>
+                            <span class="estado-activa">Disponible</span>
+                        </div>
+
+                        <div class="sala-card-contenido">
+                            <h3>Sala 3</h3>
+
+                            <p class="sala-descripcion">
+                                Espacio orientado a practicas y grabaciones de bateria.
+                            </p>
+
+                            <div class="sala-detalles">
+
+                                <div>
+                                    <span>Categoria</span>
+                                    <strong>Bateria</strong>
+                                </div>
+
+                                <div>
+                                    <span>Equipamiento</span>
+                                    <strong>Equipo de grabacion</strong>
+                                </div>
+
+                                <div>
+                                    <span>Precio por hora</span>
+                                    <strong>$9.500</strong>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <!-- Informacion adicional -->
+                <article class="panel">
+
+                    <div class="panel-encabezado">
+                        <div>
+                            <h3>Informacion de las salas</h3>
+                            <p>Caracteristicas generales de los espacios.</p>
+                        </div>
+                    </div>
+
+                    <div class="configuracion-contenido">
+
+                        <div class="campo-configuracion">
+                            <label>Duracion de cada reserva</label>
+                            <input type="text" value="60 minutos" readonly>
+                        </div>
+
+                        <div class="campo-configuracion">
+                            <label>Cantidad de espacios</label>
+                            <input type="text" value="3 salas registradas" readonly>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- Configuracion del sistema -->
+            <section
+                class="seccion-admin"
+                id="seccion-configuracion"
+                data-contenido="configuracion"
+                hidden
+            >
+
+                <div class="seccion-encabezado">
+                    <div>
+                        <span class="seccion-etiqueta">PREFERENCIAS DEL SISTEMA</span>
+                        <h2>Configuracion</h2>
+                        <p>Administra los datos generales del panel.</p>
+                    </div>
+                </div>
+
+                <!-- Datos generales -->
+                <article class="panel configuracion-panel">
+
+                    <div class="panel-encabezado">
+                        <div>
+                            <h3>Informacion general</h3>
+                            <p>Datos identificativos de GrooveSpace.</p>
+                        </div>
+                    </div>
+
+                    <div class="configuracion-contenido">
+
+                        <div class="campo-configuracion">
+                            <label for="nombreSistema">Nombre del sistema</label>
+
+                            <input
+                                type="text"
+                                id="nombreSistema"
+                                value="GrooveSpace"
+                                placeholder="Nombre del sistema"
+                            >
+                        </div>
+
+                        <div class="campo-configuracion">
+                            <label for="duracionReserva">Duracion de las reservas</label>
+
+                            <select id="duracionReserva">
+                                <option value="30">30 minutos</option>
+                                <option value="60" selected>60 minutos</option>
+                                <option value="90">90 minutos</option>
+                                <option value="120">120 minutos</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-configuracion" style="grid-column: 1 / -1;">
+                            <label for="descripcionSistema">Descripcion</label>
+
+                            <textarea
+                                id="descripcionSistema"
+                                placeholder="Descripcion del sistema..."
+                            >Sistema de gestion de reservas de salas de ensayo.</textarea>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- Horarios de funcionamiento -->
+                <article class="panel configuracion-panel">
+
+                    <div class="panel-encabezado">
+                        <div>
+                            <h3>Horarios de funcionamiento</h3>
+                            <p>Configuracion del horario de atencion.</p>
+                        </div>
+                    </div>
+
+                    <div class="configuracion-contenido">
+
+                        <div class="campo-configuracion">
+                            <label for="horaApertura">Hora de apertura</label>
+
+                            <input
+                                type="time"
+                                id="horaApertura"
+                                value="10:00"
+                            >
+                        </div>
+
+                        <div class="campo-configuracion">
+                            <label for="horaCierre">Hora de cierre</label>
+
+                            <input
+                                type="time"
+                                id="horaCierre"
+                                value="20:00"
+                            >
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- Datos del administrador -->
+                <article class="panel configuracion-panel">
+
+                    <div class="panel-encabezado">
+                        <div>
+                            <h3>Cuenta administrativa</h3>
+                            <p>Informacion del responsable del sistema.</p>
+                        </div>
+                    </div>
+
+                    <div class="configuracion-contenido">
+
+                        <div class="campo-configuracion">
+                            <label for="nombreAdministrador">Nombre del administrador</label>
+
+                            <input
+                                type="text"
+                                id="nombreAdministrador"
+                                value="Administrador"
+                                placeholder="Nombre del administrador"
+                            >
+                        </div>
+
+                        <div class="campo-configuracion">
+                            <label for="correoAdministrador">Correo electronico</label>
+
+                            <input
+                                type="email"
+                                id="correoAdministrador"
+                                placeholder="administrador@ejemplo.com"
+                            >
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <!-- Guardar configuracion -->
+                <div class="configuracion-acciones">
+
+                    <button
+                        type="button"
+                        class="boton-actualizar"
+                        id="botonGuardarConfiguracion"
+                    >
+                        Guardar configuracion
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- Pie de pagina -->
+            <footer class="admin-footer">
+
+                <span>GROOVESPACE</span>
+                <span>Panel administrativo</span>
+                <span>Sistema de gestion de salas</span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- Control de la pantalla de carga -->
+    <script>
+        window.addEventListener("load", function () {
+
+            const loader = document.getElementById("adminLoader");
+
+            if (!loader) {
+                return;
+            }
+
+            setTimeout(function () {
+
+                loader.classList.add("loader-oculto");
+
+                setTimeout(function () {
+                    loader.remove();
+                }, 600);
+
+            }, 900);
+
+        });
+    </script>
+
+    <!-- Logica principal del panel -->
+    <script src="admin.js" defer></script>
+
+</body>
+</html>
